@@ -6,13 +6,33 @@ This document captures what we learned end-to-end: bottlenecks we hit, what fixe
 
 ## 1) Minimal Input Contract
 
-For next runs, you only need to provide:
+Primary mode (single-input mode):
+
+1. YouTube link only
+
+Everything else is auto-defaulted.
+
+Defaults:
+
+- Reel name: auto from video title + date slug
+- Target duration: 40 seconds
+- Voice: Speechma PRO `Brian Multilingual`
+- Voice effects: `Pitch=-6`, `Speed=6`, `Volume=150`
+- Style baseline: cinematic, high-detail, caption-first reel format
+
+Fallback mode (if user wants manual control), you may provide:
 
 1. YouTube link
 2. Reel name (short slug)
-3. Optional voice preference (default now: Speechma PRO Brian Multilingual profile)
+3. Optional voice preference
 
 Everything else follows this playbook.
+
+## 1.1) Minimal Prompt for New Tab
+
+Use this exact prompt:
+
+`Create a reel from this YouTube link using our default pipeline: <PASTE_LINK>`
 
 ## 2) One-Time Setup
 

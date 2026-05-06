@@ -1,8 +1,12 @@
-# youtubeVideoAgent
+# videoAgent
 
-Starter repository for the `youtubeVideoAgent` project.
+Starter repository for the `videoAgent` project.
 
 ## Reel Pipeline (Minimal Input)
+
+Fastest start in a fresh tab:
+
+`Create a reel from this YouTube link using our default pipeline: <PASTE_LINK>`
 
 1. One-time setup:
 

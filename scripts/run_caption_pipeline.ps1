@@ -9,7 +9,7 @@ param(
 )
 
 $py = "C:\Users\saura\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe"
-$ff = "C:\Users\saura\Documents\youtubeVideoAgent\tools\ffmpeg\ffmpeg-8.1.1-essentials_build\bin\ffmpeg.exe"
+$ff = "C:\Users\saura\Documents\videoAgent\tools\ffmpeg\ffmpeg-8.1.1-essentials_build\bin\ffmpeg.exe"
 
 if ([string]::IsNullOrWhiteSpace($OutputWordsPath)) {
   $OutputWordsPath = [System.IO.Path]::ChangeExtension($SrtPath, ".word_timestamps.json")
@@ -18,11 +18,11 @@ if ([string]::IsNullOrWhiteSpace($OutputAssPath)) {
   $OutputAssPath = [System.IO.Path]::ChangeExtension($SrtPath, ".wordtimed.ass")
 }
 
-& $py "C:\Users\saura\Documents\youtubeVideoAgent\scripts\extract_word_timestamps.py" `
+& $py "C:\Users\saura\Documents\videoAgent\scripts\extract_word_timestamps.py" `
   --audio $AudioPath `
   --out $OutputWordsPath
 
-& $py "C:\Users\saura\Documents\youtubeVideoAgent\scripts\build_wordtimed_ass.py" `
+& $py "C:\Users\saura\Documents\videoAgent\scripts\build_wordtimed_ass.py" `
   --srt $SrtPath `
   --words $OutputWordsPath `
   --out $OutputAssPath `

@@ -16,13 +16,13 @@ This is the production workflow used for:
 
 Use `faster-whisper` through:
 
-`C:\Users\saura\Documents\youtubeVideoAgent\scripts\extract_word_timestamps.py`
+`C:\Users\saura\Documents\videoAgent\scripts\extract_word_timestamps.py`
 
 Example:
 
 ```powershell
 & "C:\Users\saura\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe" `
-  "C:\Users\saura\Documents\youtubeVideoAgent\scripts\extract_word_timestamps.py" `
+  "C:\Users\saura\Documents\videoAgent\scripts\extract_word_timestamps.py" `
   --audio "C:\ABS\voice.mp3" `
   --out "C:\ABS\word_timestamps.json"
 ```
@@ -33,13 +33,13 @@ Output JSON contains per-word `start/end` seconds.
 
 Use:
 
-`C:\Users\saura\Documents\youtubeVideoAgent\scripts\build_wordtimed_ass.py`
+`C:\Users\saura\Documents\videoAgent\scripts\build_wordtimed_ass.py`
 
 Example:
 
 ```powershell
 & "C:\Users\saura\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe" `
-  "C:\Users\saura\Documents\youtubeVideoAgent\scripts\build_wordtimed_ass.py" `
+  "C:\Users\saura\Documents\videoAgent\scripts\build_wordtimed_ass.py" `
   --srt "C:\ABS\captions_subsync.srt" `
   --words "C:\ABS\word_timestamps.json" `
   --out "C:\ABS\captions_wordtimed_soft.ass" `
@@ -57,7 +57,7 @@ This avoids karaoke sweep lines and keeps active-word emphasis readable.
 ## 4) Render captions into video
 
 ```powershell
-$ff="C:\Users\saura\Documents\youtubeVideoAgent\tools\ffmpeg\ffmpeg-8.1.1-essentials_build\bin\ffmpeg.exe"
+$ff="C:\Users\saura\Documents\videoAgent\tools\ffmpeg\ffmpeg-8.1.1-essentials_build\bin\ffmpeg.exe"
 & $ff -y -i "C:\ABS\reel_base.mp4" `
   -vf "ass='C\\:\\ABS\\captions_wordtimed_soft.ass'" `
   -c:a copy "C:\ABS\reel_captioned.mp4"

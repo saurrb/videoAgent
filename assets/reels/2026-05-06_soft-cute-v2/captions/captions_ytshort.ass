@@ -1,0 +1,84 @@
+[Script Info]
+Title: Reel Word-Timed Captions
+ScriptType: v4.00+
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Base,Comic Sans MS,62,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,6.2,0,2,28,28,56,1
+Style: Active,Comic Sans MS,62,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,6.2,0,2,28,28,56,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+
+Dialogue: 0,0:00:00.09,0:00:00.48,Base,,0,0,52,,CHOOSE THE
+Dialogue: 1,0:00:00.09,0:00:00.26,Active,,0,0,52,,{\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}CHOOSE{\r} THE
+Dialogue: 1,0:00:00.26,0:00:00.48,Active,,0,0,52,,CHOOSE {\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}THE{\r}
+Dialogue: 0,0:00:00.48,0:00:00.88,Base,,0,0,52,,LIFE THAT
+Dialogue: 1,0:00:00.48,0:00:00.66,Active,,0,0,52,,{\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}LIFE{\r} THAT
+Dialogue: 1,0:00:00.66,0:00:00.88,Active,,0,0,52,,LIFE {\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}THAT{\r}
+Dialogue: 0,0:00:00.88,0:00:01.28,Base,,0,0,52,,LETS YOU
+Dialogue: 1,0:00:00.88,0:00:01.06,Active,,0,0,52,,{\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}LETS{\r} YOU
+Dialogue: 1,0:00:01.06,0:00:01.28,Active,,0,0,52,,LETS {\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}YOU{\r}
+Dialogue: 0,0:00:01.28,0:00:02.00,Base,,0,0,52,,SLEEP PEACEFULLY
+Dialogue: 1,0:00:01.28,0:00:01.56,Active,,0,0,52,,{\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}SLEEP{\r} PEACEFULLY
+Dialogue: 1,0:00:01.56,0:00:02.00,Active,,0,0,52,,SLEEP {\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}PEACEFULLY{\r}
+Dialogue: 0,0:00:02.00,0:00:02.56,Base,,0,0,52,,AT NIGHT.
+Dialogue: 1,0:00:02.00,0:00:02.26,Active,,0,0,52,,{\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}AT{\r} NIGHT.
+Dialogue: 1,0:00:02.26,0:00:02.56,Active,,0,0,52,,AT {\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}NIGHT.{\r}
+Dialogue: 0,0:00:03.41,0:00:03.53,Base,,0,0,52,,NOT THE
+Dialogue: 1,0:00:03.41,0:00:03.47,Active,,0,0,52,,{\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}NOT{\r} THE
+Dialogue: 1,0:00:03.47,0:00:03.53,Active,,0,0,52,,NOT {\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}THE{\r}
+Dialogue: 0,0:00:03.53,0:00:03.94,Base,,0,0,52,,LOUD ONE.
+Dialogue: 1,0:00:03.53,0:00:03.66,Active,,0,0,52,,{\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}LOUD{\r} ONE.
+Dialogue: 1,0:00:03.66,0:00:03.94,Active,,0,0,52,,LOUD {\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}ONE.{\r}
+Dialogue: 0,0:00:04.36,0:00:04.60,Base,,0,0,52,,NOT THE
+Dialogue: 1,0:00:04.36,0:00:04.46,Active,,0,0,52,,{\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}NOT{\r} THE
+Dialogue: 1,0:00:04.46,0:00:04.60,Active,,0,0,52,,NOT {\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}THE{\r}
+Dialogue: 0,0:00:04.60,0:00:04.86,Base,,0,0,52,,ONE THAT
+Dialogue: 1,0:00:04.60,0:00:04.74,Active,,0,0,52,,{\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}ONE{\r} THAT
+Dialogue: 1,0:00:04.74,0:00:04.86,Active,,0,0,52,,ONE {\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}THAT{\r}
+Dialogue: 0,0:00:04.86,0:00:05.76,Base,,0,0,52,,IMPRESSES EVERYONE.
+Dialogue: 1,0:00:04.86,0:00:05.42,Active,,0,0,52,,{\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}IMPRESSES{\r} EVERYONE.
+Dialogue: 1,0:00:05.42,0:00:05.76,Active,,0,0,52,,IMPRESSES {\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}EVERYONE.{\r}
+Dialogue: 0,0:00:06.61,0:00:06.82,Base,,0,0,52,,CHOOSE THE
+Dialogue: 1,0:00:06.61,0:00:06.67,Active,,0,0,52,,{\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}CHOOSE{\r} THE
+Dialogue: 1,0:00:06.67,0:00:06.82,Active,,0,0,52,,CHOOSE {\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}THE{\r}
+Dialogue: 0,0:00:06.82,0:00:07.10,Base,,0,0,52,,ONE THAT
+Dialogue: 1,0:00:06.82,0:00:06.96,Active,,0,0,52,,{\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}ONE{\r} THAT
+Dialogue: 1,0:00:06.96,0:00:07.10,Active,,0,0,52,,ONE {\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}THAT{\r}
+Dialogue: 0,0:00:07.10,0:00:07.48,Base,,0,0,52,,MAKES YOUR
+Dialogue: 1,0:00:07.10,0:00:07.28,Active,,0,0,52,,{\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}MAKES{\r} YOUR
+Dialogue: 1,0:00:07.28,0:00:07.48,Active,,0,0,52,,MAKES {\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}YOUR{\r}
+Dialogue: 0,0:00:07.48,0:00:08.16,Base,,0,0,52,,HEART QUIET
+Dialogue: 1,0:00:07.48,0:00:07.80,Active,,0,0,52,,{\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}HEART{\r} QUIET
+Dialogue: 1,0:00:07.80,0:00:08.16,Active,,0,0,52,,HEART {\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}QUIET{\r}
+Dialogue: 0,0:00:08.16,0:00:08.56,Base,,0,0,52,,WHEN THE
+Dialogue: 1,0:00:08.16,0:00:08.42,Active,,0,0,52,,{\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}WHEN{\r} THE
+Dialogue: 1,0:00:08.42,0:00:08.56,Active,,0,0,52,,WHEN {\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}THE{\r}
+Dialogue: 0,0:00:08.56,0:00:09.12,Base,,0,0,52,,DAY ENDS.
+Dialogue: 1,0:00:08.56,0:00:08.74,Active,,0,0,52,,{\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}DAY{\r} ENDS.
+Dialogue: 1,0:00:08.74,0:00:09.12,Active,,0,0,52,,DAY {\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}ENDS.{\r}
+Dialogue: 0,0:00:10.23,0:00:10.50,Base,,0,0,52,,PEACE IS
+Dialogue: 1,0:00:10.23,0:00:10.29,Active,,0,0,52,,{\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}PEACE{\r} IS
+Dialogue: 1,0:00:10.29,0:00:10.50,Active,,0,0,52,,PEACE {\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}IS{\r}
+Dialogue: 0,0:00:10.86,0:00:11.42,Base,,0,0,52,,EXPENSIVE, BUT
+Dialogue: 1,0:00:10.86,0:00:11.02,Active,,0,0,52,,{\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}EXPENSIVE,{\r} BUT
+Dialogue: 1,0:00:11.02,0:00:11.42,Active,,0,0,52,,EXPENSIVE, {\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}BUT{\r}
+Dialogue: 0,0:00:11.42,0:00:12.14,Base,,0,0,52,,CHAOS COSTS
+Dialogue: 1,0:00:11.42,0:00:11.76,Active,,0,0,52,,{\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}CHAOS{\r} COSTS
+Dialogue: 1,0:00:11.76,0:00:12.14,Active,,0,0,52,,CHAOS {\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}COSTS{\r}
+Dialogue: 0,0:00:12.31,0:00:12.66,Base,,0,0,52,,MORE.
+Dialogue: 1,0:00:12.31,0:00:12.66,Active,,0,0,52,,{\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}MORE.{\r}
+Dialogue: 0,0:00:13.14,0:00:13.48,Base,,0,0,52,,WHAT ARE
+Dialogue: 1,0:00:13.14,0:00:13.38,Active,,0,0,52,,{\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}WHAT{\r} ARE
+Dialogue: 1,0:00:13.38,0:00:13.48,Active,,0,0,52,,WHAT {\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}ARE{\r}
+Dialogue: 0,0:00:13.48,0:00:13.92,Base,,0,0,52,,YOU CHOOSING
+Dialogue: 1,0:00:13.48,0:00:13.64,Active,,0,0,52,,{\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}YOU{\r} CHOOSING
+Dialogue: 1,0:00:13.64,0:00:13.92,Active,,0,0,52,,YOU {\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}CHOOSING{\r}
+Dialogue: 0,0:00:13.92,0:00:14.46,Base,,0,0,52,,THESE DAYS?
+Dialogue: 1,0:00:13.92,0:00:14.16,Active,,0,0,52,,{\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}THESE{\r} DAYS?
+Dialogue: 1,0:00:14.16,0:00:14.46,Active,,0,0,52,,THESE {\1c&H0000FFFF&\3c&H00000000&\bord5.6\b1}DAYS?{\r}

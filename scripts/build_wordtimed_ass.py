@@ -135,8 +135,16 @@ def match_caption_to_timestamps(caption_words: list[str], candidates: list[WordT
     return fixed
 
 
-def build_ass(events: list[tuple[float, float, str]], word_ts: list[WordTs], max_chars: int) -> str:
-    header = """[Script Info]
+def build_ass(events: list[tuple[float, float, str]], word_ts: list[WordTs], max_chars: int, preset: str, chunk_size: int) -> str:
+    if preset == "ytshort":
+        # Rounded, bold shorts-style with thick outline and roomy safe margins.
+        base_style = "Style: Base,Comic Sans MS,68,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,7.0,0,2,54,54,78,1"
+        active_style = "Style: Active,Comic Sans MS,68,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,7.0,0,2,54,54,78,1"
+    else:
+        base_style = "Style: Base,Arial,42,&H00F4F4F4,&H00F4F4F4,&H00111111,&H50000000,-1,0,0,0,100,100,0,0,1,3,0,2,140,140,340,1"
+        active_style = "Style: Active,Arial,42,&H00F4F4F4,&H00F4F4F4,&H00111111,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,140,140,340,1"
+
+    header = f"""[Script Info]
 Title: Reel Word-Timed Captions
 ScriptType: v4.00+
 WrapStyle: 2
@@ -146,8 +154,8 @@ PlayResY: 1920
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Base,Arial,42,&H00F4F4F4,&H00F4F4F4,&H00111111,&H50000000,-1,0,0,0,100,100,0,0,1,3,0,2,140,140,340,1
-Style: Active,Arial,42,&H00F4F4F4,&H00F4F4F4,&H00111111,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,140,140,340,1
+{base_style}
+{active_style}
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -157,6 +165,8 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
         words = tokenize_caption(caption)
         if not words:
             continue
+        if preset == "ytshort":
+            words = [w.upper() for w in words]
         words, split_at = wrap_two_lines(words, max_chars=max_chars)
         candidates = find_window_words(word_ts, s0, e0)
         per_word_times = match_caption_to_timestamps(words, candidates, s0, e0)
@@ -167,18 +177,36 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 
         first_start, last_end = per_word_times[0][0], per_word_times[-1][1]
         base_words = [w.replace("{", "").replace("}", "") for w in words]
-        base_text = " ".join(base_words[:split_at]) + r"\N" + " ".join(base_words[split_at:]) if split_at != -1 else " ".join(base_words)
-        lines.append(f"Dialogue: 0,{to_ass_time(first_start)},{to_ass_time(last_end)},Base,,0,0,340,,{base_text}")
-
-        for i, (ws, we) in enumerate(per_word_times):
-            rendered = []
-            for j, w in enumerate(base_words):
-                if i == j:
-                    rendered.append(r"{\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}" + w + r"{\r}")
-                else:
-                    rendered.append(w)
-            active_text = " ".join(rendered[:split_at]) + r"\N" + " ".join(rendered[split_at:]) if split_at != -1 else " ".join(rendered)
-            lines.append(f"Dialogue: 1,{to_ass_time(ws)},{to_ass_time(we)},Active,,0,0,340,,{active_text}")
+        if preset == "ytshort":
+            i = 0
+            while i < len(base_words):
+                j = min(len(base_words), i + max(1, chunk_size))
+                chunk_words = base_words[i:j]
+                chunk_start = per_word_times[i][0]
+                chunk_end = per_word_times[j - 1][1]
+                lines.append(f"Dialogue: 0,{to_ass_time(chunk_start)},{to_ass_time(chunk_end)},Base,,0,0,78,,{' '.join(chunk_words)}")
+                for k in range(i, j):
+                    ws, we = per_word_times[k]
+                    rendered = []
+                    for p, w in enumerate(chunk_words):
+                        if i + p == k:
+                            rendered.append(r"{\1c&H0000FFFF&\3c&H00000000&\bord6.6\b1}" + w + r"{\r}")
+                        else:
+                            rendered.append(w)
+                    lines.append(f"Dialogue: 1,{to_ass_time(ws)},{to_ass_time(we)},Active,,0,0,78,,{' '.join(rendered)}")
+                i = j
+        else:
+            base_text = " ".join(base_words[:split_at]) + r"\N" + " ".join(base_words[split_at:]) if split_at != -1 else " ".join(base_words)
+            lines.append(f"Dialogue: 0,{to_ass_time(first_start)},{to_ass_time(last_end)},Base,,0,0,340,,{base_text}")
+            for i, (ws, we) in enumerate(per_word_times):
+                rendered = []
+                for j, w in enumerate(base_words):
+                    if i == j:
+                        rendered.append(r"{\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}" + w + r"{\r}")
+                    else:
+                        rendered.append(w)
+                active_text = " ".join(rendered[:split_at]) + r"\N" + " ".join(rendered[split_at:]) if split_at != -1 else " ".join(rendered)
+                lines.append(f"Dialogue: 1,{to_ass_time(ws)},{to_ass_time(we)},Active,,0,0,340,,{active_text}")
     return "\n".join(lines) + "\n"
 
 
@@ -188,6 +216,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--words", required=True, help="Absolute path to word_timestamps JSON.")
     parser.add_argument("--out", required=True, help="Absolute path to output ASS file.")
     parser.add_argument("--max-chars", type=int, default=16, help="Max chars per caption line before split.")
+    parser.add_argument("--preset", choices=["default", "ytshort"], default="default", help="Caption style preset.")
+    parser.add_argument("--chunk-size", type=int, default=3, help="Words per chunk for ytshort preset.")
     return parser
 
 
@@ -200,7 +230,7 @@ def main() -> None:
 
     events = parse_srt_blocks(srt_path.read_text(encoding="utf-8"))
     word_ts = load_word_ts(words_path)
-    ass = build_ass(events, word_ts, max_chars=args.max_chars)
+    ass = build_ass(events, word_ts, max_chars=args.max_chars, preset=args.preset, chunk_size=args.chunk_size)
     out_path.write_text(ass, encoding="utf-8")
     print(str(out_path))
 

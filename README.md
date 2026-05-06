@@ -8,6 +8,12 @@ Fastest start in a fresh tab:
 
 `Create a reel from this YouTube link using our default pipeline: <PASTE_LINK>`
 
+Expected behavior for this prompt:
+
+- run end-to-end automatically
+- do not stop at planning
+- stop only on hard blockers
+
 1. One-time setup:
 
 ```powershell

@@ -170,6 +170,15 @@ Do not wait until final export to improve. Iterate in every phase:
 
 Use screenshot feedback continuously so the system can run with minimal repeated manual inputs.
 
+## 11) Completion Rule (Mandatory)
+
+- A reel request is not complete at planning stage.
+- Continue execution until:
+  1. final rendered reel exists in `final/`
+  2. captions/voice sync QA has passed
+  3. output path is shared
+- Only pause for hard blockers (auth/captcha/permissions/outage), then resume immediately after unblock.
+
 ## 9) Publish + Log
 
 Record in `meta/publish_log.md`:

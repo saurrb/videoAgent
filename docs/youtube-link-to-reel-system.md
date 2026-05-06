@@ -34,6 +34,13 @@ Use this exact prompt:
 
 `Create a reel from this YouTube link using our default pipeline: <PASTE_LINK>`
 
+Execution mode is implicit in this prompt:
+
+- Continue end-to-end until final reel is exported in `final/`.
+- Do not stop at planning/docs/script-only output.
+- Stop only for hard blockers (login/captcha/permission/payment wall/tool outage).
+- If blocked, report the blocker and continue immediately after unblock.
+
 ## 2) One-Time Setup
 
 Run once on this machine:
@@ -179,6 +186,11 @@ When you give a new YouTube link, we should do exactly:
 6. Final export in `final/`
 
 That gives near-minimal-input reel creation from here forward.
+
+Mandatory behavior:
+
+- Single-link request means full execution mode, not analysis-only mode.
+- The job is complete only after final render exists (plus quick QA evidence).
 
 ## 11) Non-Negotiable Guardrails (New)
 

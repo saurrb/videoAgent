@@ -40,12 +40,20 @@ This creates:
 - Script target: 20-35 seconds.
 - Save to: `script/script_v1.txt`
 
-## 3) Generate Voiceover (ElevenLabs)
+## 3) Generate Voiceover (Speechma PRO Default)
 
-- Choose stable voice ID.
-- Use `mp3_44100_128` by default.
+- Provider: `https://speechmapro.com/`
+- Voice: `Brian Multilingual`
+- Voice Effects:
+  - Pitch: `-6`
+  - Speed: `6`
+  - Volume: `150`
 - Save to: `voice/voice_v1.mp3`
 - Keep script and audio versioned together.
+- Always capture screenshot proof of selected voice + effect values before generating.
+- Close/dismiss popup overlays before generation.
+- If captcha appears, complete it manually, then continue automation flow.
+- For multiline scripts, avoid literal `\n`; prefer line-by-line input with `Enter` key presses.
 
 ## 4) Scene Plan
 
@@ -58,15 +66,31 @@ Break script into scene beats:
 
 Store in: `meta/scene_plan_v1.md`
 
-## 5) Generate Scene Videos (Meta AI)
+## 5) Generate Scene Videos (Meta AI/Grok via BrowserOS CLI)
 
 - Create one clip per beat.
 - Keep same character identity and visual style.
+- BrowserOS CLI is default for navigation and clicks.
+- Mandatory before each generation:
+  - hover over relevant controls and read tooltips/options
+  - confirm image/video mode, quality preset, duration, aspect ratio, and motion settings
+  - confirm target save location and scene filename
 - Save as:
   - `scenes/scene01.mp4`
   - `scenes/scene02.mp4`
   - `scenes/scene03.mp4`
   - `scenes/scene04.mp4`
+- After each generated scene, do immediate local download and quick review before moving to next scene.
+
+### 5.1) Grok Challenges and Mitigation
+
+- Wrong mode (image/video/stitch): verify mode every run via hover+inspect.
+- Weak or overdone animation: separate camera-motion and subject-motion instructions.
+- Scene-voice mismatch: map each scene prompt to exact script beat and duration.
+- Stitch instability on larger sets: stitch in smaller batches, then final combine locally.
+- Inconsistent visual identity: keep fixed identity/style anchors in every scene prompt.
+
+Reference: `docs/grok-agent-playbook.md`
 
 ## 6) Captions
 
@@ -127,6 +151,24 @@ Output: `final/reel_v1.mp4`
 - Active highlighted word is aligned with spoken word.
 - Captions never go outside visible frame.
 - No unnecessary blinking/shaking on static caption spans.
+- Browser UI options were hover-inspected before generation runs.
+- Scene cuts follow voice phrase boundaries.
+- Rejected outputs moved to recycle/trash flow, not hard-deleted.
+- Screenshot evidence captured across phases so manual re-instructions are minimized.
+- Iterative fixes were applied in each phase until quality matched target.
+
+## 10) Iterative-by-Phase Rule (Mandatory)
+
+Do not wait until final export to improve. Iterate in every phase:
+
+1. Script phase: refine hook clarity and beat pacing.
+2. Voice phase: refine tone, pace, and intelligibility.
+3. Scene generation phase: refine prompts/settings from screenshot review.
+4. Stitch phase: refine cut points and transition rhythm.
+5. Caption phase: refine timing, style, and frame safety.
+6. Final QA phase: re-check sampled frames and only then lock final.
+
+Use screenshot feedback continuously so the system can run with minimal repeated manual inputs.
 
 ## 9) Publish + Log
 

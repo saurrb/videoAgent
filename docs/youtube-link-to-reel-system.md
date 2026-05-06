@@ -10,7 +10,7 @@ For next runs, you only need to provide:
 
 1. YouTube link
 2. Reel name (short slug)
-3. Optional voice preference
+3. Optional voice preference (default now: Speechma PRO Brian Multilingual profile)
 
 Everything else follows this playbook.
 
@@ -57,17 +57,27 @@ Inside each reel workspace:
 - `meta/` plans, prompts, QA logs
 - `analysis/` extracted frames and contact sheet
 
-## 5) Production Flow (Repeatable)
+## 5) Production Flow (Repeatable, Hardened)
 
-1. Analyze reference pacing from extracted frames/contact sheet.
-2. Write script with hook-first structure (first 1-2 seconds).
-3. Generate voice (prefer stable, human-like voice).
-4. Create scene prompts per beat (image prompt + animation prompt).
-5. Generate scene clips in Meta AI / Grok via BrowserOS.
-6. Stitch clips to narration timing.
-7. Add word-level timed captions using repo scripts.
-8. Run screenshot QA at multiple timestamps.
-9. Iterate until quality target is met.
+1. Analyze reference pacing from extracted frames/contact sheet and write beat timings first.
+2. Write script with hook in first 1-2 seconds and lock script version before generation.
+3. Generate voice first, then adjust scene timings to voice (never the opposite).
+   - Default provider: `https://speechmapro.com/`
+   - Default voice: `Brian Multilingual`
+   - Voice effects baseline: `Pitch=-6`, `Speed=6`, `Volume=150`
+4. Build scene prompts in pairs per scene:
+   - image prompt (identity, wardrobe, lighting, lens, mood, 9:16)
+   - animation prompt (camera move, subject motion, intensity, transition intent)
+5. Use BrowserOS CLI as the default control surface for Meta/Grok/Speechma PRO UI steps.
+6. Before clicking generate, run UI discovery protocol:
+   - hover every relevant button/control
+   - read tooltips/options
+   - verify mode (image/video/stitch), duration, aspect ratio, quality preset
+   - confirm output folder naming before generation
+7. Generate scenes one-by-one, keep best take, and immediately save to local workspace with scene index.
+8. Stitch to voice beats; avoid hard cuts inside active spoken phrases.
+9. Run captions pipeline (SRT -> word timestamps -> ASS -> burn).
+10. Run screenshot QA at multiple timestamps and iterate only weak scenes/caption blocks.
 
 ## 6) Caption System (Already Proven)
 
@@ -98,6 +108,12 @@ Primary refs:
    - Fix: scene-by-scene prompts and clip timing tied to script beats.
 6. Inconsistent quality pass to pass.
    - Fix: mandatory iterative review loop with frame sampling.
+7. Forgetting available UI options in generation tools.
+   - Fix: mandatory hover-and-tooltip pass before every generation cycle.
+8. Drifting from BrowserOS CLI and doing ad-hoc manual flow.
+   - Fix: BrowserOS CLI is the default documented control path for all web generation actions.
+9. Folder/file confusion across iterations.
+   - Fix: strict scene indexing and immediate local save with consistent names.
 
 ## 8) Iterative QA Loop (Non-Negotiable)
 
@@ -123,9 +139,13 @@ Automated in repo:
 
 Manual/agent UI steps (BrowserOS):
 
-- generation inside Meta AI / Grok / ElevenLabs
+- generation inside Meta AI / Grok / Speechma PRO
 - choosing best takes
 - platform posting approvals
+
+Grok-specific operational reference:
+
+- `docs/grok-agent-playbook.md`
 
 ## 10) Fast Start for Future Requests
 
@@ -139,3 +159,39 @@ When you give a new YouTube link, we should do exactly:
 6. Final export in `final/`
 
 That gives near-minimal-input reel creation from here forward.
+
+## 11) Non-Negotiable Guardrails (New)
+
+1. BrowserOS CLI first for Meta/Grok/ElevenLabs navigation and actions.
+2. Hover+inspect controls before every generate action to discover hidden options.
+3. Voice-first timing lock before scene stitching.
+4. Scene-level saves after each successful generation (no batch waiting).
+5. Captions must pass in-frame and active-word sync checks before final export.
+6. Keep rejected variants in recycle/trash workflow, not hard-delete.
+7. Use screenshot-driven operation in every phase so repeated manual guidance is minimized.
+8. Run iterative improvement loops in each phase (script, voice, scene gen, stitch, captions, QA) until outputs match target quality.
+
+## 12) Screenshot-Driven Execution Rule
+
+- Capture screenshots while operating BrowserOS tools to read visible options/states and reduce back-and-forth manual input.
+- For each major action, store evidence frames in workspace `analysis/` or `meta/` notes.
+- If quality is off, diagnose from screenshots first, then adjust prompts/settings and rerun.
+
+## 13) Speechma PRO Voice Protocol (Default)
+
+1. Open `https://speechmapro.com/` via BrowserOS CLI.
+2. Paste script into `Input Text`.
+3. Select `Brian Multilingual`.
+4. Open `Voice Effects` and set:
+   - Pitch `-6`
+   - Speed `6`
+   - Volume `150`
+5. Capture a screenshot before generation to verify all settings.
+6. Handle popup interruptions first (close/dismiss ad/support overlays) before clicking generate.
+7. If captcha is shown, user completes captcha once, then resume generation flow.
+8. Download output and save as `voice/voice_v1.mp3` (or next version).
+9. For multiline scripts, use real line breaks via PowerShell here-string; never pass literal `\n` in fill text.
+
+Detailed voice runbook:
+
+- `docs/speechmapro-tts-playbook.md`

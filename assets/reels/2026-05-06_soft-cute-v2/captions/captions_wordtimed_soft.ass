@@ -1,0 +1,66 @@
+[Script Info]
+Title: Reel Word-Timed Captions
+ScriptType: v4.00+
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Base,Arial,42,&H00F4F4F4,&H00F4F4F4,&H00111111,&H50000000,-1,0,0,0,100,100,0,0,1,3,0,2,140,140,340,1
+Style: Active,Arial,42,&H00F4F4F4,&H00F4F4F4,&H00111111,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,140,140,340,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+
+Dialogue: 0,0:00:00.09,0:00:02.56,Base,,0,0,340,,Choose\Nthe life that lets you sleep peacefully at night.
+Dialogue: 1,0:00:00.09,0:00:00.26,Active,,0,0,340,,{\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}Choose{\r}\Nthe life that lets you sleep peacefully at night.
+Dialogue: 1,0:00:00.26,0:00:00.48,Active,,0,0,340,,Choose\N{\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}the{\r} life that lets you sleep peacefully at night.
+Dialogue: 1,0:00:00.48,0:00:00.66,Active,,0,0,340,,Choose\Nthe {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}life{\r} that lets you sleep peacefully at night.
+Dialogue: 1,0:00:00.66,0:00:00.88,Active,,0,0,340,,Choose\Nthe life {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}that{\r} lets you sleep peacefully at night.
+Dialogue: 1,0:00:00.88,0:00:01.06,Active,,0,0,340,,Choose\Nthe life that {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}lets{\r} you sleep peacefully at night.
+Dialogue: 1,0:00:01.06,0:00:01.28,Active,,0,0,340,,Choose\Nthe life that lets {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}you{\r} sleep peacefully at night.
+Dialogue: 1,0:00:01.28,0:00:01.56,Active,,0,0,340,,Choose\Nthe life that lets you {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}sleep{\r} peacefully at night.
+Dialogue: 1,0:00:01.56,0:00:02.00,Active,,0,0,340,,Choose\Nthe life that lets you sleep {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}peacefully{\r} at night.
+Dialogue: 1,0:00:02.00,0:00:02.26,Active,,0,0,340,,Choose\Nthe life that lets you sleep peacefully {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}at{\r} night.
+Dialogue: 1,0:00:02.26,0:00:02.56,Active,,0,0,340,,Choose\Nthe life that lets you sleep peacefully at {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}night.{\r}
+Dialogue: 0,0:00:03.41,0:00:05.76,Base,,0,0,340,,Not\Nthe loud one. Not the one that impresses everyone.
+Dialogue: 1,0:00:03.41,0:00:03.47,Active,,0,0,340,,{\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}Not{\r}\Nthe loud one. Not the one that impresses everyone.
+Dialogue: 1,0:00:03.47,0:00:03.53,Active,,0,0,340,,Not\N{\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}the{\r} loud one. Not the one that impresses everyone.
+Dialogue: 1,0:00:03.53,0:00:03.66,Active,,0,0,340,,Not\Nthe {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}loud{\r} one. Not the one that impresses everyone.
+Dialogue: 1,0:00:03.66,0:00:03.94,Active,,0,0,340,,Not\Nthe loud {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}one.{\r} Not the one that impresses everyone.
+Dialogue: 1,0:00:04.36,0:00:04.46,Active,,0,0,340,,Not\Nthe loud one. {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}Not{\r} the one that impresses everyone.
+Dialogue: 1,0:00:04.46,0:00:04.60,Active,,0,0,340,,Not\Nthe loud one. Not {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}the{\r} one that impresses everyone.
+Dialogue: 1,0:00:04.60,0:00:04.74,Active,,0,0,340,,Not\Nthe loud one. Not the {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}one{\r} that impresses everyone.
+Dialogue: 1,0:00:04.74,0:00:04.86,Active,,0,0,340,,Not\Nthe loud one. Not the one {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}that{\r} impresses everyone.
+Dialogue: 1,0:00:04.86,0:00:05.42,Active,,0,0,340,,Not\Nthe loud one. Not the one that {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}impresses{\r} everyone.
+Dialogue: 1,0:00:05.42,0:00:05.76,Active,,0,0,340,,Not\Nthe loud one. Not the one that impresses {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}everyone.{\r}
+Dialogue: 0,0:00:06.61,0:00:09.12,Base,,0,0,340,,Choose\Nthe one that makes your heart quiet when the day ends.
+Dialogue: 1,0:00:06.61,0:00:06.67,Active,,0,0,340,,{\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}Choose{\r}\Nthe one that makes your heart quiet when the day ends.
+Dialogue: 1,0:00:06.67,0:00:06.82,Active,,0,0,340,,Choose\N{\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}the{\r} one that makes your heart quiet when the day ends.
+Dialogue: 1,0:00:06.82,0:00:06.96,Active,,0,0,340,,Choose\Nthe {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}one{\r} that makes your heart quiet when the day ends.
+Dialogue: 1,0:00:06.96,0:00:07.10,Active,,0,0,340,,Choose\Nthe one {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}that{\r} makes your heart quiet when the day ends.
+Dialogue: 1,0:00:07.10,0:00:07.28,Active,,0,0,340,,Choose\Nthe one that {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}makes{\r} your heart quiet when the day ends.
+Dialogue: 1,0:00:07.28,0:00:07.48,Active,,0,0,340,,Choose\Nthe one that makes {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}your{\r} heart quiet when the day ends.
+Dialogue: 1,0:00:07.48,0:00:07.80,Active,,0,0,340,,Choose\Nthe one that makes your {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}heart{\r} quiet when the day ends.
+Dialogue: 1,0:00:07.80,0:00:08.16,Active,,0,0,340,,Choose\Nthe one that makes your heart {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}quiet{\r} when the day ends.
+Dialogue: 1,0:00:08.16,0:00:08.42,Active,,0,0,340,,Choose\Nthe one that makes your heart quiet {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}when{\r} the day ends.
+Dialogue: 1,0:00:08.42,0:00:08.56,Active,,0,0,340,,Choose\Nthe one that makes your heart quiet when {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}the{\r} day ends.
+Dialogue: 1,0:00:08.56,0:00:08.74,Active,,0,0,340,,Choose\Nthe one that makes your heart quiet when the {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}day{\r} ends.
+Dialogue: 1,0:00:08.74,0:00:09.12,Active,,0,0,340,,Choose\Nthe one that makes your heart quiet when the day {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}ends.{\r}
+Dialogue: 0,0:00:10.23,0:00:12.66,Base,,0,0,340,,Peace\Nis expensive, but chaos costs more.
+Dialogue: 1,0:00:10.23,0:00:10.29,Active,,0,0,340,,{\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}Peace{\r}\Nis expensive, but chaos costs more.
+Dialogue: 1,0:00:10.29,0:00:10.50,Active,,0,0,340,,Peace\N{\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}is{\r} expensive, but chaos costs more.
+Dialogue: 1,0:00:10.86,0:00:11.02,Active,,0,0,340,,Peace\Nis {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}expensive,{\r} but chaos costs more.
+Dialogue: 1,0:00:11.02,0:00:11.42,Active,,0,0,340,,Peace\Nis expensive, {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}but{\r} chaos costs more.
+Dialogue: 1,0:00:11.42,0:00:11.76,Active,,0,0,340,,Peace\Nis expensive, but {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}chaos{\r} costs more.
+Dialogue: 1,0:00:11.76,0:00:12.14,Active,,0,0,340,,Peace\Nis expensive, but chaos {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}costs{\r} more.
+Dialogue: 1,0:00:12.31,0:00:12.66,Active,,0,0,340,,Peace\Nis expensive, but chaos costs {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}more.{\r}
+Dialogue: 0,0:00:13.14,0:00:14.46,Base,,0,0,340,,What\Nare you choosing these days?
+Dialogue: 1,0:00:13.14,0:00:13.38,Active,,0,0,340,,{\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}What{\r}\Nare you choosing these days?
+Dialogue: 1,0:00:13.38,0:00:13.48,Active,,0,0,340,,What\N{\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}are{\r} you choosing these days?
+Dialogue: 1,0:00:13.48,0:00:13.64,Active,,0,0,340,,What\Nare {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}you{\r} choosing these days?
+Dialogue: 1,0:00:13.64,0:00:13.92,Active,,0,0,340,,What\Nare you {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}choosing{\r} these days?
+Dialogue: 1,0:00:13.92,0:00:14.16,Active,,0,0,340,,What\Nare you choosing {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}these{\r} days?
+Dialogue: 1,0:00:14.16,0:00:14.46,Active,,0,0,340,,What\Nare you choosing these {\1c&H0000FFFF&\3c&H00000000&\bord5\shad1\b1}days?{\r}

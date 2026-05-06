@@ -28,3 +28,13 @@ powershell -ExecutionPolicy Bypass -File .\scripts\start_reel_from_youtube.ps1 `
 - `docs/youtube-link-to-reel-system.md`
 - `docs/reels-production-sop.md`
 - `docs/captions-ytshort-playbook.md`
+
+## YouTube API
+
+Use this setup guide:
+
+- `docs/youtube-api-setup.md`
+
+Quick upload helper:
+
+- `scripts/youtube_upload_reel.ps1`

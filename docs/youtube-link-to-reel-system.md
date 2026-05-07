@@ -101,10 +101,12 @@ Inside each reel workspace:
    - read tooltips/options
    - verify mode (image/video/stitch), duration, aspect ratio, quality preset
    - confirm output folder naming before generation
+   - for Grok specifically, enter through `Imagine` -> `Agent (Beta)` -> `Empty Canvas` before prompting
 7. Generate scenes one-by-one, keep best take, and immediately save to local workspace with scene index.
 8. Stitch to voice beats; avoid hard cuts inside active spoken phrases.
 9. Run captions pipeline (SRT -> word timestamps -> ASS -> burn).
-10. Run screenshot QA at multiple timestamps and iterate only weak scenes/caption blocks.
+10. Run `finalize_logicloom_reel.ps1` to add `@logicloom` and validate the MP4 before upload.
+11. Run screenshot QA at multiple timestamps and iterate only weak scenes/caption blocks.
 
 ## 6) Caption System (Already Proven)
 
@@ -141,6 +143,12 @@ Primary refs:
    - Fix: BrowserOS CLI is the default documented control path for all web generation actions.
 9. Folder/file confusion across iterations.
    - Fix: strict scene indexing and immediate local save with consistent names.
+10. Grok watermark replacement was too manual.
+   - Fix: `scripts/finalize_logicloom_reel.ps1` is the only approved finalization path.
+11. Upload readiness depended on visual inspection.
+   - Fix: `scripts/test_reel_publish_ready.ps1` validates streams, dimensions, duration, audio, and Logic Loom naming before upload.
+12. Browser UI state was hard to audit later.
+   - Fix: screenshot every major browser decision point and store the evidence in `analysis/` or `screenshots/`.
 
 ## 8) Iterative QA Loop (Non-Negotiable)
 
@@ -174,6 +182,14 @@ Grok-specific operational reference:
 
 - `docs/grok-agent-playbook.md`
 
+Grok entry path is mandatory:
+
+1. Open `https://grok.com/imagine`.
+2. Click `Agent (Beta)`.
+3. Start with `Empty Canvas`.
+4. Set `Video`, desired quality/duration, and `9:16 Vertical`.
+5. Prompt one scene at a time.
+
 ## 10) Fast Start for Future Requests
 
 When you give a new YouTube link, we should do exactly:
@@ -184,6 +200,8 @@ When you give a new YouTube link, we should do exactly:
 4. Stitch + caption pipeline
 5. Iterative screenshot QA
 6. Final export in `final/`
+7. Branding watermark applied for publishing
+8. Publish-ready preflight passed
 
 That gives near-minimal-input reel creation from here forward.
 
@@ -195,19 +213,30 @@ Mandatory behavior:
 ## 11) Non-Negotiable Guardrails (New)
 
 1. BrowserOS CLI first for Meta/Grok/ElevenLabs navigation and actions.
-2. Hover+inspect controls before every generate action to discover hidden options.
-3. Voice-first timing lock before scene stitching.
-4. Scene-level saves after each successful generation (no batch waiting).
-5. Captions must pass in-frame and active-word sync checks before final export.
-6. Keep rejected variants in recycle/trash workflow, not hard-delete.
-7. Use screenshot-driven operation in every phase so repeated manual guidance is minimized.
-8. Run iterative improvement loops in each phase (script, voice, scene gen, stitch, captions, QA) until outputs match target quality.
+2. For Grok, always use `Agent (Beta)` -> `Empty Canvas` before entering scene prompts.
+3. Hover+inspect controls before every generate action to discover hidden options.
+4. Voice-first timing lock before scene stitching.
+5. Scene-level saves after each successful generation (no batch waiting).
+6. Captions must pass in-frame and active-word sync checks before final export.
+7. Keep rejected variants in recycle/trash workflow, not hard-delete.
+8. Use screenshot-driven operation in every phase so repeated manual guidance is minimized.
+9. Run iterative improvement loops in each phase (script, voice, scene gen, stitch, captions, QA) until outputs match target quality.
 
 ## 12) Screenshot-Driven Execution Rule
 
 - Capture screenshots while operating BrowserOS tools to read visible options/states and reduce back-and-forth manual input.
 - For each major action, store evidence frames in workspace `analysis/` or `meta/` notes.
 - If quality is off, diagnose from screenshots first, then adjust prompts/settings and rerun.
+
+## 12.1) No-Manual-Finalization Rule
+
+The final export path is:
+
+```text
+captioned MP4 -> finalize_logicloom_reel.ps1 -> validated _logicloom MP4 -> upload
+```
+
+Do not manually cover watermarks in an editor. Do not upload files that skip the finalizer. If preflight fails, fix the local export and rerun the finalizer before opening Meta Business Suite or YouTube.
 
 ## 13) Speechma PRO Voice Protocol (Default)
 

@@ -16,6 +16,7 @@ function Sanitize-Name([string]$value) {
 $repoRoot = Split-Path $PSScriptRoot -Parent
 $ytDlp = Join-Path $repoRoot "tools\yt-dlp\yt-dlp.exe"
 $ffmpeg = Join-Path $repoRoot "tools\ffmpeg\ffmpeg-8.1.1-essentials_build\bin\ffmpeg.exe"
+$ffmpegDir = Split-Path $ffmpeg -Parent
 
 if (-not (Test-Path $ytDlp)) { throw "Missing yt-dlp at $ytDlp" }
 if (-not (Test-Path $ffmpeg)) { throw "Missing ffmpeg at $ffmpeg" }
@@ -38,17 +39,17 @@ $sourceMp4 = Join-Path $referenceDir "source.mp4"
 $sourceAudio = Join-Path $referenceDir "source_audio.m4a"
 
 Write-Output "Downloading reference video..."
-& $ytDlp -f "bv*+ba/b" --merge-output-format mp4 -o $sourceMp4 $YoutubeUrl | Out-Host
+& $ytDlp --ffmpeg-location $ffmpegDir -f "bv*+ba/b" --merge-output-format mp4 -o $sourceMp4 $YoutubeUrl | Out-Host
 if (-not (Test-Path $sourceMp4)) { throw "Reference video not downloaded." }
 
 Write-Output "Downloading best audio..."
-& $ytDlp -f "ba" -o $sourceAudio $YoutubeUrl | Out-Host
+& $ytDlp --ffmpeg-location $ffmpegDir -f "ba" -o $sourceAudio $YoutubeUrl | Out-Host
 
 Write-Output "Extracting timeline frames..."
 & $ffmpeg -y -i $sourceMp4 -vf "fps=1/2,scale=540:-2" (Join-Path $framesDir "f%03d.jpg") | Out-Host
 
 $contactSheet = Join-Path $analysisDir "contact_sheet.jpg"
-& $ffmpeg -y -pattern_type glob -i (Join-Path $framesDir "*.jpg") -vf "tile=4x4:padding=10:margin=10" $contactSheet | Out-Host
+& $ffmpeg -y -framerate 1 -i (Join-Path $framesDir "f%03d.jpg") -frames:v 1 -vf "tile=4x4:padding=10:margin=10" -update 1 $contactSheet | Out-Host
 
 $briefPath = Join-Path $workspace "meta\production_brief_auto.md"
 $scenePromptPath = Join-Path $workspace "meta\scene_prompts_auto.md"
@@ -119,7 +120,9 @@ $checklist = @"
 4. Save outputs to `grok_outputs/` or `meta_ai_outputs/`.
 5. Stitch to base reel in `final/reel_base.mp4`.
 6. Run caption build using `scripts/run_caption_pipeline.ps1`.
-7. Review screenshot samples, iterate, and export final.
+7. Finalize publish-ready Logic Loom video:
+   `powershell -ExecutionPolicy Bypass -File .\scripts\finalize_logicloom_reel.ps1 -InputVideo "ABS\PATH\final\reel_captioned.mp4"`
+8. Review screenshot samples and `test_reel_publish_ready.ps1` output before upload.
 "@
 
 Set-Content -Path $briefPath -Value $brief -Encoding UTF8

@@ -35,6 +35,27 @@ powershell -ExecutionPolicy Bypass -File .\scripts\start_reel_from_youtube.ps1 `
 - `docs/reels-production-sop.md`
 - `docs/captions-ytshort-playbook.md`
 
+## Publish-Ready Final
+
+Use the finalizer for every reel before upload. It replaces the bottom-right Grok watermark area with `@logicloom`, then runs an `ffprobe` preflight for duration, size, stream health, audio, and Logic Loom filename.
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\finalize_logicloom_reel.ps1 `
+  -InputVideo "C:\ABS\PATH\final\reel_v1_captioned.mp4" `
+  -OutputVideo "C:\ABS\PATH\final\reel_v2_logicloom.mp4"
+```
+
+Use only the validated `_logicloom` output for Facebook, Instagram, and YouTube uploads.
+
+Preflight only:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\test_reel_publish_ready.ps1 `
+  -VideoPath "C:\ABS\PATH\final\reel_v2_logicloom.mp4" `
+  -RequireAudio `
+  -RequireLogicLoomFileName
+```
+
 ## YouTube API
 
 Use this setup guide:

@@ -71,6 +71,12 @@ Store in: `meta/scene_plan_v1.md`
 - Create one clip per beat.
 - Keep same character identity and visual style.
 - BrowserOS CLI is default for navigation and clicks.
+- In Grok, always enter through:
+  1. `Imagine`
+  2. `Agent (Beta)`
+  3. `Empty Canvas`
+  4. `Video`
+  5. `9:16 Vertical`
 - Mandatory before each generation:
   - hover over relevant controls and read tooltips/options
   - confirm image/video mode, quality preset, duration, aspect ratio, and motion settings
@@ -85,6 +91,7 @@ Store in: `meta/scene_plan_v1.md`
 ### 5.1) Grok Challenges and Mitigation
 
 - Wrong mode (image/video/stitch): verify mode every run via hover+inspect.
+- Wrong Grok workspace: use `Agent (Beta)` and `Empty Canvas`; do not prompt from the default Imagine feed.
 - Weak or overdone animation: separate camera-motion and subject-motion instructions.
 - Scene-voice mismatch: map each scene prompt to exact script beat and duration.
 - Stitch instability on larger sets: stitch in smaller batches, then final combine locally.
@@ -156,6 +163,43 @@ Output: `final/reel_v1.mp4`
 - Rejected outputs moved to recycle/trash flow, not hard-deleted.
 - Screenshot evidence captured across phases so manual re-instructions are minimized.
 - Iterative fixes were applied in each phase until quality matched target.
+
+## 8.1) Publish-Ready Logic Loom Final (Mandatory)
+
+Before publishing, generate a branded final that replaces the bottom-right Grok watermark area with `@logicloom` and validates the MP4 locally:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\finalize_logicloom_reel.ps1 `
+  -InputVideo "C:\ABSOLUTE\PATH\final\reel_v1_captioned.mp4" `
+  -OutputVideo "C:\ABSOLUTE\PATH\final\reel_v2_logicloom.mp4"
+```
+
+Use the `_logicloom` output for Facebook/Instagram and YouTube uploads. Do not upload a Grok raw export or a captioned file that has not passed this preflight.
+
+What the preflight checks:
+
+- video stream exists
+- audio stream exists
+- size is at least 1080x1920
+- duration is inside the expected short-form range
+- final filename includes `logicloom`, `logic-loom`, or `logic_loom`
+
+If you only need to re-check a final file:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\test_reel_publish_ready.ps1 `
+  -VideoPath "C:\ABSOLUTE\PATH\final\reel_v2_logicloom.mp4" `
+  -RequireAudio `
+  -RequireLogicLoomFileName
+```
+
+## 8.2) Manual-Intervention Reduction Rules
+
+- Every repeated final edit must be scripted before the next upload.
+- Browser-only steps need visible screenshots before generation, after generation, and before publish.
+- Captions, watermark, and MP4 validation happen locally; do not verify those by eye only.
+- Save final captions/hashtags to `meta/` before opening upload pages.
+- Prefer API upload helpers for YouTube when auth is ready; use browser upload only for approvals or blocked API scopes.
 
 ## 10) Iterative-by-Phase Rule (Mandatory)
 

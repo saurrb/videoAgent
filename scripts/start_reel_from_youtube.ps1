@@ -61,6 +61,8 @@ $brief = @"
 - Source URL: $YoutubeUrl
 - Workspace: $workspace
 - Target duration: $TargetSeconds sec
+- Speechma PRO voice: Christopher
+- Speechma PRO effects: Pitch=10, Speed=25, Volume=200
 - Objective: Recreate the storytelling energy and pacing, not a direct copy.
 
 ## Creative Direction
@@ -108,7 +110,8 @@ $checklist = @"
 
 - YouTube link
 - Reel theme title (2-4 words)
-- Optional: voice choice
+- Voice: Speechma PRO Christopher
+- Voice effects: Pitch=10, Speed=25, Volume=200
 
 ## Automation + manual mix
 
@@ -122,7 +125,8 @@ $checklist = @"
 6. Run caption build using `scripts/run_caption_pipeline.ps1`.
 7. Finalize publish-ready Logic Loom video:
    `powershell -ExecutionPolicy Bypass -File .\scripts\finalize_logicloom_reel.ps1 -InputVideo "ABS\PATH\final\reel_captioned.mp4"`
-8. Review screenshot samples and `test_reel_publish_ready.ps1` output before upload.
+8. Write platform captions and US America RPM-focused hashtags in `meta/platform_caption_hashtags.md`.
+9. Review screenshot samples and `test_reel_publish_ready.ps1` output before upload.
 "@
 
 Set-Content -Path $briefPath -Value $brief -Encoding UTF8

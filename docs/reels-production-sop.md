@@ -1,5 +1,7 @@
 # Reels Production SOP (Reusable)
 
+Last updated: 2026-05-07
+
 ## Caption Standard (Default Going Forward)
 
 Use this as the default caption style for all new reels:
@@ -43,17 +45,18 @@ This creates:
 ## 3) Generate Voiceover (Speechma PRO Default)
 
 - Provider: `https://speechmapro.com/`
-- Voice: `Brian Multilingual`
+- Voice: `Christopher`
 - Voice Effects:
-  - Pitch: `-6`
-  - Speed: `6`
-  - Volume: `150`
+  - Pitch: `10`
+  - Speed: `25`
+  - Volume: `200`
 - Save to: `voice/voice_v1.mp3`
 - Keep script and audio versioned together.
 - Always capture screenshot proof of selected voice + effect values before generating.
 - Close/dismiss popup overlays before generation.
 - If captcha appears, complete it manually, then continue automation flow.
 - For multiline scripts, avoid literal `\n`; prefer line-by-line input with `Enter` key presses.
+- Do not use local TTS as a substitute for Speechma PRO in the default pipeline. If Speechma PRO cannot generate or download the audio, stop as blocked.
 
 ## 4) Scene Plan
 
@@ -69,8 +72,11 @@ Store in: `meta/scene_plan_v1.md`
 ## 5) Generate Scene Videos (Meta AI/Grok via BrowserOS CLI)
 
 - Create one clip per beat.
+- Each scene must be an actual animated video clip, not a still image, screenshot crop, contact-sheet crop, or browser preview thumbnail.
 - Keep same character identity and visual style.
 - BrowserOS CLI is default for navigation and clicks.
+- Take screenshots before important clicks and after each major browser state change. Do not keep clicking when the UI is unclear.
+- If a browser site starts failing, open a new tab, return to the last known working area on that site, and inspect the state with screenshots before restarting the task.
 - In Grok, always enter through:
   1. `Imagine`
   2. `Agent (Beta)`
@@ -87,6 +93,7 @@ Store in: `meta/scene_plan_v1.md`
   - `scenes/scene03.mp4`
   - `scenes/scene04.mp4`
 - After each generated scene, do immediate local download and quick review before moving to next scene.
+- If a generated clip is visible/playable in the browser but cannot be downloaded as an MP4 into the workspace, stop as blocked. Do not recreate the scene from screenshots.
 
 ### 5.1) Grok Challenges and Mitigation
 
@@ -96,6 +103,7 @@ Store in: `meta/scene_plan_v1.md`
 - Scene-voice mismatch: map each scene prompt to exact script beat and duration.
 - Stitch instability on larger sets: stitch in smaller batches, then final combine locally.
 - Inconsistent visual identity: keep fixed identity/style anchors in every scene prompt.
+- Broken/stale Grok tab: open a new tab to Grok, enter `Agent (Beta)`, screenshot-check whether the last canvas is recoverable, and continue there when possible. If it is not recoverable, start a new `Empty Canvas`.
 
 Reference: `docs/grok-agent-playbook.md`
 
@@ -103,6 +111,7 @@ Reference: `docs/grok-agent-playbook.md`
 
 - Generate transcript timing (manual or STT-assisted).
 - Save SRT as: `captions/captions_v1.srt`
+- Use the approved caption scripts/settings below. Do not substitute an ad-hoc caption burn unless the user explicitly approves it.
 
 ### 6.1) Build Word-Timed ASS Captions (YT Shorts Style)
 
@@ -153,6 +162,9 @@ Output: `final/reel_v1.mp4`
 - No hard cuts against sentence boundaries.
 - Captions readable on mobile.
 - Hook appears in first 1.5 seconds.
+- Every scene is animated video, not still-image filler.
+- Source scene assets exist as downloaded/generated MP4s in the workspace.
+- Speechma PRO audio exists locally and matches the script version.
 - Character identity consistent across scenes.
 - Audio peak not clipping.
 - Active highlighted word is aligned with spoken word.
@@ -163,6 +175,7 @@ Output: `final/reel_v1.mp4`
 - Rejected outputs moved to recycle/trash flow, not hard-deleted.
 - Screenshot evidence captured across phases so manual re-instructions are minimized.
 - Iterative fixes were applied in each phase until quality matched target.
+- If any of these fail, do not upload. Report the blocker or regenerate the weak phase.
 
 ## 8.1) Publish-Ready Logic Loom Final (Mandatory)
 
@@ -199,6 +212,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\test_reel_publish_ready.ps1 `
 - Browser-only steps need visible screenshots before generation, after generation, and before publish.
 - Captions, watermark, and MP4 validation happen locally; do not verify those by eye only.
 - Save final captions/hashtags to `meta/` before opening upload pages.
+- Use US America hashtags by default for better RPM and US audience fit. Keep them relevant; do not pad with unrelated trend tags.
 - Prefer API upload helpers for YouTube when auth is ready; use browser upload only for approvals or blocked API scopes.
 
 ## 10) Iterative-by-Phase Rule (Mandatory)
@@ -224,6 +238,13 @@ Use screenshot feedback continuously so the system can run with minimal repeated
 - Only pause for hard blockers (auth/captcha/permissions/outage), then resume immediately after unblock.
 
 ## 9) Publish + Log
+
+Before opening upload pages, create or update `meta/platform_caption_hashtags.md` with:
+
+- final post caption
+- Facebook/Instagram caption version
+- YouTube Shorts caption version
+- US America RPM-focused hashtags mixed with relevant niche tags
 
 Record in `meta/publish_log.md`:
 

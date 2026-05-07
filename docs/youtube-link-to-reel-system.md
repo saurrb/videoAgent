@@ -1,6 +1,6 @@
 # YouTube Link -> Reel System (Production Playbook)
 
-Last updated: 2026-05-06
+Last updated: 2026-05-07
 
 This document captures what we learned end-to-end: bottlenecks we hit, what fixed them, and the repeatable workflow for creating a reel/short from a YouTube reference with minimal user input.
 
@@ -16,8 +16,8 @@ Defaults:
 
 - Reel name: auto from video title + date slug
 - Target duration: 40 seconds
-- Voice: Speechma PRO `Brian Multilingual`
-- Voice effects: `Pitch=-6`, `Speed=6`, `Volume=150`
+- Voice: Speechma PRO `Christopher`
+- Voice effects: `Pitch=10`, `Speed=25`, `Volume=200`
 - Style baseline: cinematic, high-detail, caption-first reel format
 
 Fallback mode (if user wants manual control), you may provide:
@@ -40,6 +40,7 @@ Execution mode is implicit in this prompt:
 - Do not stop at planning/docs/script-only output.
 - Stop only for hard blockers (login/captcha/permission/payment wall/tool outage).
 - If blocked, report the blocker and continue immediately after unblock.
+- If a mandatory asset cannot be created or downloaded at production quality, stop as blocked. Do not fabricate a lower-quality substitute.
 
 ## 2) One-Time Setup
 
@@ -90,8 +91,8 @@ Inside each reel workspace:
 2. Write script with hook in first 1-2 seconds and lock script version before generation.
 3. Generate voice first, then adjust scene timings to voice (never the opposite).
    - Default provider: `https://speechmapro.com/`
-   - Default voice: `Brian Multilingual`
-   - Voice effects baseline: `Pitch=-6`, `Speed=6`, `Volume=150`
+   - Default voice: `Christopher`
+   - Voice effects baseline: `Pitch=10`, `Speed=25`, `Volume=200`
 4. Build scene prompts in pairs per scene:
    - image prompt (identity, wardrobe, lighting, lens, mood, 9:16)
    - animation prompt (camera move, subject motion, intensity, transition intent)
@@ -105,8 +106,23 @@ Inside each reel workspace:
 7. Generate scenes one-by-one, keep best take, and immediately save to local workspace with scene index.
 8. Stitch to voice beats; avoid hard cuts inside active spoken phrases.
 9. Run captions pipeline (SRT -> word timestamps -> ASS -> burn).
-10. Run `finalize_logicloom_reel.ps1` to add `@logicloom` and validate the MP4 before upload.
-11. Run screenshot QA at multiple timestamps and iterate only weak scenes/caption blocks.
+10. Create final platform captions/hashtags.
+   - Use US America hashtags by default for better RPM and US audience fit.
+   - Save final caption/hashtag variants to `meta/platform_caption_hashtags.md` before upload.
+11. Run `finalize_logicloom_reel.ps1` to add `@logicloom` and validate the MP4 before upload.
+12. Run screenshot QA at multiple timestamps and iterate only weak scenes/caption blocks.
+
+## 5.1) Hard Failure Rules From 2026-05-07 Incident
+
+These are mandatory quality gates, not preferences:
+
+1. Do not build a reel from browser screenshots, cropped screenshots, contact sheets, preview thumbnails, or still images when the workflow requires animated scene clips.
+2. Do not replace Grok/Meta generated video clips with a still-image slideshow or fake motion unless the user explicitly asks for that fallback.
+3. Do not use local Windows TTS, browser TTS, placeholder audio, or any non-Speechma voice when the default pipeline requires Speechma PRO. If Speechma PRO is blocked by login, captcha, popup, quota, or download failure, stop and report the blocker.
+4. Do not upload anything unless every scene clip is an actual downloaded/generated video asset saved in the reel workspace, not merely visible in the browser.
+5. Do not upload if Grok/Meta produces playable clips but the MP4 files cannot be downloaded. That is a blocker, not permission to use screenshots.
+6. Do not upload if captions were not produced through the approved caption scripts/settings and verified in sampled frames.
+7. The correct outcome under a blocker is: preserve evidence, report exactly what blocked, and wait/resume after unblock. A weak reel is worse than no reel.
 
 ## 6) Caption System (Already Proven)
 
@@ -209,6 +225,7 @@ Mandatory behavior:
 
 - Single-link request means full execution mode, not analysis-only mode.
 - The job is complete only after final render exists (plus quick QA evidence).
+- A final render is valid only if it uses production-quality animated scene clips, Speechma PRO voice, approved caption styling, local finalizer branding, and publish-ready preflight.
 
 ## 11) Non-Negotiable Guardrails (New)
 
@@ -221,12 +238,18 @@ Mandatory behavior:
 7. Keep rejected variants in recycle/trash workflow, not hard-delete.
 8. Use screenshot-driven operation in every phase so repeated manual guidance is minimized.
 9. Run iterative improvement loops in each phase (script, voice, scene gen, stitch, captions, QA) until outputs match target quality.
+10. Never downgrade the pipeline silently. Any fallback from Grok video, Speechma PRO voice, or approved captions requires explicit user approval.
 
 ## 12) Screenshot-Driven Execution Rule
 
 - Capture screenshots while operating BrowserOS tools to read visible options/states and reduce back-and-forth manual input.
 - For each major action, store evidence frames in workspace `analysis/` or `meta/` notes.
 - If quality is off, diagnose from screenshots first, then adjust prompts/settings and rerun.
+- Do not click randomly when a website is confusing, slow, or partially broken. Take a screenshot first, inspect what is visible, and decide the next action from evidence.
+- If a site stops responding or the current tab state becomes unreliable, open a new tab for the same site and navigate back to the last known working area inside that website.
+- If the previous canvas/session is visible in the new tab, inspect it with screenshots and continue from there. If it is not recoverable, start a fresh session/canvas and document that recovery step with screenshots.
+- For Grok specifically: if the current canvas is not working, open a new tab, go to `Imagine` -> `Agent (Beta)`, check whether the last canvas is available, and only then choose `Empty Canvas` for a clean restart.
+- Apply the same recovery rule to Speechma PRO, Meta Business Suite, YouTube Studio, and other browser tools: fresh tab, last working area, screenshot verification, then clean restart only when needed.
 
 ## 12.1) No-Manual-Finalization Rule
 
@@ -238,15 +261,17 @@ captioned MP4 -> finalize_logicloom_reel.ps1 -> validated _logicloom MP4 -> uplo
 
 Do not manually cover watermarks in an editor. Do not upload files that skip the finalizer. If preflight fails, fix the local export and rerun the finalizer before opening Meta Business Suite or YouTube.
 
+Preflight does not prove creative quality by itself. A `_logicloom` file can be publish-ready technically but still invalid if it was made from screenshots, still-image filler, local TTS, or unapproved captions. Treat those as upstream failures.
+
 ## 13) Speechma PRO Voice Protocol (Default)
 
 1. Open `https://speechmapro.com/` via BrowserOS CLI.
 2. Paste script into `Input Text`.
-3. Select `Brian Multilingual`.
+3. Select `Christopher`.
 4. Open `Voice Effects` and set:
-   - Pitch `-6`
-   - Speed `6`
-   - Volume `150`
+   - Pitch `10`
+   - Speed `25`
+   - Volume `200`
 5. Capture a screenshot before generation to verify all settings.
 6. Handle popup interruptions first (close/dismiss ad/support overlays) before clicking generate.
 7. If captcha is shown, user completes captcha once, then resume generation flow.

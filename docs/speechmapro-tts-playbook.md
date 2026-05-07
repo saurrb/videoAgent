@@ -1,15 +1,21 @@
 # Speechma PRO TTS Playbook
 
-Last updated: 2026-05-06
+Last updated: 2026-05-07
 
 ## Goal
 
 Generate consistent reel narration audio from `https://speechmapro.com/` with:
 
-- Voice: `Brian Multilingual`
-- Effects: `Pitch=-6`, `Speed=6`, `Volume=150`
+- Voice: `Christopher`
+- Effects: `Pitch=10`, `Speed=25`, `Volume=200`
 
 And save downloadable MP3 files into local workspace.
+
+## Mandatory Voice Rule
+
+Speechma PRO is the default-pipeline voice source. Do not substitute local Windows TTS, browser TTS, placeholder narration, or any other provider unless the user explicitly approves that fallback for the current reel.
+
+If Speechma PRO is blocked by login, captcha, popup, quota, site failure, generation failure, or download failure, stop and report the blocker. The reel must not proceed to final render or upload without approved Speechma PRO audio.
 
 ## BrowserOS CLI Flow (Default)
 
@@ -21,7 +27,7 @@ And save downloadable MP3 files into local workspace.
 
 2. Capture UI snapshot and identify IDs for:
    - Text area (`Text to convert to speech`)
-   - `Brian Multilingual` card
+   - `Christopher` card
    - `Generate Audio` button
    - latest row `Download` button
 
@@ -32,9 +38,9 @@ And save downloadable MP3 files into local workspace.
 3. Select voice card by ID (from `snap` output).
 4. Fill text area with **real multiline text** (see newline rule below).
 5. Open voice effects and set sliders:
-   - Pitch `-6`
-   - Speed `6`
-   - Volume `150`
+   - Pitch `10`
+   - Speed `25`
+   - Volume `200`
 6. Generate audio.
 7. Download latest generated row (or download-all ZIP).
 
@@ -83,8 +89,8 @@ Repeat for all lines. This avoids accidental escaped text issues.
 ## Verification Checklist (Must Pass)
 
 1. Screenshot shows text split across multiple visible lines in textbox.
-2. Voice card selected: `Brian Multilingual`.
-3. Effect values set to `-6`, `6`, `150`.
+2. Voice card selected: `Christopher`.
+3. Effect values set to `10`, `25`, `200`.
 4. Generated row appears in `Generated Audios`.
 5. MP3 file exists locally after download.
 
@@ -94,9 +100,7 @@ Repeat for all lines. This avoids accidental escaped text issues.
   - `assets/analysis/speechmapro_iter4/01_multiline_input_verified.png`
 - Multiline via Enter-key method screenshot:
   - `assets/analysis/speechmapro_iter4/02_multiline_enter_method.png`
-- Downloaded MP3:
-  - `assets/analysis/speechmapro_iter4/downloads/speechma_audio_Brian Multilingual_at_5_50_20 PM_on_May_6th_2026.mp3`
-  - `assets/analysis/speechmapro_iter4/downloads/speechma_audio_Brian Multilingual_at_5_54_01 PM_on_May_6th_2026.mp3`
+- Downloaded MP3 examples in older runs may use previous voices/settings. New default runs should use `Christopher` with `Pitch=10`, `Speed=25`, and `Volume=200`.
 
 ## Repeat Rule for Future Runs
 

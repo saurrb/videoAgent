@@ -35,6 +35,41 @@ powershell -ExecutionPolicy Bypass -File .\scripts\start_reel_from_youtube.ps1 `
 - `docs/reels-production-sop.md`
 - `docs/captions-ytshort-playbook.md`
 
+## Mandatory Grok Timer Workflow (All Projects)
+
+Every time a Grok image/video/stitch generation is submitted, run a local timer wait in terminal.
+This is required to avoid random clicking and to standardize wait/retry behavior.
+
+Timer script:
+
+`scripts/wait_for_grok_generation.ps1`
+
+Default wait windows:
+
+- image: soft check `45s`, hard timeout `120s`
+- video: soft check `90s`, hard timeout `240s`
+- stitch: soft check `180s`, hard timeout `420s`
+
+Example (video + auto-import to `scene02.mp4`):
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\wait_for_grok_generation.ps1 `
+  -Type video `
+  -Since (Get-Date) `
+  -Workspace "C:\ABS\PATH\assets\reels\YYYY-MM-DD_name" `
+  -SceneNumber 2
+```
+
+Batch download auto-import monitor (for multi-scene Grok prompts):
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\monitor_grok_downloads.ps1 `
+  -Workspace "C:\ABS\PATH\assets\reels\YYYY-MM-DD_name" `
+  -StartScene 2 `
+  -Count 3 `
+  -Since (Get-Date)
+```
+
 ## Publish-Ready Final
 
 Use the finalizer for every reel before upload. It replaces the bottom-right Grok watermark area with `@logicloom`, then runs an `ffprobe` preflight for duration, size, stream health, audio, and Logic Loom filename.
@@ -46,6 +81,31 @@ powershell -ExecutionPolicy Bypass -File .\scripts\finalize_logicloom_reel.ps1 `
 ```
 
 Use only the validated `_logicloom` output for Facebook, Instagram, and YouTube uploads.
+
+## Meta API Posting
+
+Meta API posting is configured for this project. Reels, images, and videos can be posted through the API instead of the browser UI when the final media is available at a public HTTPS URL.
+
+Configured Meta assets:
+
+- App: `Logic Loom Reel Publisher`
+- Facebook Page: `Flora knows Nothing`
+- Instagram: `@floraknowsnothing`
+
+Primary setup/reference doc:
+
+- `docs/meta-api-setup.md`
+
+Instagram Reel wrapper:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\meta_publish_reel.ps1 `
+  -VideoUrl "https://example.com/final-reel.mp4" `
+  -Caption "Caption text #reels" `
+  -ShareToFeed
+```
+
+Important: Meta publishing APIs require a public HTTPS media URL. Local file paths in `assets/reels/...` must be uploaded to temporary public storage first.
 
 Preflight only:
 

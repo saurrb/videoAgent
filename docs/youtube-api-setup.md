@@ -37,6 +37,13 @@ Important:
 
 ## 4) Upload a video
 
+Optional health check before uploading:
+
+```powershell
+C:\Users\saura\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe .\scripts\youtube_api_check.py `
+  --token "C:\Users\saura\Documents\youtubeVideoAgent\secrets\youtube_token.json"
+```
+
 ```powershell
 C:\Users\saura\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe .\scripts\youtube_upload.py `
   --token "C:\Users\saura\Documents\youtubeVideoAgent\secrets\youtube_token.json" `

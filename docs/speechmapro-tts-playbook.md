@@ -11,6 +11,19 @@ Generate consistent reel narration audio from `https://speechmapro.com/` with:
 
 And save downloadable MP3 files into local workspace.
 
+## Critical Rule: Paste Narration Only (No Headings)
+
+Our local `script_v1.txt` files often include internal headings like `# Hook` or `# Script v1 (60s)`.
+Do not paste these headings into Speechma.
+
+Always generate a cleaned Speechma input file and paste that instead:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\prepare_speechma_input.ps1 `
+  -ScriptPath "ABS\\PATH\\script\\script_v1.txt" `
+  -OutPath "ABS\\PATH\\voice\\speechma_input_v1.txt"
+```
+
 ## Mandatory Voice Rule
 
 Speechma PRO is the default-pipeline voice source. Do not substitute local Windows TTS, browser TTS, placeholder narration, or any other provider unless the user explicitly approves that fallback for the current reel.

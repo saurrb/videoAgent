@@ -32,7 +32,19 @@ powershell -ExecutionPolicy Bypass -File .\scripts\speechma_apply_defaults.ps1 `
   -PageId 1 -Pitch 0 -Speed 25 -Volume 200
 ```
 
-3. Capture UI snapshot and identify IDs for:
+3. After you paste/write your script into Speechma, always capture proof screenshots:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\speechma_capture_proof.ps1 `
+  -PageId 1 -OutDir "ABS\\PATH\\analysis\\speechma_proof"
+```
+
+This produces:
+
+- `01_speechma_input_after_write.png`
+- `02_voice_effects.png` (should show Pitch/Speed/Volume + Remember settings enabled)
+
+4. Capture UI snapshot and identify IDs for:
    - Text area (`Text to convert to speech`)
    - `Brian` card
    - `Generate Audio` button

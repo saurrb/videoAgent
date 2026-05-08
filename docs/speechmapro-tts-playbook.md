@@ -25,7 +25,14 @@ If Speechma PRO is blocked by login, captcha, popup, quota, site failure, genera
 .\node_modules\.bin\browseros-cli.cmd open https://speechmapro.com
 ```
 
-2. Capture UI snapshot and identify IDs for:
+2. Apply defaults (voice + effects) using the repo helper:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\speechma_apply_defaults.ps1 `
+  -PageId 1 -Pitch 0 -Speed 25 -Volume 200
+```
+
+3. Capture UI snapshot and identify IDs for:
    - Text area (`Text to convert to speech`)
    - `Brian` card
    - `Generate Audio` button
@@ -35,12 +42,8 @@ If Speechma PRO is blocked by login, captcha, popup, quota, site failure, genera
 .\node_modules\.bin\browseros-cli.cmd snap -p <page_id>
 ```
 
-3. Select voice card by ID (from `snap` output).
-4. Fill text area with **real multiline text** (see newline rule below).
-5. Open voice effects and set sliders:
-   - Pitch `0`
-   - Speed `25`
-   - Volume `200`
+4. Select voice card by ID (from `snap` output).
+5. Fill text area with **real multiline text** (see newline rule below).
 6. Generate audio.
 7. Download latest generated row (or download-all ZIP).
 

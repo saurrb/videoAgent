@@ -38,16 +38,50 @@ This creates:
 
 ## 2) Write Hook + Script
 
-- Hook: single-line emotional trigger.
-- Script target: 20-35 seconds.
+- Hook: high-stakes, curiosity-driven first line that makes the viewer feel they need the answer.
+- Script target: 30-45 seconds for psychology/educational reels.
+- Default retention style:
+  - short lines, usually 3-8 words
+  - first 2 seconds create tension or danger
+  - one curiosity line before the list, such as `Watch closely.`
+  - use a 3-pattern structure when possible
+  - include hard resets: `No doubt.`, `Just confidence.`, `But intelligent people look different.`
+  - avoid soft academic phrasing like `Psychology says...`; prefer `Psychology has a name for this.`
+  - end with a reversal that reframes the hook
 - Save to: `script/script_v1.txt`
+
+Default script shape:
+
+```text
+The most dangerous person in the room
+is usually the one who thinks
+they are the smartest.
+
+Psychology has a name for this.
+
+The less people understand,
+the more certain they sound.
+
+Watch closely.
+
+Low-awareness thinking follows 3 patterns.
+
+First: absolute certainty.
+...
+
+Because real intelligence
+is not sounding confident.
+
+It is being aware enough
+to question yourself.
+```
 
 ## 3) Generate Voiceover (Speechma PRO Default)
 
 - Provider: `https://speechmapro.com/`
-- Voice: `Christopher`
+- Voice: `Brian`
 - Voice Effects:
-  - Pitch: `10`
+  - Pitch: `0`
   - Speed: `25`
   - Volume: `200`
 - Save to: `voice/voice_v1.mp3`
@@ -77,8 +111,15 @@ Store in: `meta/scene_plan_v1.md`
 - BrowserOS CLI is default for navigation and clicks.
 - Take screenshots before important clicks and after each major browser state change. Do not keep clicking when the UI is unclear.
 - If a browser site starts failing, open a new tab, return to the last known working area on that site, and inspect the state with screenshots before restarting the task.
+- For every new reel, start Grok in a fresh new tab and keep that working tab selected/in front so the user can see the active canvas.
+- In Grok, capture screenshots between each meaningful step: new tab, Agent (Beta), Empty Canvas, control verification, prompt before submit, generated result, and download state.
+- If a generated clip opens in a separate media tab, return immediately to the working Grok canvas tab after inspection; do not continue workflow from media-only tabs.
+- Click the generated video card in canvas to reveal the in-canvas action row, then use that row for download.
+- Use the bottom-left zoom `+ / -` controls to fit the full card/action row before attempting download clicks.
+- After each Grok download click, import the newest file into the workspace scene slot:
+  `powershell -ExecutionPolicy Bypass -File .\scripts\import_grok_scene_download.ps1 -Workspace "C:\ABSOLUTE\PATH\assets\reels\YYYY-MM-DD_name"`
 - In Grok, always enter through:
-  1. `Imagine`
+  1. new tab at `Imagine`
   2. `Agent (Beta)`
   3. `Empty Canvas`
   4. `Video`
@@ -87,12 +128,17 @@ Store in: `meta/scene_plan_v1.md`
   - hover over relevant controls and read tooltips/options
   - confirm image/video mode, quality preset, duration, aspect ratio, and motion settings
   - confirm target save location and scene filename
+  - set explicit timer window before submit:
+    - image: `45s` soft check, `120s` hard timeout
+    - video: `90s` soft check, `240s` hard timeout
+    - stitch: `180s` soft check, `420s` hard timeout
 - Save as:
   - `scenes/scene01.mp4`
   - `scenes/scene02.mp4`
   - `scenes/scene03.mp4`
   - `scenes/scene04.mp4`
 - After each generated scene, do immediate local download and quick review before moving to next scene.
+- When style is stable, batch 2-3 scene requests in one Grok prompt (for example scene02-scene04) to reduce total turnaround time, then download/import each resulting clip in sequence.
 - If a generated clip is visible/playable in the browser but cannot be downloaded as an MP4 into the workspace, stop as blocked. Do not recreate the scene from screenshots.
 
 ### 5.1) Grok Challenges and Mitigation
@@ -104,6 +150,8 @@ Store in: `meta/scene_plan_v1.md`
 - Stitch instability on larger sets: stitch in smaller batches, then final combine locally.
 - Inconsistent visual identity: keep fixed identity/style anchors in every scene prompt.
 - Broken/stale Grok tab: open a new tab to Grok, enter `Agent (Beta)`, screenshot-check whether the last canvas is recoverable, and continue there when possible. If it is not recoverable, start a new `Empty Canvas`.
+- Hidden/background Grok work: bring the active Grok tab to the front before every important action and screenshot it.
+- Media-tab drift: when an `assets.grok.com` (or other video-only) tab opens, switch back to the active Grok canvas tab before the next click or prompt.
 
 Reference: `docs/grok-agent-playbook.md`
 
@@ -112,6 +160,8 @@ Reference: `docs/grok-agent-playbook.md`
 - Generate transcript timing (manual or STT-assisted).
 - Save SRT as: `captions/captions_v1.srt`
 - Use the approved caption scripts/settings below. Do not substitute an ad-hoc caption burn unless the user explicitly approves it.
+- Keep captions fast-paced and tightly chunked to match the script rhythm, so the full narration fits naturally inside a short reel without feeling rushed.
+- If a strong retention script runs long, tighten the script before slowing captions or extending the reel.
 
 ### 6.1) Build Word-Timed ASS Captions (YT Shorts Style)
 
@@ -132,6 +182,7 @@ Notes:
 - `--preset ytshort` enables rounded Shorts-like styling.
 - `--chunk-size 2` keeps phrase chunks short and punchy.
 - `--max-chars 13` helps prevent overflow on narrow frames.
+- For fast scripts, use 1-3 word caption chunks and avoid full-sentence caption blocks.
 - Always keep captions inside frame safe area.
 
 ## 7) Assemble

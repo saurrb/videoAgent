@@ -6,8 +6,8 @@ Last updated: 2026-05-07
 
 Generate consistent reel narration audio from `https://speechmapro.com/` with:
 
-- Voice: `Christopher`
-- Effects: `Pitch=10`, `Speed=25`, `Volume=200`
+- Voice: `Brian`
+- Effects: `Pitch=0`, `Speed=25`, `Volume=200`
 
 And save downloadable MP3 files into local workspace.
 
@@ -27,7 +27,7 @@ If Speechma PRO is blocked by login, captcha, popup, quota, site failure, genera
 
 2. Capture UI snapshot and identify IDs for:
    - Text area (`Text to convert to speech`)
-   - `Christopher` card
+   - `Brian` card
    - `Generate Audio` button
    - latest row `Download` button
 
@@ -38,7 +38,7 @@ If Speechma PRO is blocked by login, captcha, popup, quota, site failure, genera
 3. Select voice card by ID (from `snap` output).
 4. Fill text area with **real multiline text** (see newline rule below).
 5. Open voice effects and set sliders:
-   - Pitch `10`
+   - Pitch `0`
    - Speed `25`
    - Volume `200`
 6. Generate audio.
@@ -89,8 +89,8 @@ Repeat for all lines. This avoids accidental escaped text issues.
 ## Verification Checklist (Must Pass)
 
 1. Screenshot shows text split across multiple visible lines in textbox.
-2. Voice card selected: `Christopher`.
-3. Effect values set to `10`, `25`, `200`.
+2. Voice card selected: `Brian`.
+3. Effect values set to `0`, `25`, `200`.
 4. Generated row appears in `Generated Audios`.
 5. MP3 file exists locally after download.
 
@@ -100,7 +100,7 @@ Repeat for all lines. This avoids accidental escaped text issues.
   - `assets/analysis/speechmapro_iter4/01_multiline_input_verified.png`
 - Multiline via Enter-key method screenshot:
   - `assets/analysis/speechmapro_iter4/02_multiline_enter_method.png`
-- Downloaded MP3 examples in older runs may use previous voices/settings. New default runs should use `Christopher` with `Pitch=10`, `Speed=25`, and `Volume=200`.
+- Downloaded MP3 examples in older runs may use previous voices/settings. New default runs should use `Brian` with `Pitch=0`, `Speed=25`, and `Volume=200`.
 
 ## Repeat Rule for Future Runs
 

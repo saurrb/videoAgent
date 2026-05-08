@@ -79,7 +79,9 @@ def wrap_two_lines(words: list[str], max_chars: int = 16) -> tuple[list[str], in
 
 
 def load_word_ts(path: Path) -> list[WordTs]:
-    raw = json.loads(path.read_text(encoding="utf-8"))
+    # Windows PowerShell `Set-Content -Encoding UTF8` commonly writes a UTF-8 BOM.
+    # Accept both BOM and non-BOM UTF-8 for smoother local automation.
+    raw = json.loads(path.read_text(encoding="utf-8-sig"))
     out: list[WordTs] = []
     for item in raw:
         w = str(item.get("word", "")).strip()
@@ -137,9 +139,22 @@ def match_caption_to_timestamps(caption_words: list[str], candidates: list[WordT
 
 def build_ass(events: list[tuple[float, float, str]], word_ts: list[WordTs], max_chars: int, preset: str, chunk_size: int) -> str:
     if preset == "ytshort":
-        # Rounded, bold shorts-style with thick outline and roomy safe margins.
+        # Reference-matching style (your provided screenshots):
+        # heavy caps, thick black stroke, subtle shadow, active word in neon green.
+        base_style = "Style: Base,Impact,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,8.0,2.2,2,58,58,84,1"
+        # Keep Active style white; we color only the active word via overrides.
+        active_style = "Style: Active,Impact,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,8.0,2.2,2,58,58,84,1"
+    elif preset == "ytshort_legacy":
+        # Previous shorts preset (kept for backward-compat comparisons).
         base_style = "Style: Base,Comic Sans MS,68,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,7.0,0,2,54,54,78,1"
         active_style = "Style: Active,Comic Sans MS,68,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,7.0,0,2,54,54,78,1"
+    elif preset == "logicloom_ref":
+        # Reference-matching style: heavy caps, thick black stroke, subtle shadow,
+        # and active word in neon green.
+        # ASS colors are &HAABBGGRR.
+        base_style = "Style: Base,Impact,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,8.0,2.2,2,58,58,84,1"
+        # Slightly yellow-leaning neon green (closer to the reference).
+        active_style = "Style: Active,Impact,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,8.0,2.2,2,58,58,84,1"
     else:
         base_style = "Style: Base,Arial,42,&H00F4F4F4,&H00F4F4F4,&H00111111,&H50000000,-1,0,0,0,100,100,0,0,1,3,0,2,140,140,340,1"
         active_style = "Style: Active,Arial,42,&H00F4F4F4,&H00F4F4F4,&H00111111,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,140,140,340,1"
@@ -165,7 +180,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
         words = tokenize_caption(caption)
         if not words:
             continue
-        if preset == "ytshort":
+        if preset in ("ytshort", "ytshort_legacy", "logicloom_ref"):
             words = [w.upper() for w in words]
         words, split_at = wrap_two_lines(words, max_chars=max_chars)
         candidates = find_window_words(word_ts, s0, e0)
@@ -177,7 +192,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 
         first_start, last_end = per_word_times[0][0], per_word_times[-1][1]
         base_words = [w.replace("{", "").replace("}", "") for w in words]
-        if preset == "ytshort":
+        if preset in ("ytshort", "ytshort_legacy", "logicloom_ref"):
             i = 0
             while i < len(base_words):
                 j = min(len(base_words), i + max(1, chunk_size))
@@ -190,7 +205,11 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
                     rendered = []
                     for p, w in enumerate(chunk_words):
                         if i + p == k:
-                            rendered.append(r"{\1c&H0000FFFF&\3c&H00000000&\bord6.6\b1}" + w + r"{\r}")
+                            if preset in ("ytshort", "logicloom_ref"):
+                                # Reset explicitly to Base so the rest of the line stays white.
+                                rendered.append(r"{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}" + w + r"{\rBase}")
+                            else:
+                                rendered.append(r"{\1c&H0000FFFF&\3c&H00000000&\bord6.6\b1}" + w + r"{\r}")
                         else:
                             rendered.append(w)
                     lines.append(f"Dialogue: 1,{to_ass_time(ws)},{to_ass_time(we)},Active,,0,0,78,,{' '.join(rendered)}")
@@ -216,7 +235,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--words", required=True, help="Absolute path to word_timestamps JSON.")
     parser.add_argument("--out", required=True, help="Absolute path to output ASS file.")
     parser.add_argument("--max-chars", type=int, default=16, help="Max chars per caption line before split.")
-    parser.add_argument("--preset", choices=["default", "ytshort"], default="default", help="Caption style preset.")
+    parser.add_argument("--preset", choices=["default", "ytshort", "ytshort_legacy", "logicloom_ref"], default="default", help="Caption style preset.")
     parser.add_argument("--chunk-size", type=int, default=3, help="Words per chunk for ytshort preset.")
     return parser
 
@@ -228,7 +247,7 @@ def main() -> None:
     out_path = Path(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
-    events = parse_srt_blocks(srt_path.read_text(encoding="utf-8"))
+    events = parse_srt_blocks(srt_path.read_text(encoding="utf-8-sig"))
     word_ts = load_word_ts(words_path)
     ass = build_ass(events, word_ts, max_chars=args.max_chars, preset=args.preset, chunk_size=args.chunk_size)
     out_path.write_text(ass, encoding="utf-8")

@@ -34,8 +34,23 @@ if ([string]::IsNullOrWhiteSpace($OutputAssPath)) {
   --srt $SrtPath `
   --words $OutputWordsPath `
   --out $OutputAssPath `
-  --max-chars $MaxChars
+  --max-chars $MaxChars `
+  --preset ytshort `
+  --chunk-size 2
 
-& $ff -y -i $VideoPath -vf "ass='$($OutputAssPath -replace '\\', '\\\\' -replace ':', '\\:')'" -c:a copy $OutputVideoPath
+function Escape-AssPathForFfmpeg([string]$p) {
+  # ffmpeg `ass` filter uses ':' to separate options, so we must escape the drive colon.
+  # Use forward slashes to avoid backslash escaping issues.
+  $abs = [System.IO.Path]::GetFullPath($p) -replace '\\', '/'
+  if ($abs.Length -ge 2 -and $abs[1] -eq ':') {
+    return $abs.Substring(0, 1) + '\:' + $abs.Substring(2)
+  }
+  return $abs
+}
+
+$assEsc = Escape-AssPathForFfmpeg $OutputAssPath
+& $ff -y -i $VideoPath -vf "ass='$assEsc'" -c:a copy $OutputVideoPath | Out-Host
+
+if ($LASTEXITCODE -ne 0) { throw "ffmpeg failed to burn captions." }
 
 Write-Output "DONE: $OutputVideoPath"

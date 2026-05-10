@@ -1,0 +1,9 @@
+﻿{
+  "windowTitle": "Imagine Agent Mode - Grok",
+  "promptX": 1300,
+  "promptY": 700,
+  "runX": 1580,
+  "runY": 820,
+  "preDelayMs": 1000,
+  "openHotkey": "-"
+}

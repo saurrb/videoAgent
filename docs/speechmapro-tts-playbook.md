@@ -6,10 +6,23 @@ Last updated: 2026-05-07
 
 Generate consistent reel narration audio from `https://speechmapro.com/` with:
 
-- Voice: `Christopher`
-- Effects: `Pitch=10`, `Speed=25`, `Volume=200`
+- Voice: `Brian`
+- Effects: `Pitch=0`, `Speed=25`, `Volume=200`
 
 And save downloadable MP3 files into local workspace.
+
+## Critical Rule: Paste Narration Only (No Headings)
+
+Our local `script_v1.txt` files often include internal headings like `# Hook` or `# Script v1 (60s)`.
+Do not paste these headings into Speechma.
+
+Always generate a cleaned Speechma input file and paste that instead:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\prepare_speechma_input.ps1 `
+  -ScriptPath "ABS\\PATH\\script\\script_v1.txt" `
+  -OutPath "ABS\\PATH\\voice\\speechma_input_v1.txt"
+```
 
 ## Mandatory Voice Rule
 
@@ -25,9 +38,28 @@ If Speechma PRO is blocked by login, captcha, popup, quota, site failure, genera
 .\node_modules\.bin\browseros-cli.cmd open https://speechmapro.com
 ```
 
-2. Capture UI snapshot and identify IDs for:
+2. Apply defaults (voice + effects) using the repo helper:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\speechma_apply_defaults.ps1 `
+  -PageId 1 -Pitch 0 -Speed 25 -Volume 200
+```
+
+3. After you paste/write your script into Speechma, always capture proof screenshots:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\speechma_capture_proof.ps1 `
+  -PageId 1 -OutDir "ABS\\PATH\\analysis\\speechma_proof"
+```
+
+This produces:
+
+- `01_speechma_input_after_write.png`
+- `02_voice_effects.png` (should show Pitch/Speed/Volume + Remember settings enabled)
+
+4. Capture UI snapshot and identify IDs for:
    - Text area (`Text to convert to speech`)
-   - `Christopher` card
+   - `Brian` card
    - `Generate Audio` button
    - latest row `Download` button
 
@@ -35,12 +67,8 @@ If Speechma PRO is blocked by login, captcha, popup, quota, site failure, genera
 .\node_modules\.bin\browseros-cli.cmd snap -p <page_id>
 ```
 
-3. Select voice card by ID (from `snap` output).
-4. Fill text area with **real multiline text** (see newline rule below).
-5. Open voice effects and set sliders:
-   - Pitch `10`
-   - Speed `25`
-   - Volume `200`
+4. Select voice card by ID (from `snap` output).
+5. Fill text area with **real multiline text** (see newline rule below).
 6. Generate audio.
 7. Download latest generated row (or download-all ZIP).
 
@@ -89,8 +117,8 @@ Repeat for all lines. This avoids accidental escaped text issues.
 ## Verification Checklist (Must Pass)
 
 1. Screenshot shows text split across multiple visible lines in textbox.
-2. Voice card selected: `Christopher`.
-3. Effect values set to `10`, `25`, `200`.
+2. Voice card selected: `Brian`.
+3. Effect values set to `0`, `25`, `200`.
 4. Generated row appears in `Generated Audios`.
 5. MP3 file exists locally after download.
 
@@ -100,7 +128,7 @@ Repeat for all lines. This avoids accidental escaped text issues.
   - `assets/analysis/speechmapro_iter4/01_multiline_input_verified.png`
 - Multiline via Enter-key method screenshot:
   - `assets/analysis/speechmapro_iter4/02_multiline_enter_method.png`
-- Downloaded MP3 examples in older runs may use previous voices/settings. New default runs should use `Christopher` with `Pitch=10`, `Speed=25`, and `Volume=200`.
+- Downloaded MP3 examples in older runs may use previous voices/settings. New default runs should use `Brian` with `Pitch=0`, `Speed=25`, and `Volume=200`.
 
 ## Repeat Rule for Future Runs
 

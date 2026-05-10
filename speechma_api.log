@@ -1,0 +1,6 @@
+
+> speechma:api
+> node scripts/speechma_api_server.mjs
+
+Speechma local API running at http://127.0.0.1:8787
+POST /speechma/run

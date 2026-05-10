@@ -25,10 +25,16 @@ Use these permissions for the classic Facebook Login + Instagram Graph API flow:
 - `pages_read_engagement`
 - `business_management`
 - `pages_manage_posts`
+- `pages_manage_metadata`
 - `instagram_basic`
 - `instagram_content_publish`
 - `instagram_business_basic`
 - `instagram_business_content_publish`
+
+Notes:
+- `pages_manage_posts` is required for create/edit/delete Page posts and reels through API.
+- If OAuth returns `Invalid Scopes: pages_manage_posts`, your app configuration is not currently eligible for that permission in its current use case/product setup.
+- Creating a brand-new Facebook Page is generally not available as a standard public Graph API operation for this flow. Use Meta UI for page creation, then use API for management and posting.
 
 ## OAuth
 
@@ -84,3 +90,53 @@ powershell -ExecutionPolicy Bypass -File .\scripts\meta_publish_reel.ps1 `
   -Caption "Caption text #shorts #reels" `
   -ShareToFeed
 ```
+
+## Publish Facebook Reel From Local MP4 (Primary)
+
+Use the local uploader wrapper when final video exists on disk:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\meta_publish_local_reels.ps1 `
+  -VideoPath "C:\ABS\PATH\final\reel_v2_logicloom.mp4" `
+  -Caption "Caption text #reels" `
+  -Platforms "facebook"
+```
+
+Expected successful console sequence:
+
+- `FACEBOOK_VIDEO_ID=...`
+- `FACEBOOK_STATUS=processing:... publishing:...`
+- `FACEBOOK_STATUS=processing:complete publishing:complete`
+
+## If Facebook Says Success But Reel Is Not Visible
+
+Use this fallback publish path:
+
+- Upload as page video through `/{page_id}/videos` with `published=true`.
+- Capture and use returned `permalink_url`.
+- Treat this fallback as mandatory when `video_reels` ends in `publish_status=draft`.
+- Do not report success until Graph API returns a live permalink and the video status shows:
+  - `processing_phase.status=complete`
+  - `publishing_phase.publish_status=published`
+
+Reason: on some runs `video_reels` returns success while the reel is not surfaced immediately in page feeds.
+
+## App Compliance Troubleshooting (Ineligible Warning)
+
+If Developer Dashboard shows `Currently Ineligible for Submission`:
+
+Required fields that commonly block:
+
+- `User data deletion`
+- `Category`
+- `App icon (1024x1024)`
+
+Known fixes:
+
+1. Set values in `Settings -> Basic`.
+2. In `Settings -> Advanced`, enable:
+   - `Allow API Access to app settings`
+3. Re-apply fields via Graph API when UI state is stale.
+4. If icon upload fails:
+   - use plain 1024x1024 RGB icon with stripped metadata;
+   - retry in a clean browser session.

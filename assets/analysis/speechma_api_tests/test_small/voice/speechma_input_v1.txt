@@ -1,0 +1,5 @@
+﻿Quick test line.
+
+This is a short speech test.
+We are validating the Speechma local API.
+Done.

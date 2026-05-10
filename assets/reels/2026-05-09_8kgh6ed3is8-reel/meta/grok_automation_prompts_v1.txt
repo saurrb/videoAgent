@@ -1,0 +1,19 @@
+Create scene01 only. Output: scene01.mp4. 6-second video, 9:16 vertical, 720p. Style must match reference YouTube vibe: hand-drawn doodle animation on clean white background, black marker outlines, simple cartoon stick-figure people, colorful pastel accent shapes and text, playful psychology infographic motion, smooth 2D motion. On-screen title: "12 Psychology Facts You Wish You Knew". Dynamic popping text, icons (brain, heart, chat bubble), energetic intro movement. No photorealism, no 3D render, no dark cinematic look.
+
+Create scene02 only. Output: scene02.mp4. 6-second video, 9:16 vertical, 720p. Same style continuity: white background, black line doodle cartoon, pastel accents. Visual for Fact 1: a simple cartoon face appears; stopwatch icon; text: "We judge faces in <1 second". Tiny eye and eyebrow motion, light camera punch-in, infographic arrows.
+
+Create scene03 only. Output: scene03.mp4. 6-second video, 9:16 vertical, 720p. Same style continuity. Visual for Fact 2: two stick figures whispering, social bubbles connecting a small group, text: "Gossip bonds groups". Gentle side-to-side character motion, floating symbols, clean white layout.
+
+Create scene04 only. Output: scene04.mp4. 6-second video, 9:16 vertical, 720p. Same style continuity. Visual for Fact 3 (Zeigarnik effect): checklist with one unfinished checkbox glowing, cartoon brain pointing at incomplete task, text: "Unfinished tasks stay in your mind". Smooth marker-draw animation strokes.
+
+Create scene05 only. Output: scene05.mp4. 6-second video, 9:16 vertical, 720p. Same style continuity. Visual for Fact 4: stick figure shifts from slouched to upright posture, aura lines brighten, text: "Posture changes confidence". Simple transformation animation, upbeat pastel highlights.
+
+Create scene06 only. Output: scene06.mp4. 6-second video, 9:16 vertical, 720p. Same style continuity. Visual for Fact 5: two cartoon figures hold hands, stress cloud above one dissolves into hearts, text: "Holding hands lowers stress". Warm pastel gradients behind doodles, overall mostly white frame.
+
+Create scene07 only. Output: scene07.mp4. 6-second video, 9:16 vertical, 720p. Same style continuity. Visual for Fact 6: headphones and music notes move around a character whose expression shifts from sad to happy, text: "Music rewrites mood". Rhythmic bouncing note motion.
+
+Create scene08 only. Output: scene08.mp4. 6-second video, 9:16 vertical, 720p. Same style continuity. Visual for Fact 7: name tag appears over character, attention spotlight and arrow icons snap toward them, text: "Your name grabs attention". Crisp kinetic typography.
+
+Create scene09 only. Output: scene09.mp4. 6-second video, 9:16 vertical, 720p. Same style continuity. Visual mash for Facts 8 to 11: silence pause icon, mirrored pair, sold-out tag, peak-end memory curve. Text: "Silence. Mirroring. Scarcity. Endings." Segmented panels animate in sequence.
+
+Create scene10 only. Output: scene10.mp4. 6-second video, 9:16 vertical, 720p. Same style continuity. Visual for Fact 12 and closing CTA: brain with shield over beliefs, then shield opens to light bulb, text: "Your mind protects beliefs. Watch your reactions this week." End card with subtle bounce and clean white background.

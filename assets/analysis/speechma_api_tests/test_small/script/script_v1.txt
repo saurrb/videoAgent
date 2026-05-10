@@ -1,0 +1,7 @@
+﻿# Hook
+Quick test line.
+
+# Script v1
+This is a short speech test.
+We are validating the Speechma local API.
+Done.

@@ -48,6 +48,15 @@ Duration rule:
 - If user says `start from readme 4 minute video`, target duration is ~240 seconds.
 - The same duration rule applies to any `N minute video` command.
 
+Direct command (recommended in new tabs):
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\start_from_readme.ps1 -Minutes 4
+```
+
+This command is URL-free and maps to `start from readme 4 minute video`.
+It must auto-run phase-1 outputs immediately (script + speechma input + grok prompt pack) and not stop at a generic "ready" state.
+
 ## Prompt Delivery Rule (Mandatory)
 
 When providing Grok scene prompts to the user, always deliver them in one complete copy block:

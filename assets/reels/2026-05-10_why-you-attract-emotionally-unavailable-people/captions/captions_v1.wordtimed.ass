@@ -1,0 +1,374 @@
+[Script Info]
+Title: Reel Word-Timed Captions
+ScriptType: v4.00+
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Base,Impact,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,8.0,2.2,2,58,58,84,1
+Style: Active,Impact,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,8.0,2.2,2,58,58,84,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+
+Dialogue: 0,0:00:00.00,0:00:00.80,Base,,0,0,78,,I… WHY
+Dialogue: 1,0:00:00.00,0:00:00.62,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}I…{\rBase} WHY
+Dialogue: 1,0:00:00.62,0:00:00.80,Active,,0,0,78,,I… {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}WHY{\rBase}
+Dialogue: 0,0:00:00.80,0:00:00.90,Base,,0,0,78,,DO
+Dialogue: 1,0:00:00.80,0:00:00.90,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}DO{\rBase}
+Dialogue: 0,0:00:00.90,0:00:01.14,Base,,0,0,78,,YOU KEEP
+Dialogue: 1,0:00:00.90,0:00:01.00,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOU{\rBase} KEEP
+Dialogue: 1,0:00:01.00,0:00:01.14,Active,,0,0,78,,YOU {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}KEEP{\rBase}
+Dialogue: 0,0:00:01.14,0:00:01.58,Base,,0,0,78,,ATTRACTING
+Dialogue: 1,0:00:01.14,0:00:01.58,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}ATTRACTING{\rBase}
+Dialogue: 0,0:00:01.58,0:00:02.66,Base,,0,0,78,,EMOTIONALLY UNAVAILABLE
+Dialogue: 1,0:00:01.58,0:00:02.20,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}EMOTIONALLY{\rBase} UNAVAILABLE
+Dialogue: 1,0:00:02.20,0:00:02.66,Active,,0,0,78,,EMOTIONALLY {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}UNAVAILABLE{\rBase}
+Dialogue: 0,0:00:02.66,0:00:03.08,Base,,0,0,78,,PEOPLE?
+Dialogue: 1,0:00:02.66,0:00:03.08,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}PEOPLE?{\rBase}
+Dialogue: 0,0:00:03.54,0:00:03.72,Base,,0,0,78,,IT IS
+Dialogue: 1,0:00:03.54,0:00:03.62,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}IT{\rBase} IS
+Dialogue: 1,0:00:03.62,0:00:03.72,Active,,0,0,78,,IT {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}IS{\rBase}
+Dialogue: 0,0:00:03.72,0:00:03.90,Base,,0,0,78,,NOT
+Dialogue: 1,0:00:03.72,0:00:03.90,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}NOT{\rBase}
+Dialogue: 0,0:00:03.90,0:00:04.38,Base,,0,0,78,,BAD LUCK.
+Dialogue: 1,0:00:03.90,0:00:04.14,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}BAD{\rBase} LUCK.
+Dialogue: 1,0:00:04.14,0:00:04.38,Active,,0,0,78,,BAD {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}LUCK.{\rBase}
+Dialogue: 0,0:00:04.90,0:00:05.10,Base,,0,0,78,,IT IS
+Dialogue: 1,0:00:04.90,0:00:04.98,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}IT{\rBase} IS
+Dialogue: 1,0:00:04.98,0:00:05.10,Active,,0,0,78,,IT {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}IS{\rBase}
+Dialogue: 0,0:00:05.10,0:00:05.42,Base,,0,0,78,,USUALLY
+Dialogue: 1,0:00:05.10,0:00:05.42,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}USUALLY{\rBase}
+Dialogue: 0,0:00:05.42,0:00:05.84,Base,,0,0,78,,A PATTERN.
+Dialogue: 1,0:00:05.42,0:00:05.58,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}A{\rBase} PATTERN.
+Dialogue: 1,0:00:05.58,0:00:05.84,Active,,0,0,78,,A {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}PATTERN.{\rBase}
+Dialogue: 0,0:00:06.32,0:00:06.58,Base,,0,0,78,,YOU ARE
+Dialogue: 1,0:00:06.32,0:00:06.44,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOU{\rBase} ARE
+Dialogue: 1,0:00:06.44,0:00:06.58,Active,,0,0,78,,YOU {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}ARE{\rBase}
+Dialogue: 0,0:00:06.58,0:00:06.76,Base,,0,0,78,,NOT
+Dialogue: 1,0:00:06.58,0:00:06.76,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}NOT{\rBase}
+Dialogue: 0,0:00:06.76,0:00:07.46,Base,,0,0,78,,ATTRACTING THEM
+Dialogue: 1,0:00:06.76,0:00:07.22,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}ATTRACTING{\rBase} THEM
+Dialogue: 1,0:00:07.22,0:00:07.46,Active,,0,0,78,,ATTRACTING {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}THEM{\rBase}
+Dialogue: 0,0:00:07.46,0:00:07.64,Base,,0,0,78,,BY
+Dialogue: 1,0:00:07.46,0:00:07.64,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}BY{\rBase}
+Dialogue: 0,0:00:07.64,0:00:07.98,Base,,0,0,78,,ACCIDENT.
+Dialogue: 1,0:00:07.64,0:00:07.98,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}ACCIDENT.{\rBase}
+Dialogue: 0,0:00:08.48,0:00:08.88,Base,,0,0,78,,YOU ARE
+Dialogue: 1,0:00:08.48,0:00:08.68,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOU{\rBase} ARE
+Dialogue: 1,0:00:08.68,0:00:08.88,Active,,0,0,78,,YOU {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}ARE{\rBase}
+Dialogue: 0,0:00:08.88,0:00:09.20,Base,,0,0,78,,SELECTING
+Dialogue: 1,0:00:08.88,0:00:09.20,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}SELECTING{\rBase}
+Dialogue: 0,0:00:09.20,0:00:09.74,Base,,0,0,78,,THEM WITH
+Dialogue: 1,0:00:09.20,0:00:09.52,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}THEM{\rBase} WITH
+Dialogue: 1,0:00:09.52,0:00:09.74,Active,,0,0,78,,THEM {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}WITH{\rBase}
+Dialogue: 0,0:00:09.74,0:00:10.14,Base,,0,0,78,,FAMILIAR
+Dialogue: 1,0:00:09.74,0:00:10.14,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}FAMILIAR{\rBase}
+Dialogue: 0,0:00:10.14,0:00:11.10,Base,,0,0,78,,EMOTIONAL CHEMISTRY.
+Dialogue: 1,0:00:10.14,0:00:10.64,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}EMOTIONAL{\rBase} CHEMISTRY.
+Dialogue: 1,0:00:10.64,0:00:11.10,Active,,0,0,78,,EMOTIONAL {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}CHEMISTRY.{\rBase}
+Dialogue: 0,0:00:11.54,0:00:11.66,Base,,0,0,78,,IF
+Dialogue: 1,0:00:11.54,0:00:11.66,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}IF{\rBase}
+Dialogue: 0,0:00:11.66,0:00:12.16,Base,,0,0,78,,LOVE FELT
+Dialogue: 1,0:00:11.66,0:00:11.86,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}LOVE{\rBase} FELT
+Dialogue: 1,0:00:11.86,0:00:12.16,Active,,0,0,78,,LOVE {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}FELT{\rBase}
+Dialogue: 0,0:00:12.16,0:00:12.72,Base,,0,0,78,,INCONSISTENT
+Dialogue: 1,0:00:12.16,0:00:12.72,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}INCONSISTENT{\rBase}
+Dialogue: 0,0:00:12.72,0:00:13.20,Base,,0,0,78,,IN YOUR
+Dialogue: 1,0:00:12.72,0:00:13.08,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}IN{\rBase} YOUR
+Dialogue: 1,0:00:13.08,0:00:13.20,Active,,0,0,78,,IN {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOUR{\rBase}
+Dialogue: 0,0:00:13.20,0:00:13.52,Base,,0,0,78,,PAST,
+Dialogue: 1,0:00:13.20,0:00:13.52,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}PAST,{\rBase}
+Dialogue: 0,0:00:14.12,0:00:14.36,Base,,0,0,78,,CALM PEOPLE
+Dialogue: 1,0:00:14.12,0:00:14.18,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}CALM{\rBase} PEOPLE
+Dialogue: 1,0:00:14.18,0:00:14.36,Active,,0,0,78,,CALM {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}PEOPLE{\rBase}
+Dialogue: 0,0:00:14.36,0:00:14.54,Base,,0,0,78,,CAN
+Dialogue: 1,0:00:14.36,0:00:14.54,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}CAN{\rBase}
+Dialogue: 0,0:00:14.54,0:00:15.06,Base,,0,0,78,,FEEL BORING,
+Dialogue: 1,0:00:14.54,0:00:14.74,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}FEEL{\rBase} BORING,
+Dialogue: 1,0:00:14.74,0:00:15.06,Active,,0,0,78,,FEEL {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}BORING,{\rBase}
+Dialogue: 0,0:00:15.54,0:00:15.90,Base,,0,0,78,,AND DISTANT
+Dialogue: 1,0:00:15.54,0:00:15.66,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}AND{\rBase} DISTANT
+Dialogue: 1,0:00:15.66,0:00:15.90,Active,,0,0,78,,AND {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}DISTANT{\rBase}
+Dialogue: 0,0:00:15.90,0:00:16.20,Base,,0,0,78,,PEOPLE
+Dialogue: 1,0:00:15.90,0:00:16.20,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}PEOPLE{\rBase}
+Dialogue: 0,0:00:16.20,0:00:16.64,Base,,0,0,78,,CAN FEEL
+Dialogue: 1,0:00:16.20,0:00:16.42,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}CAN{\rBase} FEEL
+Dialogue: 1,0:00:16.42,0:00:16.64,Active,,0,0,78,,CAN {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}FEEL{\rBase}
+Dialogue: 0,0:00:16.64,0:00:17.06,Base,,0,0,78,,EXCITING.
+Dialogue: 1,0:00:16.64,0:00:17.06,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}EXCITING.{\rBase}
+Dialogue: 0,0:00:17.54,0:00:17.88,Base,,0,0,78,,YOUR NERVOUS
+Dialogue: 1,0:00:17.54,0:00:17.66,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOUR{\rBase} NERVOUS
+Dialogue: 1,0:00:17.66,0:00:17.88,Active,,0,0,78,,YOUR {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}NERVOUS{\rBase}
+Dialogue: 0,0:00:17.88,0:00:18.28,Base,,0,0,78,,SYSTEM
+Dialogue: 1,0:00:17.88,0:00:18.28,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}SYSTEM{\rBase}
+Dialogue: 0,0:00:18.28,0:00:19.56,Base,,0,0,78,,READS UNPREDICTABILITY
+Dialogue: 1,0:00:18.28,0:00:18.62,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}READS{\rBase} UNPREDICTABILITY
+Dialogue: 1,0:00:18.62,0:00:19.56,Active,,0,0,78,,READS {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}UNPREDICTABILITY{\rBase}
+Dialogue: 0,0:00:19.56,0:00:20.10,Base,,0,0,78,,AS
+Dialogue: 1,0:00:19.56,0:00:20.10,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}AS{\rBase}
+Dialogue: 0,0:00:20.10,0:00:21.16,Base,,0,0,78,,INTENSITY, AND
+Dialogue: 1,0:00:20.10,0:00:20.62,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}INTENSITY,{\rBase} AND
+Dialogue: 1,0:00:21.02,0:00:21.16,Active,,0,0,78,,INTENSITY, {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}AND{\rBase}
+Dialogue: 0,0:00:21.16,0:00:21.54,Base,,0,0,78,,INTENSITY
+Dialogue: 1,0:00:21.16,0:00:21.54,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}INTENSITY{\rBase}
+Dialogue: 0,0:00:21.54,0:00:22.26,Base,,0,0,78,,GETS CONFUSED
+Dialogue: 1,0:00:21.54,0:00:21.82,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}GETS{\rBase} CONFUSED
+Dialogue: 1,0:00:21.82,0:00:22.26,Active,,0,0,78,,GETS {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}CONFUSED{\rBase}
+Dialogue: 0,0:00:22.26,0:00:22.56,Base,,0,0,78,,WITH
+Dialogue: 1,0:00:22.26,0:00:22.56,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}WITH{\rBase}
+Dialogue: 0,0:00:22.56,0:00:23.40,Base,,0,0,78,,LOVE. SO
+Dialogue: 1,0:00:22.56,0:00:22.82,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}LOVE.{\rBase} SO
+Dialogue: 1,0:00:23.24,0:00:23.40,Active,,0,0,78,,LOVE. {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}SO{\rBase}
+Dialogue: 0,0:00:23.40,0:00:23.54,Base,,0,0,78,,WHAT
+Dialogue: 1,0:00:23.40,0:00:23.54,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}WHAT{\rBase}
+Dialogue: 0,0:00:23.54,0:00:24.52,Base,,0,0,78,,HAPPENS? YOU
+Dialogue: 1,0:00:23.54,0:00:23.90,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}HAPPENS?{\rBase} YOU
+Dialogue: 1,0:00:24.34,0:00:24.52,Active,,0,0,78,,HAPPENS? {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOU{\rBase}
+Dialogue: 0,0:00:24.52,0:00:24.76,Base,,0,0,78,,OVER
+Dialogue: 1,0:00:24.52,0:00:24.76,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}OVER{\rBase}
+Dialogue: 0,0:00:24.76,0:00:25.40,Base,,0,0,78,,-INVEST EARLY.
+Dialogue: 1,0:00:24.76,0:00:25.00,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}-INVEST{\rBase} EARLY.
+Dialogue: 1,0:00:25.00,0:00:25.40,Active,,0,0,78,,-INVEST {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}EARLY.{\rBase}
+Dialogue: 0,0:00:25.80,0:00:25.94,Base,,0,0,78,,YOU
+Dialogue: 1,0:00:25.80,0:00:25.94,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOU{\rBase}
+Dialogue: 0,0:00:25.94,0:00:26.54,Base,,0,0,78,,EXPLAIN AWAY
+Dialogue: 1,0:00:25.94,0:00:26.28,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}EXPLAIN{\rBase} AWAY
+Dialogue: 1,0:00:26.28,0:00:26.54,Active,,0,0,78,,EXPLAIN {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}AWAY{\rBase}
+Dialogue: 0,0:00:26.54,0:00:26.80,Base,,0,0,78,,RED
+Dialogue: 1,0:00:26.54,0:00:26.80,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}RED{\rBase}
+Dialogue: 0,0:00:26.80,0:00:27.70,Base,,0,0,78,,FLAGS. YOU
+Dialogue: 1,0:00:26.80,0:00:27.14,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}FLAGS.{\rBase} YOU
+Dialogue: 1,0:00:27.56,0:00:27.70,Active,,0,0,78,,FLAGS. {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOU{\rBase}
+Dialogue: 0,0:00:27.70,0:00:28.04,Base,,0,0,78,,ACCEPT
+Dialogue: 1,0:00:27.70,0:00:28.04,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}ACCEPT{\rBase}
+Dialogue: 0,0:00:28.04,0:00:28.64,Base,,0,0,78,,MIXED SIGNALS.
+Dialogue: 1,0:00:28.04,0:00:28.30,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}MIXED{\rBase} SIGNALS.
+Dialogue: 1,0:00:28.30,0:00:28.64,Active,,0,0,78,,MIXED {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}SIGNALS.{\rBase}
+Dialogue: 0,0:00:28.64,0:00:29.22,Base,,0,0,78,,YOU
+Dialogue: 1,0:00:28.64,0:00:29.22,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOU{\rBase}
+Dialogue: 0,0:00:29.22,0:00:29.66,Base,,0,0,78,,STAY IN
+Dialogue: 1,0:00:29.22,0:00:29.46,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}STAY{\rBase} IN
+Dialogue: 1,0:00:29.46,0:00:29.66,Active,,0,0,78,,STAY {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}IN{\rBase}
+Dialogue: 0,0:00:29.66,0:00:29.88,Base,,0,0,78,,HOPE
+Dialogue: 1,0:00:29.66,0:00:29.88,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}HOPE{\rBase}
+Dialogue: 0,0:00:29.88,0:00:30.38,Base,,0,0,78,,INSTEAD OF
+Dialogue: 1,0:00:29.88,0:00:30.24,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}INSTEAD{\rBase} OF
+Dialogue: 1,0:00:30.24,0:00:30.38,Active,,0,0,78,,INSTEAD {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}OF{\rBase}
+Dialogue: 0,0:00:30.38,0:00:30.72,Base,,0,0,78,,FACTS.
+Dialogue: 1,0:00:30.38,0:00:30.72,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}FACTS.{\rBase}
+Dialogue: 0,0:00:31.28,0:00:32.06,Base,,0,0,78,,EMOTIONALLY UNAVAILABLE
+Dialogue: 1,0:00:31.28,0:00:31.72,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}EMOTIONALLY{\rBase} UNAVAILABLE
+Dialogue: 1,0:00:31.72,0:00:32.06,Active,,0,0,78,,EMOTIONALLY {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}UNAVAILABLE{\rBase}
+Dialogue: 0,0:00:32.06,0:00:32.58,Base,,0,0,78,,PEOPLE
+Dialogue: 1,0:00:32.06,0:00:32.58,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}PEOPLE{\rBase}
+Dialogue: 0,0:00:32.58,0:00:33.16,Base,,0,0,78,,OFTEN GIVE
+Dialogue: 1,0:00:32.58,0:00:32.92,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}OFTEN{\rBase} GIVE
+Dialogue: 1,0:00:32.92,0:00:33.16,Active,,0,0,78,,OFTEN {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}GIVE{\rBase}
+Dialogue: 0,0:00:33.16,0:00:33.42,Base,,0,0,78,,JUST
+Dialogue: 1,0:00:33.16,0:00:33.42,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}JUST{\rBase}
+Dialogue: 0,0:00:33.42,0:00:33.68,Base,,0,0,78,,ENOUGH.
+Dialogue: 1,0:00:33.42,0:00:33.68,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}ENOUGH.{\rBase}
+Dialogue: 0,0:00:34.14,0:00:34.76,Base,,0,0,78,,ENOUGH ATTENTION
+Dialogue: 1,0:00:34.14,0:00:34.38,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}ENOUGH{\rBase} ATTENTION
+Dialogue: 1,0:00:34.38,0:00:34.76,Active,,0,0,78,,ENOUGH {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}ATTENTION{\rBase}
+Dialogue: 0,0:00:34.76,0:00:35.04,Base,,0,0,78,,TO
+Dialogue: 1,0:00:34.76,0:00:35.04,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}TO{\rBase}
+Dialogue: 0,0:00:35.04,0:00:35.46,Base,,0,0,78,,HOOK YOU.
+Dialogue: 1,0:00:35.04,0:00:35.18,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}HOOK{\rBase} YOU.
+Dialogue: 1,0:00:35.18,0:00:35.46,Active,,0,0,78,,HOOK {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOU.{\rBase}
+Dialogue: 0,0:00:35.88,0:00:36.00,Base,,0,0,78,,NOT
+Dialogue: 1,0:00:35.88,0:00:36.00,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}NOT{\rBase}
+Dialogue: 0,0:00:36.00,0:00:36.70,Base,,0,0,78,,ENOUGH CONSISTENCY
+Dialogue: 1,0:00:36.00,0:00:36.26,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}ENOUGH{\rBase} CONSISTENCY
+Dialogue: 1,0:00:36.26,0:00:36.70,Active,,0,0,78,,ENOUGH {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}CONSISTENCY{\rBase}
+Dialogue: 0,0:00:36.70,0:00:37.08,Base,,0,0,78,,TO
+Dialogue: 1,0:00:36.70,0:00:37.08,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}TO{\rBase}
+Dialogue: 0,0:00:37.08,0:00:37.58,Base,,0,0,78,,BUILD TRUST.
+Dialogue: 1,0:00:37.08,0:00:37.26,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}BUILD{\rBase} TRUST.
+Dialogue: 1,0:00:37.26,0:00:37.58,Active,,0,0,78,,BUILD {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}TRUST.{\rBase}
+Dialogue: 0,0:00:38.10,0:00:38.38,Base,,0,0,78,,THEN YOU
+Dialogue: 1,0:00:38.10,0:00:38.22,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}THEN{\rBase} YOU
+Dialogue: 1,0:00:38.22,0:00:38.38,Active,,0,0,78,,THEN {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOU{\rBase}
+Dialogue: 0,0:00:38.38,0:00:38.62,Base,,0,0,78,,CHASE
+Dialogue: 1,0:00:38.38,0:00:38.62,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}CHASE{\rBase}
+Dialogue: 0,0:00:38.62,0:00:39.58,Base,,0,0,78,,CLARITY. THEY
+Dialogue: 1,0:00:38.62,0:00:39.00,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}CLARITY.{\rBase} THEY
+Dialogue: 1,0:00:39.44,0:00:39.58,Active,,0,0,78,,CLARITY. {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}THEY{\rBase}
+Dialogue: 0,0:00:39.58,0:00:39.72,Base,,0,0,78,,PULL
+Dialogue: 1,0:00:39.58,0:00:39.72,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}PULL{\rBase}
+Dialogue: 0,0:00:39.72,0:00:40.48,Base,,0,0,78,,BACK. YOU
+Dialogue: 1,0:00:39.72,0:00:39.96,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}BACK.{\rBase} YOU
+Dialogue: 1,0:00:40.36,0:00:40.48,Active,,0,0,78,,BACK. {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOU{\rBase}
+Dialogue: 0,0:00:40.48,0:00:40.60,Base,,0,0,78,,GIVE
+Dialogue: 1,0:00:40.48,0:00:40.60,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}GIVE{\rBase}
+Dialogue: 0,0:00:40.60,0:00:41.34,Base,,0,0,78,,MORE. THEY
+Dialogue: 1,0:00:40.60,0:00:40.84,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}MORE.{\rBase} THEY
+Dialogue: 1,0:00:41.26,0:00:41.34,Active,,0,0,78,,MORE. {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}THEY{\rBase}
+Dialogue: 0,0:00:41.34,0:00:41.52,Base,,0,0,78,,GIVE
+Dialogue: 1,0:00:41.34,0:00:41.52,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}GIVE{\rBase}
+Dialogue: 0,0:00:41.52,0:00:42.32,Base,,0,0,78,,LESS. THIS
+Dialogue: 1,0:00:41.52,0:00:41.76,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}LESS.{\rBase} THIS
+Dialogue: 1,0:00:42.20,0:00:42.32,Active,,0,0,78,,LESS. {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}THIS{\rBase}
+Dialogue: 0,0:00:42.32,0:00:42.46,Base,,0,0,78,,IS
+Dialogue: 1,0:00:42.32,0:00:42.46,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}IS{\rBase}
+Dialogue: 0,0:00:42.46,0:00:42.92,Base,,0,0,78,,THE CYCLE.
+Dialogue: 1,0:00:42.46,0:00:42.64,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}THE{\rBase} CYCLE.
+Dialogue: 1,0:00:42.64,0:00:42.92,Active,,0,0,78,,THE {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}CYCLE.{\rBase}
+Dialogue: 0,0:00:43.36,0:00:43.48,Base,,0,0,78,,TO
+Dialogue: 1,0:00:43.36,0:00:43.48,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}TO{\rBase}
+Dialogue: 0,0:00:43.48,0:00:43.92,Base,,0,0,78,,BREAK IT,
+Dialogue: 1,0:00:43.48,0:00:43.68,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}BREAK{\rBase} IT,
+Dialogue: 1,0:00:43.68,0:00:43.92,Active,,0,0,78,,BREAK {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}IT,{\rBase}
+Dialogue: 0,0:00:44.28,0:00:44.36,Base,,0,0,78,,YOU
+Dialogue: 1,0:00:44.28,0:00:44.36,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOU{\rBase}
+Dialogue: 0,0:00:44.36,0:00:44.96,Base,,0,0,78,,NEED STANDARDS
+Dialogue: 1,0:00:44.36,0:00:44.50,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}NEED{\rBase} STANDARDS
+Dialogue: 1,0:00:44.50,0:00:44.96,Active,,0,0,78,,NEED {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}STANDARDS{\rBase}
+Dialogue: 0,0:00:44.96,0:00:45.32,Base,,0,0,78,,BEFORE
+Dialogue: 1,0:00:44.96,0:00:45.32,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}BEFORE{\rBase}
+Dialogue: 0,0:00:45.32,0:00:45.70,Base,,0,0,78,,FEELINGS.
+Dialogue: 1,0:00:45.32,0:00:45.70,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}FEELINGS.{\rBase}
+Dialogue: 0,0:00:46.24,0:00:46.86,Base,,0,0,78,,WATCH ACTIONS,
+Dialogue: 1,0:00:46.24,0:00:46.38,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}WATCH{\rBase} ACTIONS,
+Dialogue: 1,0:00:46.38,0:00:46.86,Active,,0,0,78,,WATCH {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}ACTIONS,{\rBase}
+Dialogue: 0,0:00:47.08,0:00:47.18,Base,,0,0,78,,NOT
+Dialogue: 1,0:00:47.08,0:00:47.18,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}NOT{\rBase}
+Dialogue: 0,0:00:47.18,0:00:47.64,Base,,0,0,78,,POTENTIAL.
+Dialogue: 1,0:00:47.18,0:00:47.64,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}POTENTIAL.{\rBase}
+Dialogue: 0,0:00:48.10,0:00:48.50,Base,,0,0,78,,IF EFFORT
+Dialogue: 1,0:00:48.10,0:00:48.22,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}IF{\rBase} EFFORT
+Dialogue: 1,0:00:48.22,0:00:48.50,Active,,0,0,78,,IF {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}EFFORT{\rBase}
+Dialogue: 0,0:00:48.50,0:00:48.74,Base,,0,0,78,,IS
+Dialogue: 1,0:00:48.50,0:00:48.74,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}IS{\rBase}
+Dialogue: 0,0:00:48.74,0:00:49.32,Base,,0,0,78,,INCONSISTENT,
+Dialogue: 1,0:00:48.74,0:00:49.32,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}INCONSISTENT,{\rBase}
+Dialogue: 0,0:00:49.94,0:00:50.52,Base,,0,0,78,,INTEREST IS
+Dialogue: 1,0:00:49.94,0:00:50.18,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}INTEREST{\rBase} IS
+Dialogue: 1,0:00:50.18,0:00:50.52,Active,,0,0,78,,INTEREST {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}IS{\rBase}
+Dialogue: 0,0:00:50.52,0:00:51.04,Base,,0,0,78,,INCONSISTENT.
+Dialogue: 1,0:00:50.52,0:00:51.04,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}INCONSISTENT.{\rBase}
+Dialogue: 0,0:00:51.72,0:00:52.24,Base,,0,0,78,,STOP TRYING
+Dialogue: 1,0:00:51.72,0:00:51.92,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}STOP{\rBase} TRYING
+Dialogue: 1,0:00:51.92,0:00:52.24,Active,,0,0,78,,STOP {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}TRYING{\rBase}
+Dialogue: 0,0:00:52.24,0:00:52.38,Base,,0,0,78,,TO
+Dialogue: 1,0:00:52.24,0:00:52.38,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}TO{\rBase}
+Dialogue: 0,0:00:52.38,0:00:52.78,Base,,0,0,78,,EARN LOVE.
+Dialogue: 1,0:00:52.38,0:00:52.54,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}EARN{\rBase} LOVE.
+Dialogue: 1,0:00:52.54,0:00:52.78,Active,,0,0,78,,EARN {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}LOVE.{\rBase}
+Dialogue: 0,0:00:53.22,0:00:53.40,Base,,0,0,78,,FROM
+Dialogue: 1,0:00:53.22,0:00:53.40,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}FROM{\rBase}
+Dialogue: 0,0:00:53.40,0:00:53.94,Base,,0,0,78,,PEOPLE WHO
+Dialogue: 1,0:00:53.40,0:00:53.72,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}PEOPLE{\rBase} WHO
+Dialogue: 1,0:00:53.72,0:00:53.94,Active,,0,0,78,,PEOPLE {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}WHO{\rBase}
+Dialogue: 0,0:00:53.94,0:00:54.06,Base,,0,0,78,,ARE
+Dialogue: 1,0:00:53.94,0:00:54.06,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}ARE{\rBase}
+Dialogue: 0,0:00:54.06,0:00:54.44,Base,,0,0,78,,NOT READY
+Dialogue: 1,0:00:54.06,0:00:54.24,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}NOT{\rBase} READY
+Dialogue: 1,0:00:54.24,0:00:54.44,Active,,0,0,78,,NOT {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}READY{\rBase}
+Dialogue: 0,0:00:54.44,0:00:54.66,Base,,0,0,78,,TO
+Dialogue: 1,0:00:54.44,0:00:54.66,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}TO{\rBase}
+Dialogue: 0,0:00:54.66,0:00:55.04,Base,,0,0,78,,GIVE IT.
+Dialogue: 1,0:00:54.66,0:00:54.78,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}GIVE{\rBase} IT.
+Dialogue: 1,0:00:54.78,0:00:55.04,Active,,0,0,78,,GIVE {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}IT.{\rBase}
+Dialogue: 0,0:00:55.36,0:00:55.50,Base,,0,0,78,,A
+Dialogue: 1,0:00:55.36,0:00:55.50,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}A{\rBase}
+Dialogue: 0,0:00:55.50,0:00:56.12,Base,,0,0,78,,HEALTHY CONNECTION
+Dialogue: 1,0:00:55.50,0:00:55.68,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}HEALTHY{\rBase} CONNECTION
+Dialogue: 1,0:00:55.68,0:00:56.12,Active,,0,0,78,,HEALTHY {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}CONNECTION{\rBase}
+Dialogue: 0,0:00:56.12,0:00:56.44,Base,,0,0,78,,FEELS
+Dialogue: 1,0:00:56.12,0:00:56.44,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}FEELS{\rBase}
+Dialogue: 0,0:00:56.44,0:00:57.42,Base,,0,0,78,,STEADY. NOT
+Dialogue: 1,0:00:56.44,0:00:56.84,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}STEADY.{\rBase} NOT
+Dialogue: 1,0:00:56.84,0:00:57.42,Active,,0,0,78,,STEADY. {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}NOT{\rBase}
+Dialogue: 0,0:00:57.42,0:00:57.90,Base,,0,0,78,,CONFUSING.
+Dialogue: 1,0:00:57.42,0:00:57.90,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}CONFUSING.{\rBase}
+Dialogue: 0,0:00:58.50,0:00:58.90,Base,,0,0,78,,NOT ANXIOUS.
+Dialogue: 1,0:00:58.50,0:00:58.58,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}NOT{\rBase} ANXIOUS.
+Dialogue: 1,0:00:58.58,0:00:58.90,Active,,0,0,78,,NOT {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}ANXIOUS.{\rBase}
+Dialogue: 0,0:00:59.52,0:01:00.02,Base,,0,0,78,,NOT ADDICTIVE.
+Dialogue: 1,0:00:59.52,0:00:59.58,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}NOT{\rBase} ADDICTIVE.
+Dialogue: 1,0:00:59.58,0:01:00.02,Active,,0,0,78,,NOT {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}ADDICTIVE.{\rBase}
+Dialogue: 0,0:01:00.60,0:01:01.08,Base,,0,0,78,,CHOOSE PEOPLE
+Dialogue: 1,0:01:00.60,0:01:00.68,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}CHOOSE{\rBase} PEOPLE
+Dialogue: 1,0:01:00.68,0:01:01.08,Active,,0,0,78,,CHOOSE {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}PEOPLE{\rBase}
+Dialogue: 0,0:01:01.08,0:01:01.62,Base,,0,0,78,,WHO
+Dialogue: 1,0:01:01.08,0:01:01.62,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}WHO{\rBase}
+Dialogue: 0,0:01:01.62,0:01:02.56,Base,,0,0,78,,COMMUNICATE CLEARLY,
+Dialogue: 1,0:01:01.62,0:01:02.02,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}COMMUNICATE{\rBase} CLEARLY,
+Dialogue: 1,0:01:02.02,0:01:02.56,Active,,0,0,78,,COMMUNICATE {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}CLEARLY,{\rBase}
+Dialogue: 0,0:01:02.98,0:01:03.18,Base,,0,0,78,,SHOW
+Dialogue: 1,0:01:02.98,0:01:03.18,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}SHOW{\rBase}
+Dialogue: 0,0:01:03.18,0:01:03.82,Base,,0,0,78,,UP CONSISTENTLY,
+Dialogue: 1,0:01:03.18,0:01:03.32,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}UP{\rBase} CONSISTENTLY,
+Dialogue: 1,0:01:03.32,0:01:03.82,Active,,0,0,78,,UP {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}CONSISTENTLY,{\rBase}
+Dialogue: 0,0:01:04.32,0:01:04.76,Base,,0,0,78,,AND MATCH
+Dialogue: 1,0:01:04.32,0:01:04.56,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}AND{\rBase} MATCH
+Dialogue: 1,0:01:04.56,0:01:04.76,Active,,0,0,78,,AND {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}MATCH{\rBase}
+Dialogue: 0,0:01:04.76,0:01:04.94,Base,,0,0,78,,YOUR
+Dialogue: 1,0:01:04.76,0:01:04.94,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOUR{\rBase}
+Dialogue: 0,0:01:04.94,0:01:05.76,Base,,0,0,78,,EFFORT. THE
+Dialogue: 1,0:01:04.94,0:01:05.24,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}EFFORT.{\rBase} THE
+Dialogue: 1,0:01:05.68,0:01:05.76,Active,,0,0,78,,EFFORT. {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}THE{\rBase}
+Dialogue: 0,0:01:05.76,0:01:05.94,Base,,0,0,78,,REAL
+Dialogue: 1,0:01:05.76,0:01:05.94,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}REAL{\rBase}
+Dialogue: 0,0:01:05.94,0:01:06.30,Base,,0,0,78,,GLOW -UP
+Dialogue: 1,0:01:05.94,0:01:06.16,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}GLOW{\rBase} -UP
+Dialogue: 1,0:01:06.16,0:01:06.30,Active,,0,0,78,,GLOW {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}-UP{\rBase}
+Dialogue: 0,0:01:06.30,0:01:06.52,Base,,0,0,78,,IS
+Dialogue: 1,0:01:06.30,0:01:06.52,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}IS{\rBase}
+Dialogue: 0,0:01:06.52,0:01:06.74,Base,,0,0,78,,THIS.
+Dialogue: 1,0:01:06.52,0:01:06.74,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}THIS.{\rBase}
+Dialogue: 0,0:01:07.20,0:01:07.54,Base,,0,0,78,,YOU STOP
+Dialogue: 1,0:01:07.20,0:01:07.30,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOU{\rBase} STOP
+Dialogue: 1,0:01:07.30,0:01:07.54,Active,,0,0,78,,YOU {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}STOP{\rBase}
+Dialogue: 0,0:01:07.54,0:01:07.94,Base,,0,0,78,,CALLING
+Dialogue: 1,0:01:07.54,0:01:07.94,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}CALLING{\rBase}
+Dialogue: 0,0:01:07.94,0:01:08.76,Base,,0,0,78,,EMOTIONAL CHAOS
+Dialogue: 1,0:01:07.94,0:01:08.40,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}EMOTIONAL{\rBase} CHAOS
+Dialogue: 1,0:01:08.40,0:01:08.76,Active,,0,0,78,,EMOTIONAL {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}CHAOS{\rBase}
+Dialogue: 0,0:01:08.76,0:01:09.26,Base,,0,0,78,,CHEMISTRY.
+Dialogue: 1,0:01:08.76,0:01:09.26,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}CHEMISTRY.{\rBase}
+Dialogue: 0,0:01:09.66,0:01:09.98,Base,,0,0,78,,YOU CHOOSE
+Dialogue: 1,0:01:09.66,0:01:09.78,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOU{\rBase} CHOOSE
+Dialogue: 1,0:01:09.78,0:01:09.98,Active,,0,0,78,,YOU {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}CHOOSE{\rBase}
+Dialogue: 0,0:01:09.98,0:01:10.24,Base,,0,0,78,,PEACE,
+Dialogue: 1,0:01:09.98,0:01:10.24,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}PEACE,{\rBase}
+Dialogue: 0,0:01:10.78,0:01:11.24,Base,,0,0,78,,SELF -RESPECT,
+Dialogue: 1,0:01:10.78,0:01:10.90,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}SELF{\rBase} -RESPECT,
+Dialogue: 1,0:01:10.90,0:01:11.24,Active,,0,0,78,,SELF {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}-RESPECT,{\rBase}
+Dialogue: 0,0:01:11.88,0:01:12.30,Base,,0,0,78,,AND RECIPROCAL
+Dialogue: 1,0:01:11.88,0:01:11.94,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}AND{\rBase} RECIPROCAL
+Dialogue: 1,0:01:11.94,0:01:12.30,Active,,0,0,78,,AND {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}RECIPROCAL{\rBase}
+Dialogue: 0,0:01:12.30,0:01:12.70,Base,,0,0,78,,LOVE.
+Dialogue: 1,0:01:12.30,0:01:12.70,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}LOVE.{\rBase}
+Dialogue: 0,0:01:13.16,0:01:13.40,Base,,0,0,78,,AND WHEN
+Dialogue: 1,0:01:13.16,0:01:13.24,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}AND{\rBase} WHEN
+Dialogue: 1,0:01:13.24,0:01:13.40,Active,,0,0,78,,AND {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}WHEN{\rBase}
+Dialogue: 0,0:01:13.40,0:01:13.60,Base,,0,0,78,,THAT
+Dialogue: 1,0:01:13.40,0:01:13.60,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}THAT{\rBase}
+Dialogue: 0,0:01:13.60,0:01:14.00,Base,,0,0,78,,HAPPENS,
+Dialogue: 1,0:01:13.60,0:01:14.00,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}HAPPENS,{\rBase}
+Dialogue: 0,0:01:14.46,0:01:14.70,Base,,0,0,78,,YOU DO
+Dialogue: 1,0:01:14.46,0:01:14.58,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOU{\rBase} DO
+Dialogue: 1,0:01:14.58,0:01:14.70,Active,,0,0,78,,YOU {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}DO{\rBase}
+Dialogue: 0,0:01:14.70,0:01:14.88,Base,,0,0,78,,NOT
+Dialogue: 1,0:01:14.70,0:01:14.88,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}NOT{\rBase}
+Dialogue: 0,0:01:14.88,0:01:15.66,Base,,0,0,78,,ATTRACT DIFFERENTLY
+Dialogue: 1,0:01:14.88,0:01:15.28,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}ATTRACT{\rBase} DIFFERENTLY
+Dialogue: 1,0:01:15.28,0:01:15.66,Active,,0,0,78,,ATTRACT {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}DIFFERENTLY{\rBase}
+Dialogue: 0,0:01:15.66,0:01:15.92,Base,,0,0,78,,BY
+Dialogue: 1,0:01:15.66,0:01:15.92,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}BY{\rBase}
+Dialogue: 0,0:01:15.92,0:01:16.22,Base,,0,0,78,,MAGIC.
+Dialogue: 1,0:01:15.92,0:01:16.22,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}MAGIC.{\rBase}
+Dialogue: 0,0:01:16.76,0:01:17.10,Base,,0,0,78,,YOU CHOOSE
+Dialogue: 1,0:01:16.76,0:01:16.84,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOU{\rBase} CHOOSE
+Dialogue: 1,0:01:16.84,0:01:17.10,Active,,0,0,78,,YOU {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}CHOOSE{\rBase}
+Dialogue: 0,0:01:17.10,0:01:17.42,Base,,0,0,78,,DIFFERENTLY
+Dialogue: 1,0:01:17.10,0:01:17.42,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}DIFFERENTLY{\rBase}
+Dialogue: 0,0:01:17.42,0:01:18.10,Base,,0,0,78,,BY STANDARDS.
+Dialogue: 1,0:01:17.42,0:01:17.68,Active,,0,0,78,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}BY{\rBase} STANDARDS.
+Dialogue: 1,0:01:17.68,0:01:18.10,Active,,0,0,78,,BY {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}STANDARDS.{\rBase}

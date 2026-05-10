@@ -141,9 +141,11 @@ def build_ass(events: list[tuple[float, float, str]], word_ts: list[WordTs], max
     if preset == "ytshort":
         # Reference-matching style (your provided screenshots):
         # heavy caps, thick black stroke, subtle shadow, active word in neon green.
-        base_style = "Style: Base,Impact,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,8.0,2.2,2,58,58,84,1"
+        # Caption anchor locked near 75% from top for 1080x1920 layouts.
+        # ASS bottom-aligned Y uses MarginV from bottom, so 1920*(1-0.75)=480.
+        base_style = "Style: Base,Impact,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,8.0,2.2,2,58,58,480,1"
         # Keep Active style white; we color only the active word via overrides.
-        active_style = "Style: Active,Impact,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,8.0,2.2,2,58,58,84,1"
+        active_style = "Style: Active,Impact,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,8.0,2.2,2,58,58,480,1"
     elif preset == "ytshort_legacy":
         # Previous shorts preset (kept for backward-compat comparisons).
         base_style = "Style: Base,Comic Sans MS,68,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,7.0,0,2,54,54,78,1"
@@ -152,9 +154,9 @@ def build_ass(events: list[tuple[float, float, str]], word_ts: list[WordTs], max
         # Reference-matching style: heavy caps, thick black stroke, subtle shadow,
         # and active word in neon green.
         # ASS colors are &HAABBGGRR.
-        base_style = "Style: Base,Impact,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,8.0,2.2,2,58,58,84,1"
+        base_style = "Style: Base,Impact,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,8.0,2.2,2,58,58,480,1"
         # Slightly yellow-leaning neon green (closer to the reference).
-        active_style = "Style: Active,Impact,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,8.0,2.2,2,58,58,84,1"
+        active_style = "Style: Active,Impact,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,8.0,2.2,2,58,58,480,1"
     else:
         base_style = "Style: Base,Arial,42,&H00F4F4F4,&H00F4F4F4,&H00111111,&H50000000,-1,0,0,0,100,100,0,0,1,3,0,2,140,140,340,1"
         active_style = "Style: Active,Arial,42,&H00F4F4F4,&H00F4F4F4,&H00111111,&H00000000,-1,0,0,0,100,100,0,0,1,3,0,2,140,140,340,1"
@@ -199,7 +201,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
                 chunk_words = base_words[i:j]
                 chunk_start = per_word_times[i][0]
                 chunk_end = per_word_times[j - 1][1]
-                lines.append(f"Dialogue: 0,{to_ass_time(chunk_start)},{to_ass_time(chunk_end)},Base,,0,0,78,,{' '.join(chunk_words)}")
+                lines.append(f"Dialogue: 0,{to_ass_time(chunk_start)},{to_ass_time(chunk_end)},Base,,0,0,480,,{' '.join(chunk_words)}")
                 for k in range(i, j):
                     ws, we = per_word_times[k]
                     rendered = []
@@ -212,7 +214,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
                                 rendered.append(r"{\1c&H0000FFFF&\3c&H00000000&\bord6.6\b1}" + w + r"{\r}")
                         else:
                             rendered.append(w)
-                    lines.append(f"Dialogue: 1,{to_ass_time(ws)},{to_ass_time(we)},Active,,0,0,78,,{' '.join(rendered)}")
+                    lines.append(f"Dialogue: 1,{to_ass_time(ws)},{to_ass_time(we)},Active,,0,0,480,,{' '.join(rendered)}")
                 i = j
         else:
             base_text = " ".join(base_words[:split_at]) + r"\N" + " ".join(base_words[split_at:]) if split_at != -1 else " ".join(base_words)

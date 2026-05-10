@@ -1,0 +1,445 @@
+{
+  "base": "C:\\Users\\saura\\Documents\\youtubeVideoAgent\\coreywayne",
+  "files": [
+    {
+      "path": "Corey_Wayne_Mastering_Yourself,_How_To_Align_Your_Life_With_Your on Bookdio.org.pdf",
+      "bytes": 3771560,
+      "sha256": "25fcb462a9db89cca4528cf4aa465af526f033d29b0405484e5e3c54cdab35a1"
+    },
+    {
+      "path": "How to be a 3_ man _ winning the heart of the woman of your dreamS.pdf",
+      "bytes": 1508371,
+      "sha256": "f9414e1b105461a0910ccf5636bb528b9e7f5b2a75dead4c75098e94232f7c4f"
+    },
+    {
+      "path": "books\\Corey_Wayne_Mastering_Yourself,_How_To_Align_Your_Life_With_Your on Bookdio.org.txt",
+      "bytes": 1034437,
+      "sha256": "f36dcf7b847ead4a6ff51325869337e870e55d060f3207a7501f3a8635c02fa9"
+    },
+    {
+      "path": "books\\How to be a 3_ man _ winning the heart of the woman of your dreamS.txt",
+      "bytes": 403915,
+      "sha256": "839b42cb4006c771067669f0178114f365cd35f3f337315c66537fe774247fa8"
+    },
+    {
+      "path": "web\\robots.txt",
+      "bytes": 156,
+      "sha256": "25ef931d37185def5d74387bc5244ab4fdf306852f9f607b0af21eaf5090011e"
+    },
+    {
+      "path": "web\\sitemap_index.xml",
+      "bytes": 60185,
+      "sha256": "863ef2e5f335264515de32bd0050500d3a358772a1efa2095ec1e9504956a2cc"
+    },
+    {
+      "path": "web\\understandingrelationships_feed.xml",
+      "bytes": 97973,
+      "sha256": "c04d6add4ad7e779a3a86451d9d76477f28de9d930f4a935305206d60d1bed22"
+    },
+    {
+      "path": "web\\understandingrelationships_home.html",
+      "bytes": 237386,
+      "sha256": "023cd0d4dc5c52f9c10a4606a1754b6886b9bbca616111c3c95e9facccc895fd"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom.html",
+      "bytes": 237386,
+      "sha256": "76bfbf39bd9561de5ba98bf555b185d3188f930c88fea81cf2d7dc93bb14cbb3"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_am-i-done-did-i-blow-my-chances-with-her-should-i-walk-away_115988.html",
+      "bytes": 263177,
+      "sha256": "4b619935033f8b5bb9e8b2c7f0bda33cfb2a30d760d077d3f631b984453af381"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_ask-me-anything-live-stream-news-politics-spirituality-history-focused-22_109370.html",
+      "bytes": 191336,
+      "sha256": "49d6c800cdc502053f145c56a8229e8fb5665c0283f372d0a75f1f5e5ef1286c"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_ask-me-anything-live-stream-news-politics-spirituality-history-focused-23_109532.html",
+      "bytes": 191329,
+      "sha256": "3ffabe7d17937c9a186c7249a47d152413d44f685559372658228f347a7ac2ca"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_ask-me-anything-live-stream-news-politics-spirituality-history-focused-24_109759.html",
+      "bytes": 191286,
+      "sha256": "c0fa7d4fd4d5edfb3921ace2682c4fb04b05de2525fe6f563f6898b103ecabcf"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_ask-me-anything-live-stream-news-politics-spirituality-history-focused-25_109975.html",
+      "bytes": 191285,
+      "sha256": "adc7c061d3a8f0683a9c9f8a373e7b26f123b90d27683cc05e1a3bdc90aece37"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_ask-me-anything-live-stream-news-politics-spirituality-history-focused-26_110185.html",
+      "bytes": 191458,
+      "sha256": "61e0685646c76eca5132bd00e7b32eaef0e75524fe908931aaf3c8befa4714fe"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_ask-me-anything-live-stream-news-politics-spirituality-history-focused-27_110412.html",
+      "bytes": 191301,
+      "sha256": "e73871ba0926cc2cd4961affcadaafab1c50c92341a5af057413183996e7a6ff"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_author_corey.html",
+      "bytes": 213749,
+      "sha256": "2a223f8de5c30676e12d330868a47dc113c5fce3df19f1b07303bfefbd9346f3"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_category_attraction.html",
+      "bytes": 212043,
+      "sha256": "9dacc10f15696f9611e2f75268171e442fb305e83b7d9630225fb6bf9c91fb71"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_category_essential-fundamentals.html",
+      "bytes": 212288,
+      "sha256": "dafd3c7fea49b932fa3fecc556bb69a7708a2ea4499d66aa8c66350f3834b2f0"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_category_how-to-get-a-girlfriend.html",
+      "bytes": 212779,
+      "sha256": "f483900f1f5b331c7f3f40254d7cf1151e8580eeb1dc1c7adf361009ddb6db77"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_category_how-to-get-your-wife-girlfriend-back.html",
+      "bytes": 212848,
+      "sha256": "2a41af0c1daba03d4b8519cb645434668fc07430f2cdee64dd147b18ce79ed64"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_category_lifecoaching.html",
+      "bytes": 212091,
+      "sha256": "6cc2b137b1f8bb432a2146d58ae3e7f05ec6d083a546d93955e797904b4f5563"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_category_news.html",
+      "bytes": 225040,
+      "sha256": "8e7d37325865cdd1d57cd844a100ca22b816cad429d0d780ed71945aa42c9daa"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_category_optimum-health-2.html",
+      "bytes": 213488,
+      "sha256": "f8d94055ca4e76c0a7a1c1062748b943cd57ec427dd39fc288bafaf6d7361899"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_category_premium.html",
+      "bytes": 213134,
+      "sha256": "569052125240d80ddc69f0173299f569eddd13a6d0a307fa3cf548ec0b2d11e4"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_category_relationships.html",
+      "bytes": 212105,
+      "sha256": "fefe0de225343e3aae771e16b1f603707c894cc4937a1836b16410ef7925e7a7"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_category_video-coaching-newsletter.html",
+      "bytes": 212342,
+      "sha256": "bd7b54e3d85c74fa22496f3e95cf936ab616f926360a2719f604162e7a2e01af"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_comments_feed.html",
+      "bytes": 37688,
+      "sha256": "9764ed27266b06932238c5fd4cc0602283603d8055ced5ecaf24a81026e3589a"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_contact-me.html",
+      "bytes": 210050,
+      "sha256": "267a3f0f56bc693bba6b0a0047ef628fe9b08210257f3e21f018640dbe4bb549"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_dating-my-exs-sister-mission-impossible_101216.html",
+      "bytes": 262334,
+      "sha256": "9cd4f4b88b5f1fb871e77315a6e9dba0e1a7eb4ac27dbffaa899bd291f22cab4"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_feed.html",
+      "bytes": 97973,
+      "sha256": "c04d6add4ad7e779a3a86451d9d76477f28de9d930f4a935305206d60d1bed22"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_free-ebook.html",
+      "bytes": 233511,
+      "sha256": "9ce21711d2c7e9d0ff7f2fa1fbba7860afde489d6f2846058cfc605c754dca22"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_give-her-good-sex-fun-times-to-avoid-blue-balls_115978.html",
+      "bytes": 257591,
+      "sha256": "079c87854d3743eee188f4f21e6e3756a1fc7daebc9e0bc4a7cd31ad94b49c96"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_her-changing-the-plans-a-lot-is-a-sign-of-low-interest-respect_115966.html",
+      "bytes": 253851,
+      "sha256": "1e4e045d92e4439ab9f93b053d7cd191265b2df50722ea4f559b3331dfee4781"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_homepage-2_feed.html",
+      "bytes": 803,
+      "sha256": "774f6bff4b3346586896ef91b8bb4024cda23ae00027fab80b0bc38499107fcc"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_how-3-man-helped-to-rebuild-trust-save-our-marriage_115945.html",
+      "bytes": 190500,
+      "sha256": "0f1fd57743bdd570ad5df09eb27e7741912416b4b23737ca14b709c2cff02568"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_how-relationships-like-mike-vrabel-dianna-russini-start_115994.html",
+      "bytes": 263022,
+      "sha256": "f073003c1a90198bffc54ecdc3f49147b66b791b4c2d6eeba71711abeec19e18"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_how-to-avoid-losing-a-girl-you-like-to-another-guy_115968.html",
+      "bytes": 266755,
+      "sha256": "6b36af46593b47c23d09a02c95d910dea2f08cebd930accb6bf4fc45ddf212ea"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_how-to-casually-pickup-date-a-woman-so-it-becomes-a-relationship_115951.html",
+      "bytes": 251572,
+      "sha256": "e63e1e3d476cf4c41273ee47a490428067362fdcb842aad2bfacbfdeec16e069"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_how-to-ensure-she-hits-you-up-for-sex-once-shes-single_115971.html",
+      "bytes": 190106,
+      "sha256": "335b576233bca55727b36ca10bcc34f10472f9c98bc399fd25ecde0a98534b99"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_how-to-get-women-to-break-all-of-their-rules-for-you_115984.html",
+      "bytes": 248152,
+      "sha256": "21837f2e7d7c01239dd15aaf08be1e4387b374deec7267a01fbd0e7fbdd39a35"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_how-to-keep-dating-hooking-up-after-she-dumps-you_115627.html",
+      "bytes": 257326,
+      "sha256": "f354d56b227ebf71b21f70a5d4b9dda6d63f45a9aecfa8ee92a9d904e26ea617"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_how-to-know-if-dumping-her-was-the-right-move_115989.html",
+      "bytes": 188971,
+      "sha256": "71207b2897b55db3b0989c8b7dff184a55ef54e970970b4810a903fd8cf71fc6"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_how-to-know-if-she-has-too-many-red-flags-for-it-to-work_115995.html",
+      "bytes": 190244,
+      "sha256": "2886d25ef6eeecb73eadf0ebcbbdc7c18d5f4e99baa8ca53ff0dadc8f71ea4ba"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_how-to-make-dates-that-turn-women-on-instead-of-off_115970.html",
+      "bytes": 257527,
+      "sha256": "b4a43b822592be39486eea365429203a2315890f9c69314dbc395cfbc5d31979"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_how-to-re-attract-her-if-shes-distant-unsure-of-your-relationship_115985.html",
+      "bytes": 189585,
+      "sha256": "23823e3761557b53db18a7f064d287926641c83a20dbb48b4c0c3343b8fc9d79"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_how-to-recognize-when-your-ex-wants-you-back-so-you-can-seduce-her_115891.html",
+      "bytes": 190709,
+      "sha256": "a827320fdc988df19c6f3f1990a6951133f8e9aca276c3d44bd39ab17ef33ed3"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_how-to-recover-attraction-after-you-smothered-her-she-wants-space_115946.html",
+      "bytes": 265526,
+      "sha256": "54c169a5d9a82712e48bde42ce0431f381b2f09113ad63f6286b5c3bb832cda0"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_how-to-seduce-her-instead-of-talking-her-out-of-it_115979.html",
+      "bytes": 244616,
+      "sha256": "7b1436ec18b2441a1c970db819eb6bbed6467d9ae22f864439f9e87f970c3e01"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_how-to-use-indifference-mystery-to-get-her-hooked-on-you_115992.html",
+      "bytes": 260405,
+      "sha256": "4bf83092f59d83eca85086827ffa9c804ae5da2c6f8670c2dec5685e95d26d54"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_how-when-to-communicate-romantic-interest_115950.html",
+      "bytes": 247025,
+      "sha256": "205b44951a9e68974e2d5a8f5ba58163acf199aa28d8f15958510b9dc01062a6"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_i-got-ghosted-after-we-fooled-around-on-1st-date-was-i-too-robotic_115969.html",
+      "bytes": 190688,
+      "sha256": "b0492a9d1bc739dab478cc69fae9be74aa260acb50de239a9fa0ab36b2de3fad"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_i-joked-about-a-threesome-now-she-seems-to-want-one_115947.html",
+      "bytes": 189073,
+      "sha256": "76d45004f2097faec7a006001653849e7ce13815ecb35c12312cd70e2cd87b32"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_if-a-man-fails-to-lead-the-romance-she-will-lose-interest_115967.html",
+      "bytes": 189274,
+      "sha256": "2149c0ffedd077f21e848b65d4731202237bde0acb878fdb3f76cfe351f50c7e"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_if-we-dont-love-ourselves-we-wont-allow-others-to-love-us_99153.html",
+      "bytes": 279254,
+      "sha256": "cf310361dd325daddccd882ed850e1c2400beb87dcd5a9ad831b27d5ea2e5f67"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_if-you-act-like-a-bitch-youll-get-treated-like-a-bitch_115993.html",
+      "bytes": 190387,
+      "sha256": "55dd486e04f4d53de0ff463af1bf1849a39548ea22597ff728b5db498f2f9615"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_if-you-over-invest-in-her-shell-probably-take-it-for-granted_115943.html",
+      "bytes": 190378,
+      "sha256": "3096f1d3fdd999497e304033aa0358dda961acb9351bcdeec05f5e8ff87a4c54"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_im-fit-in-shape-but-my-girlfriend-is-fat-wont-take-care-of-herself_101280.html",
+      "bytes": 190185,
+      "sha256": "3ad69b4a132b593c7ca751bc829add61c3eb4c652a188fc89b07bef724ae4483"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_life-coaching-services.html",
+      "bytes": 223094,
+      "sha256": "c6007ad3c5779f1ef432d4fce368d14e2ce6be0d46ac9ba1c8e483f078386c3b"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_life-coaching-services_about-coach-corey-wayne.html",
+      "bytes": 224591,
+      "sha256": "b5299438d336a4affc107994caa677bb25fee9052fd398bc3e673ffbd2204209"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_life-coaching-services_phone-coaching.html",
+      "bytes": 220249,
+      "sha256": "b98c1a9b9faaaf340d6083ff38240e2e76a9ca8f5494ac642b208d218f6e3b0f"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_life-coaching-services_pickup-dating-relationship-phone-coaching.html",
+      "bytes": 226125,
+      "sha256": "d99c96740ee96807f22f07b4bd731b8c44f00a05ddad8174955bb9e1688a9541"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_login.html",
+      "bytes": 164472,
+      "sha256": "48b481dd7a44f4ab8f47d348c40ab7100d49fad2fbbf0bd7241c31c61a0e6d02"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_men-should-focus-on-making-sex-happen-women-on-relationships_115983.html",
+      "bytes": 190562,
+      "sha256": "e25c3fdb0fd83a075566d2bfee0acc61418e042f68e076f9c930409238160c70"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_my-ex-came-back-after-i-dumped-her-but-then-she-dumped-me_115986.html",
+      "bytes": 256317,
+      "sha256": "6ad65fe2516d52ce73bea79d66558b9570a50e6d6593ecb4a3374dff2cf5f2ba"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_my-ex-canceled-our-last-date-how-do-i-respond-when-she-reaches-out_115949.html",
+      "bytes": 191294,
+      "sha256": "813041b8e0dc576b6a5862e91ec00b35fcb18585417a6fead1930d99020db5bf"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_plans.html",
+      "bytes": 114679,
+      "sha256": "c796ba5105702615447326b3df7c54fb440ea0639c94cc2ce7fc6631aea17dba"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_privacy-policy.html",
+      "bytes": 176188,
+      "sha256": "ff954ad4fc205ea65a55bb2fa724f96c2b43342c7e04314927dcc44b0632533b"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_products.html",
+      "bytes": 210700,
+      "sha256": "221b48c2fbb94a112cae25c0559ead4e19cd6048717ff49ada80fb63b430d4d4"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_products_amazon.html",
+      "bytes": 218239,
+      "sha256": "4f827d4356bad4bb36fc7a6bf41ba1957d5cbc8431bb3c5ff6d380277915413d"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_products_phone-coaching.html",
+      "bytes": 213990,
+      "sha256": "4b53e956f5c5eb4168dc1fa2f032695a1cb5b3506d7f68f1d2604cb7568be440"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_she-used-to-be-all-over-me-now-shes-in-no-rush-to-see-me-why_115982.html",
+      "bytes": 257194,
+      "sha256": "1d737d1c82ef370eedea5eba219f16566c47f236b55450578529b380d036a02a"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_should-i-reduce-my-quality-of-life-to-save-invest-more-to-retire-early_112779.html",
+      "bytes": 189933,
+      "sha256": "e79dc6da3710e732fdf49fb182cb9e37fe9222d545fda19b511cf4c77594659d"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_terms.html",
+      "bytes": 183997,
+      "sha256": "38e982465228de2c68eb6f3ec25bb1332cfde2891250aa6557297663e829a6ed"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_viewer-questions-livestream-49_116382.html",
+      "bytes": 228068,
+      "sha256": "5c101810b4e2b379578966e15f039768a996bd828a76d924e7689ed4e3be322c"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_we-werent-allowed-to-post-this-video-about-the-vaccines-till-now_94409.html",
+      "bytes": 188814,
+      "sha256": "eeadfac8b1ba102ba1ea006d11be5765f7224ec4404ea52150fe6c477681decc"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_what-are-the-tingling-sensations-that-happen-during-consciousness-exercises_86525.html",
+      "bytes": 189148,
+      "sha256": "1198b980876bff29153e4208ba84053fd61456ed576550d147a4d3fe76e1638e"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_what-it-means-when-she-invites-attention-from-other-men_115990.html",
+      "bytes": 254446,
+      "sha256": "f2c4655b8361235120e53253d0a9f46abf311d880132cb98d33ee9a7bafdea19"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_why-people-who-have-every-reason-to-be-happy-are-often-miserable_99308.html",
+      "bytes": 285205,
+      "sha256": "ecbbe910cc64216218fd679c0bdbffdfb95c2f46d2b77e8a0d99e0c5d5c32924"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_why-she-reaches-out-but-wont-set-dates-with-you_115948.html",
+      "bytes": 250026,
+      "sha256": "3d1dd52c561efa89aab3333728c26fe2bbe2d9bdd58dc30373b0675bcfa059cd"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_why-she-says-youre-a-great-guy-but-dumps-you-anyway_115991.html",
+      "bytes": 188914,
+      "sha256": "2ecd5c9391e1eaf622bd5bd0e2413ff20414ff6df9fee404662de3c92c9c4288"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_why-you-must-control-your-urges-to-overreact-to-what-women-do_115944.html",
+      "bytes": 256350,
+      "sha256": "37e92474ada56aec48c2f40913959aee4ae85a75f71e15cbfe3ed5cec09d24b9"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_why-you-should-avoid-group-dates-until-youre-exclusive_115987.html",
+      "bytes": 189282,
+      "sha256": "07836c5b6e9a354343f40a37fe93bf709516fb513c7e273a432eae6581b7052b"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_wp-content_uploads_cropped-COR_Brand-Logo_Symbol-Outlined_01_150315-180x180png.html",
+      "bytes": 28007,
+      "sha256": "a4f0c0f4cef7b06e17ea52fb6444145b4140d25ec1dbe4eae7a2f5f59abfdeef"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_wp-content_uploads_cropped-COR_Brand-Logo_Symbol-Outlined_01_150315-192x192png.html",
+      "bytes": 15229,
+      "sha256": "f9750e23da4b86509f63e4b30d236972f03664d8e176c39b85e16c7e895ad2f3"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_wp-content_uploads_cropped-COR_Brand-Logo_Symbol-Outlined_01_150315-32x32png.html",
+      "bytes": 1637,
+      "sha256": "d3265b046493c35267d1fea87685e17be93ea084dd216a814ee91f864ede99a3"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_wp-json.html",
+      "bytes": 281246,
+      "sha256": "ee1fd7bcd2760ff74fc6d194fb9afba1ea47a97fc72ddece40b16268d247f92a"
+    },
+    {
+      "path": "web\\pages\\understandingrelationshipscom_wp-json_wp_v2_pages_17284.html",
+      "bytes": 6637,
+      "sha256": "01fd25fa06cf6dfe80ad4bb72b1d86fb4683d1756c74fd0259407b9df01b87a6"
+    }
+  ]
+}

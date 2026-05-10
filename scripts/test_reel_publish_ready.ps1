@@ -5,7 +5,8 @@ param(
   [int]$MinSeconds = 15,
   [int]$MaxSeconds = 65,
   [switch]$RequireAudio,
-  [switch]$RequireLogicLoomFileName
+  [switch]$RequireLogicLoomFileName,
+  [switch]$RequireBrandFileName
 )
 
 $ErrorActionPreference = "Stop"
@@ -34,10 +35,10 @@ if ($duration -lt $MinSeconds -or $duration -gt $MaxSeconds) {
   throw "Duration $([math]::Round($duration, 2))s is outside ${MinSeconds}-${MaxSeconds}s"
 }
 
-if ($RequireLogicLoomFileName) {
+if ($RequireLogicLoomFileName -or $RequireBrandFileName) {
   $name = [System.IO.Path]::GetFileNameWithoutExtension($resolved).ToLowerInvariant()
-  if ($name -notmatch "logicloom|logic-loom|logic_loom") {
-    throw "Final filename must include logicloom/logic-loom/logic_loom: $resolved"
+  if ($name -notmatch "logicloom|logic-loom|logic_loom|playbook|relationship-playbook|relationship_playbook") {
+    throw "Final filename must include logicloom or playbook branding token: $resolved"
   }
 }
 

@@ -1,0 +1,22 @@
+{
+  "endpoint": "POST https://api.elevenlabs.io/v1/text-to-speech/{voice_id}?output_format=mp3_44100_128",
+  "headers": {
+    "xi-api-key": "YOUR_ELEVENLABS_API_KEY",
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "text": "Your reel narration script goes here.",
+    "model_id": "eleven_multilingual_v2",
+    "voice_settings": {
+      "stability": 0.45,
+      "similarity_boost": 0.75,
+      "style": 0.35,
+      "use_speaker_boost": true
+    }
+  },
+  "notes": [
+    "Save returned bytes as .mp3 file in your reel workspace voice/ folder.",
+    "If pacing is too fast, split narration into two requests and stitch in editor.",
+    "Keep script and audio version numbers aligned (script_v2 with voice_v2)."
+  ]
+}

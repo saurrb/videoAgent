@@ -116,17 +116,35 @@ for intelligence.
 $scenePrompts = @"
 # Scene Prompt Pack (Fill and Use)
 
-For each scene:
+Project objective:
+- Create one clip per scene id (scene01, scene02, etc.).
+- 9:16 vertical, Video mode, 6s each, 720p for final.
+- Required scene count formula: ceil(voice_seconds / 6).
 
-- Scene ID:
-- Duration target:
-- Hook line:
-- Image prompt (hyper-detailed, cinematic, 9:16):
-- Animation prompt (camera motion + subject motion + lighting change):
-- Negative prompt:
-- Output file:
+STYLE ANCHORS (default):
+- Hand-drawn doodle/line-drawing animation on clean white background.
+- Black marker outlines, simple cartoon stick-figure people.
+- Colorful pastel accent shapes and dynamic popping text.
+- Icons: brain, heart, chat bubble (plus relevant simple doodle icons).
+- Playful psychology infographic motion with smooth 2D animation.
+- Energetic intro movement in the first 1-2 seconds.
+- Keep exact style continuity across all scenes.
+- Do not switch to photoreal, 3D render, or dark cinematic look.
+- No character lip-sync or dialogue animation.
+- Audio intent: side/background sound design only (voiceover handled separately).
 
-Recommended shape: 6 to 10 scenes for a 35 to 60 second reel.
+For each scene block, use:
+- Create sceneXX only.
+- Output: sceneXX.mp4.
+- Scene visual direction:
+- Motion direction:
+- On-screen text (if needed):
+- Continuity reminder: "Same style continuity."
+
+Recommended shape by voice duration:
+- ~1 minute voice: 9-10 scenes
+- ~2 minute voice: 19-20 scenes
+- ~4 minute voice: 39-40 scenes
 "@
 
 $checklist = @"

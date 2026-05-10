@@ -1,0 +1,3 @@
+﻿If you keep attracting emotionally unavailable people, it is not a curse. It is usually a pattern between nervous-system familiarity and low standards around consistency. Chaos can feel like chemistry when your body is used to unpredictability. But healthy love is clear, steady, and reciprocal. Stop grading people on potential. Start grading them on consistency, communication, and effort over time.
+
+#BreakupHealing #DatingAdvice #RelationshipAdvice #AttachmentStyle #SelfRespect #SelfWorth #EmotionalHealing #PersonalGrowth #MindsetShift #MensMentalHealth #Confidence #Boundaries #NoContact #HealthyLove #USA #AmericanAudience #USATrending

@@ -31,6 +31,25 @@ curl -X POST http://127.0.0.1:8787/speechma/run `
   }'
 ```
 
+## Generate from topic (Corey folder only)
+
+When `topic` is provided, the server first builds `script/script_v1.txt` strictly from:
+`C:\Users\saura\Documents\youtubeVideoAgent\coreywayne`
+
+```powershell
+curl -X POST http://127.0.0.1:8787/speechma/run `
+  -H "Content-Type: application/json" `
+  -d '{
+    "workspacePath": "C:\\Users\\saura\\Documents\\youtubeVideoAgent\\assets\\reels\\2026-05-08_logic-loom-dhedixy7b-q",
+    "topic": "how to keep up with breakups",
+    "sourceRoot": "C:\\Users\\saura\\Documents\\youtubeVideoAgent\\coreywayne",
+    "pageId": 8,
+    "pitch": 0,
+    "speed": 25,
+    "volume": 200
+  }'
+```
+
 ## What it automates
 
 1. Cleans script text for Speechma input:
@@ -43,6 +62,7 @@ curl -X POST http://127.0.0.1:8787/speechma/run `
 `analysis/speechma_proof_api/02_voice_effects.png`.
 5. Clicks `Generate Audio`, waits for the new row, downloads mp3, and saves:
 `voice/voice_v1.mp3`
+   - Download is moved into workspace (not copied), so no Speechma trace remains in `Downloads`.
 6. Returns output JSON with duration and file paths.
 
 ## Notes
@@ -51,3 +71,8 @@ curl -X POST http://127.0.0.1:8787/speechma/run `
 - If `pageId` is missing or stale, the server auto-resolves a valid Speechma tab.
 - If no Speechma tab exists, the server auto-opens `https://speechmapro.com`.
 - If `matchPhrase` is missing, the server uses the first non-empty line from cleaned speech input.
+- If `topic` is passed, script generation is local-source only and writes evidence to:
+`meta/corey_topic_evidence.json`
+- Before scene prompt generation, apply duration gate in workflow:
+  - short reels: `60s` to `120s`
+  - `N minute video` requests: target `N*60s`

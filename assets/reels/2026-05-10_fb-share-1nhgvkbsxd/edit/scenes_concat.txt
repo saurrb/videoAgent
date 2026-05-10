@@ -1,0 +1,6 @@
+file 'C:\Users\saura\Documents\youtubeVideoAgent\assets\reels\2026-05-10_fb-share-1nhgvkbsxd\scenes\scene01.mp4'
+file 'C:\Users\saura\Documents\youtubeVideoAgent\assets\reels\2026-05-10_fb-share-1nhgvkbsxd\scenes\scene02.mp4'
+file 'C:\Users\saura\Documents\youtubeVideoAgent\assets\reels\2026-05-10_fb-share-1nhgvkbsxd\scenes\scene03.mp4'
+file 'C:\Users\saura\Documents\youtubeVideoAgent\assets\reels\2026-05-10_fb-share-1nhgvkbsxd\scenes\scene04.mp4'
+file 'C:\Users\saura\Documents\youtubeVideoAgent\assets\reels\2026-05-10_fb-share-1nhgvkbsxd\scenes\scene05.mp4'
+file 'C:\Users\saura\Documents\youtubeVideoAgent\assets\reels\2026-05-10_fb-share-1nhgvkbsxd\scenes\scene06.mp4'

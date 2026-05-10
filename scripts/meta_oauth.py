@@ -14,6 +14,8 @@ GRAPH_VERSION = "v24.0"
 DEFAULT_SCOPES = [
     "pages_show_list",
     "pages_read_engagement",
+    "pages_manage_posts",
+    "pages_manage_metadata",
     "business_management",
     "instagram_basic",
     "instagram_content_publish",

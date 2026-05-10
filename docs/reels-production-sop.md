@@ -10,7 +10,7 @@ Use this as the default caption style for all new reels:
 - White base words
 - Active spoken word in yellow
 - Thick black outline
-- Bottom safe area placement
+- Fixed caption anchor at ~75% from top
 - Word-level timing sync (active word changes with speech)
 
 Reference output:
@@ -39,7 +39,7 @@ This creates:
 ## 2) Write Hook + Script
 
 - Hook: high-stakes, curiosity-driven first line that makes the viewer feel they need the answer.
-- Script target: 30-45 seconds for psychology/educational reels.
+- Script target: depends on requested duration (for example 1 min, 2 min, 4 min).
 - Default retention style:
   - short lines, usually 3-8 words
   - first 2 seconds create tension or danger
@@ -91,6 +91,14 @@ to question yourself.
 - If captcha appears, complete it manually, then continue automation flow.
 - For multiline scripts, avoid literal `\n`; prefer line-by-line input with `Enter` key presses.
 - Do not use local TTS as a substitute for Speechma PRO in the default pipeline. If Speechma PRO cannot generate or download the audio, stop as blocked.
+- Mandatory gate before stitch/final:
+  1. `voice/voice_v1.mp3` must come from Speechma PRO generation in the current workspace.
+  2. Keep the raw Speechma download in `voice/` (for traceability) and move/rename to `voice_v1.mp3`.
+  3. Save screenshot proof in workspace analysis (input + effects + generated row).
+  4. If these are missing, do not stitch scenes and do not continue to final render.
+  5. Duration gate before scene prompts:
+     - standard short workflow: voice must be `60s` to `120s`
+     - if user requested `N minute video`, voice must target `N * 60s` before scene prompting
 
 ## 4) Scene Plan
 
@@ -103,11 +111,22 @@ Break script into scene beats:
 
 Store in: `meta/scene_plan_v1.md`
 
+### 4.1) Prompt Handoff Format (Mandatory)
+
+When handing prompts to the user for Grok:
+
+- Provide one single fenced code block.
+- Include `GLOBAL STYLE` once, then all scenes in order with time ranges.
+- Make it directly copy-paste ready.
+- Avoid splitting prompt sets across multiple replies unless user asks.
+- Every scene must be fixed at `6s`.
+- Scene count must be: `ceil(voice_seconds / 6)`.
+
 ## 5) Generate Scene Videos (Meta AI/Grok via BrowserOS CLI)
 
 - Create one clip per beat.
 - Each scene must be an actual animated video clip, not a still image, screenshot crop, contact-sheet crop, or browser preview thumbnail.
-- Keep same character identity and visual style.
+- Keep style and character continuity as defined by the current reel reference and user instructions (do not force a global fixed art style).
 - BrowserOS CLI is default for navigation and clicks.
 - Take screenshots before important clicks and after each major browser state change. Do not keep clicking when the UI is unclear.
 - If a browser site starts failing, open a new tab, return to the last known working area on that site, and inspect the state with screenshots before restarting the task.
@@ -227,18 +246,23 @@ Output: `final/reel_v1.mp4`
 - Screenshot evidence captured across phases so manual re-instructions are minimized.
 - Iterative fixes were applied in each phase until quality matched target.
 - If any of these fail, do not upload. Report the blocker or regenerate the weak phase.
+- Scene2+ prompt handling used strict replace flow: `Ctrl+A -> Backspace -> Paste -> Generate`.
+- Each scene was downloaded and imported before next scene prompt (no queue-advance without MP4).
+- Final captions contain full narration content, not topic-only scene summaries.
+- Caption vertical placement matches run target (for requested `75% from top`, verify with screenshot).
+- Final branding style matches the Playbook reference (pure white bottom-right rectangle + The Relationship Playbook logo).
 
-## 8.1) Publish-Ready Logic Loom Final (Mandatory)
+## 8.1) Publish-Ready Branded Final (Mandatory)
 
-Before publishing, generate a branded final that replaces the bottom-right Grok watermark area with `@logicloom` and validates the MP4 locally:
+Before publishing, generate a branded final that replaces the bottom-right Grok watermark area with the fixed Playbook white-box + logo preset and validates the MP4 locally:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\finalize_logicloom_reel.ps1 `
   -InputVideo "C:\ABSOLUTE\PATH\final\reel_v1_captioned.mp4" `
-  -OutputVideo "C:\ABSOLUTE\PATH\final\reel_v2_logicloom.mp4"
+  -OutputVideo "C:\ABSOLUTE\PATH\final\reel_v2_playbook.mp4"
 ```
 
-Use the `_logicloom` output for Facebook/Instagram and YouTube uploads. Do not upload a Grok raw export or a captioned file that has not passed this preflight.
+Use the branded output (recommended `_playbook`) for Facebook/Instagram and YouTube uploads. Do not upload a Grok raw export or a captioned file that has not passed this preflight.
 
 What the preflight checks:
 
@@ -246,15 +270,15 @@ What the preflight checks:
 - audio stream exists
 - size is at least 1080x1920
 - duration is inside the expected short-form range
-- final filename includes `logicloom`, `logic-loom`, or `logic_loom`
+- final filename includes an approved branding token (`playbook`, `relationship-playbook`, `logicloom`, etc.)
 
 If you only need to re-check a final file:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\test_reel_publish_ready.ps1 `
-  -VideoPath "C:\ABSOLUTE\PATH\final\reel_v2_logicloom.mp4" `
+  -VideoPath "C:\ABSOLUTE\PATH\final\reel_v2_playbook.mp4" `
   -RequireAudio `
-  -RequireLogicLoomFileName
+  -RequireBrandFileName
 ```
 
 ## 8.2) Manual-Intervention Reduction Rules

@@ -114,6 +114,10 @@ Use this fallback publish path:
 
 - Upload as page video through `/{page_id}/videos` with `published=true`.
 - Capture and use returned `permalink_url`.
+- Treat this fallback as mandatory when `video_reels` ends in `publish_status=draft`.
+- Do not report success until Graph API returns a live permalink and the video status shows:
+  - `processing_phase.status=complete`
+  - `publishing_phase.publish_status=published`
 
 Reason: on some runs `video_reels` returns success while the reel is not surfaced immediately in page feeds.
 

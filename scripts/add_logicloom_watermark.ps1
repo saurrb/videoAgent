@@ -1,13 +1,14 @@
 param(
   [Parameter(Mandatory=$true)][string]$InputVideo,
   [string]$OutputVideo = "",
-  [string]$HandleText = "@logicloom",
-  [ValidateSet("bottom-right")][string]$Position = "bottom-right",
-  [int]$FontSize = 38,
-  [int]$BoxX = 790,
-  [int]$BoxY = 1800,
-  [int]$BoxW = 290,
-  [int]$BoxH = 120,
+  [string]$LogoPath = "",
+  [double]$BoxXRatio = 0.7692307692,
+  [double]$BoxYRatio = 0.8896276596,
+  [double]$BoxWRatio = 0.2283653846,
+  [double]$BoxHRatio = 0.1103723404,
+  [double]$LogoXRatio = 0.8413461538,
+  [double]$LogoYRatio = 0.8962765957,
+  [double]$LogoWRatio = 0.1766826923,
   [switch]$SkipValidation
 )
 
@@ -23,20 +24,39 @@ if (-not (Test-Path $InputVideo)) { throw "Input video not found: $InputVideo" }
 
 if ([string]::IsNullOrWhiteSpace($OutputVideo)) {
   $in = Get-Item $InputVideo
-  $OutputVideo = Join-Path $in.Directory.FullName ($in.BaseName + "_logicloom.mp4")
+  $OutputVideo = Join-Path $in.Directory.FullName ($in.BaseName + "_playbook.mp4")
 }
 
-# Current default coords cover the typical Grok bottom-right watermark region on 1080x1920 reels.
-$drawBox = "drawbox=x=${BoxX}:y=${BoxY}:w=${BoxW}:h=${BoxH}:color=black@1.0:t=fill"
-$drawText = "drawtext=font='Nunito Sans':text='${HandleText}':x=820:y=1840:fontsize=${FontSize}:fontcolor=white:borderw=4:bordercolor=black@1.0"
+if ([string]::IsNullOrWhiteSpace($LogoPath)) {
+  $LogoPath = Join-Path $repoRoot "assets\branding\playbook_logo_nobg.png"
+}
+if (-not (Test-Path $LogoPath)) { throw "Logo not found: $LogoPath" }
 
-$vf = "$drawBox,$drawText"
+$resolvedInput = (Resolve-Path $InputVideo).Path
+$probeJson = & $ffprobe -v error -print_format json -show_streams $resolvedInput
+if ($LASTEXITCODE -ne 0) { throw "ffprobe failed for $resolvedInput" }
+$probe = $probeJson | ConvertFrom-Json
+$videoStream = $probe.streams | Where-Object { $_.codec_type -eq "video" } | Select-Object -First 1
+if (-not $videoStream) { throw "No video stream found: $resolvedInput" }
+$w = [int]$videoStream.width
+$h = [int]$videoStream.height
 
-& $ffmpeg -y -i $InputVideo -vf $vf -c:v libx264 -preset veryfast -crf 18 -c:a copy -movflags +faststart $OutputVideo | Out-Host
+$boxX = [int][Math]::Round($w * $BoxXRatio)
+$boxY = [int][Math]::Round($h * $BoxYRatio)
+$boxW = [int][Math]::Round($w * $BoxWRatio)
+$boxH = [int][Math]::Round($h * $BoxHRatio)
+$logoX = [int][Math]::Round($w * $LogoXRatio)
+$logoY = [int][Math]::Round($h * $LogoYRatio)
+$logoW = [int][Math]::Round($w * $LogoWRatio)
+
+$drawBox = "drawbox=x=${boxX}:y=${boxY}:w=${boxW}:h=${boxH}:color=white@1.0:t=fill"
+$filterComplex = "[0:v]${drawBox}[base];[1:v]scale=${logoW}:-1[logo];[base][logo]overlay=x=${logoX}:y=${logoY}:format=auto[v]"
+
+& $ffmpeg -y -i $InputVideo -i $LogoPath -filter_complex $filterComplex -map "[v]" -map 0:a? -c:v libx264 -preset veryfast -crf 18 -pix_fmt yuv420p -c:a copy -movflags +faststart $OutputVideo | Out-Host
 
 if (-not $SkipValidation) {
   $validate = Join-Path $PSScriptRoot "test_reel_publish_ready.ps1"
-  & powershell -ExecutionPolicy Bypass -File $validate -VideoPath $OutputVideo -RequireLogicLoomFileName
+  & powershell -ExecutionPolicy Bypass -File $validate -VideoPath $OutputVideo -RequireBrandFileName
   if ($LASTEXITCODE -ne 0) { throw "Publish-ready validation failed: $OutputVideo" }
 }
 

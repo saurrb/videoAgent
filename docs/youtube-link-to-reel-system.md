@@ -1,6 +1,6 @@
 # YouTube Link -> Reel System (Production Playbook)
 
-Last updated: 2026-05-07
+Last updated: 2026-05-10
 
 This document captures what we learned end-to-end: bottlenecks we hit, what fixed them, and the repeatable workflow for creating a reel/short from a YouTube reference with minimal user input.
 
@@ -18,7 +18,7 @@ Defaults:
 - Target duration: 40 seconds
 - Voice: Speechma PRO `Brian`
 - Voice effects: `Pitch=0`, `Speed=25`, `Volume=200`
-- Style baseline: cinematic, high-detail, caption-first reel format
+- Visual style: follow source reference and current user instruction (no fixed default art style)
 
 Fallback mode (if user wants manual control), you may provide:
 
@@ -33,6 +33,12 @@ Everything else follows this playbook.
 Use this exact prompt:
 
 `Create a reel from this YouTube link using our default pipeline: <PASTE_LINK>`
+
+Operator mode commands also supported:
+
+- `start from readme`
+- `start from readme N minute video` (example: `start from readme 4 minute video`)
+- `done` after Grok scenes are generated into `C:\Users\saura\Downloads\grok-folder-1`
 
 Execution mode is implicit in this prompt:
 
@@ -98,6 +104,11 @@ Inside each reel workspace:
    - Default provider: `https://speechmapro.com/`
    - Default voice: `Brian`
    - Voice effects baseline: `Pitch=0`, `Speed=25`, `Volume=200`
+   - Hard gate: do not stitch, caption, or finalize unless current-workspace Speechma audio exists and is set as `voice/voice_v1.mp3`.
+   - Duration gate before scene prompt generation:
+     - short reels: `60s` to `120s`
+     - `N minute video` requests: target `N*60s` (example 4 minute -> ~240s)
+   - Keep proof screenshots for Speechma input/effects/generated row in workspace evidence.
 4. Build scene prompts in pairs per scene:
    - image prompt (identity, wardrobe, lighting, lens, mood, 9:16)
    - animation prompt (camera move, subject motion, intensity, transition intent)
@@ -115,8 +126,11 @@ Inside each reel workspace:
    - confirm output folder naming before generation
    - for Grok specifically, enter through `Imagine` -> `Agent (Beta)` -> `Empty Canvas` before prompting
 7. Generate scenes one-by-one, keep best take, and immediately save to local workspace with scene index.
+   - Each scene duration is fixed to `6s`.
+   - Scene count must be `ceil(voice_seconds / 6)` (example 4 minute voice -> ~39-40 scenes).
    - Helper import command after each Grok download click:
      `powershell -ExecutionPolicy Bypass -File .\scripts\import_grok_scene_download.ps1 -Workspace "C:\ABSOLUTE\PATH\assets\reels\YYYY-MM-DD_name"`
+   - Move assets from Downloads to workspace; do not leave Grok/Speechma traces in `Downloads`.
    - Timer discipline for Grok runs:
      - images: soft check `45s`, hard timeout `120s`
      - videos: soft check `90s`, hard timeout `240s`
@@ -132,6 +146,10 @@ Inside each reel workspace:
    - Save final caption/hashtag variants to `meta/platform_caption_hashtags.md` before upload.
 11. Run `finalize_logicloom_reel.ps1` to add `@logicloom` and validate the MP4 before upload.
 12. Run screenshot QA at multiple timestamps and iterate only weak scenes/caption blocks.
+13. Publish verification rule for Facebook:
+   - after `video_reels` publish, query status;
+   - if `publish_status` is `draft` or reel is not visible, auto-run fallback `/{page_id}/videos` with `published=true`;
+   - only close publishing step after confirmed live Facebook permalink.
 
 ## 5.1) Hard Failure Rules From 2026-05-07 Incident
 
@@ -140,6 +158,7 @@ These are mandatory quality gates, not preferences:
 1. Do not build a reel from browser screenshots, cropped screenshots, contact sheets, preview thumbnails, or still images when the workflow requires animated scene clips.
 2. Do not replace Grok/Meta generated video clips with a still-image slideshow or fake motion unless the user explicitly asks for that fallback.
 3. Do not use local Windows TTS, browser TTS, placeholder audio, or any non-Speechma voice when the default pipeline requires Speechma PRO. If Speechma PRO is blocked by login, captcha, popup, quota, or download failure, stop and report the blocker.
+3.1 Do not proceed with scene stitching if `voice_v1.mp3` was not produced from Speechma PRO in the same workspace run.
 4. Do not upload anything unless every scene clip is an actual downloaded/generated video asset saved in the reel workspace, not merely visible in the browser.
 5. Do not upload if Grok/Meta produces playable clips but the MP4 files cannot be downloaded. That is a blocker, not permission to use screenshots.
 6. Do not upload if captions were not produced through the approved caption scripts/settings and verified in sampled frames.
@@ -225,6 +244,18 @@ Primary refs:
    - Fix: screenshot every major browser decision point and store the evidence in `analysis/` or `screenshots/`.
 13. Generation wait time became inconsistent and wasteful.
    - Fix: enforce soft/hard timers per generation type and use batched multi-scene prompts after style lock.
+14. Prompt replacement drift caused wrong/random scenes.
+   - Fix: for every scene after the first, enforce `Ctrl+A -> Backspace -> Paste full next prompt -> Generate`.
+15. Scene progression advanced before download completion.
+   - Fix: block next prompt until current scene MP4 is confirmed downloaded/imported into workspace.
+16. Final audio and scene timeline drifted.
+   - Fix: lock voice to exact target duration (for 1-minute reels: exact `60.000s`) before final caption burn.
+17. Only topic captions appeared instead of full spoken captions.
+   - Fix: use full-narration SRT for final build; never ship scene-topic summary captions.
+18. Caption vertical placement mismatch.
+   - Fix: when requested, set caption vertical target explicitly (example: ~75% from top) and verify by screenshot.
+19. Branding style mismatch across finals.
+   - Fix: enforce reference style match against `final/reel_v2_logicloom.mp4` before publish.
 
 ## 8) Iterative QA Loop (Non-Negotiable)
 

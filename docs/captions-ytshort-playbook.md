@@ -76,13 +76,17 @@ Take frame samples across the timeline and verify:
 
 ## Step 4: Branding Watermark (Publish-Ready)
 
-If the generated scenes contain a bottom-right Grok watermark/safe-area, create a publish-ready branded final:
+If the generated scenes contain a bottom-right Grok watermark/safe-area, create a publish-ready branded final with the fixed Playbook white-box + logo preset:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\add_logicloom_watermark.ps1 `
   -InputVideo "C:\ABS\reel\final\reel_captioned.mp4" `
-  -OutputVideo "C:\ABS\reel\final\reel_captioned_logicloom.mp4"
+  -OutputVideo "C:\ABS\reel\final\reel_captioned_playbook.mp4"
 ```
+
+Default branding asset path used by script:
+
+- `assets/branding/playbook_logo_nobg.png`
 
 ## Known Good Reference
 

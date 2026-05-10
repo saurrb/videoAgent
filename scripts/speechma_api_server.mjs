@@ -161,6 +161,10 @@ async function speechmaRun(payload) {
   }
 
   const scriptPath = payload.scriptPath || path.join(workspace, "script", "script_v1.txt");
+  const sourceRoot =
+    payload.sourceRoot || path.join(REPO_ROOT, "coreywayne");
+  const evidencePath =
+    payload.evidencePath || path.join(workspace, "meta", "corey_topic_evidence.json");
   const outInputPath = payload.inputPath || path.join(workspace, "voice", "speechma_input_v1.txt");
   const proofDir = payload.proofDir || path.join(workspace, "analysis", "speechma_proof_api");
   const outVoicePath = payload.outputVoicePath || path.join(workspace, "voice", "voice_v1.mp3");
@@ -169,6 +173,20 @@ async function speechmaRun(payload) {
   const speed = Number(payload.speed ?? 25);
   const volume = Number(payload.volume ?? 200);
   const pageId = await ensureSpeechmaPageId(payload.pageId);
+
+  if (payload.topic) {
+    await run("python", [
+      path.join(REPO_ROOT, "scripts", "generate_corey_topic_script.py"),
+      "--topic",
+      String(payload.topic),
+      "--source-root",
+      sourceRoot,
+      "--out-script",
+      scriptPath,
+      "--out-evidence",
+      evidencePath,
+    ]);
+  }
 
   await run("powershell", [
     "-ExecutionPolicy",
@@ -259,7 +277,7 @@ async function speechmaRun(payload) {
   }
 
   fs.mkdirSync(path.dirname(outVoicePath), { recursive: true });
-  fs.copyFileSync(latest.full, outVoicePath);
+  fs.renameSync(latest.full, outVoicePath);
   const duration = await ffprobeDuration(outVoicePath);
 
   return {
@@ -273,6 +291,9 @@ async function speechmaRun(payload) {
     durationSeconds: duration,
     settings: { pitch, speed, volume },
     matchPhraseUsed: phrase,
+    topic: payload.topic || null,
+    sourceRoot: payload.topic ? sourceRoot : null,
+    evidencePath: payload.topic ? evidencePath : null,
   };
 }
 

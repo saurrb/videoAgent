@@ -1,0 +1,17 @@
+Done. I restored your custom working variant (not plain GitHub) for Speechma:
+
+prepare_speechma_input.ps1
+
+UTF-8 without BOM (fixes Ã¯Â»Â¿ issue)
+speechma_apply_defaults.ps1
+
+supports VoiceLabel
+applies voice selection
+applies pitch/speed/volume after voice selection (pitch sticks)
+speechma_api_server.mjs
+
+passes voiceLabel through API to defaults script
+returns voiceLabel in settings
+I restarted API and confirmed it is up:
+
+http://127.0.0.1:8787/health => ok: true

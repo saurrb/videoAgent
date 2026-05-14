@@ -1,0 +1,8 @@
+was missing.
+
+Iâ€™ve added it back successfully, and it is now in the file between Step 3 and Step 4:
+
+Updated file:
+
+reel_pipeline_powershell.ipynb
+If your tab still doesnâ€™t show it, refresh/reopen the notebook once to load latest file content.

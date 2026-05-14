@@ -48,7 +48,9 @@ foreach ($l in $outLines) {
 $final = ($collapsed -join "`r`n").Trim()
 
 New-Item -ItemType Directory -Force -Path (Split-Path $OutPath -Parent) | Out-Null
-Set-Content -Path $OutPath -Value $final -Encoding UTF8
+# Write UTF-8 without BOM so Speechma doesn't receive leading "ï»¿".
+$utf8NoBom = New-Object System.Text.UTF8Encoding($false)
+[System.IO.File]::WriteAllText($OutPath, $final, $utf8NoBom)
 
 Write-Host "Wrote Speechma input:" $OutPath
 Write-Host "Chars:" $final.Length

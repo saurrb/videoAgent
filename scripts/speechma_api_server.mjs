@@ -172,6 +172,7 @@ async function speechmaRun(payload) {
   const pitch = Number(payload.pitch ?? 0);
   const speed = Number(payload.speed ?? 25);
   const volume = Number(payload.volume ?? 200);
+  const voiceLabel = String(payload.voiceLabel ?? "").trim();
   const pageId = await ensureSpeechmaPageId(payload.pageId);
 
   if (payload.topic) {
@@ -212,6 +213,8 @@ async function speechmaRun(payload) {
     String(speed),
     "-Volume",
     String(volume),
+    "-VoiceLabel",
+    voiceLabel,
   ]);
 
   const cleanText = fs.readFileSync(outInputPath, "utf8");
@@ -289,7 +292,7 @@ async function speechmaRun(payload) {
     proofDir,
     downloadedFile: latest.full,
     durationSeconds: duration,
-    settings: { pitch, speed, volume },
+    settings: { pitch, speed, volume, voiceLabel },
     matchPhraseUsed: phrase,
     topic: payload.topic || null,
     sourceRoot: payload.topic ? sourceRoot : null,

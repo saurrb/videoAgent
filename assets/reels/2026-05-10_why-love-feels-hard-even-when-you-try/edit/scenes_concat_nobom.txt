@@ -1,8 +1,0 @@
-file 'C:\Users\saura\Documents\youtubeVideoAgent\assets\reels\2026-05-10_why-love-feels-hard-even-when-you-try\scenes\scene01.mp4'
-file 'C:\Users\saura\Documents\youtubeVideoAgent\assets\reels\2026-05-10_why-love-feels-hard-even-when-you-try\scenes\scene02.mp4'
-file 'C:\Users\saura\Documents\youtubeVideoAgent\assets\reels\2026-05-10_why-love-feels-hard-even-when-you-try\scenes\scene03.mp4'
-file 'C:\Users\saura\Documents\youtubeVideoAgent\assets\reels\2026-05-10_why-love-feels-hard-even-when-you-try\scenes\scene04.mp4'
-file 'C:\Users\saura\Documents\youtubeVideoAgent\assets\reels\2026-05-10_why-love-feels-hard-even-when-you-try\scenes\scene05.mp4'
-file 'C:\Users\saura\Documents\youtubeVideoAgent\assets\reels\2026-05-10_why-love-feels-hard-even-when-you-try\scenes\scene06.mp4'
-file 'C:\Users\saura\Documents\youtubeVideoAgent\assets\reels\2026-05-10_why-love-feels-hard-even-when-you-try\scenes\scene07.mp4'
-file 'C:\Users\saura\Documents\youtubeVideoAgent\assets\reels\2026-05-10_why-love-feels-hard-even-when-you-try\scenes\scene08.mp4'

@@ -100,8 +100,9 @@ async function clickGenerate(pageId) {
 
 async function clickDownloadByPhrase(pageId, phrase) {
   const js = `(() => {
-    const phrase = \`${phrase.replace(/`/g, "")}\`;
-    const els = [...document.querySelectorAll(\`.audio-text\`)].filter(e => (e.textContent || \`\`).includes(phrase));
+    const normalize = (s) => (s || "").toLowerCase().replace(/\\s+/g, " ").trim();
+    const phrase = normalize(\`${phrase.replace(/`/g, "")}\`);
+    const els = [...document.querySelectorAll(\`.audio-text\`)].filter(e => normalize(e.textContent || \`\`).includes(phrase));
     if (!els.length) return { ok:false, reason:\`no_match\` };
     const target = els[0];
     let el = target;
@@ -172,7 +173,6 @@ async function speechmaRun(payload) {
   const pitch = Number(payload.pitch ?? 0);
   const speed = Number(payload.speed ?? 25);
   const volume = Number(payload.volume ?? 200);
-  const voiceLabel = String(payload.voiceLabel ?? "").trim();
   const pageId = await ensureSpeechmaPageId(payload.pageId);
 
   if (payload.topic) {
@@ -213,8 +213,6 @@ async function speechmaRun(payload) {
     String(speed),
     "-Volume",
     String(volume),
-    "-VoiceLabel",
-    voiceLabel,
   ]);
 
   const cleanText = fs.readFileSync(outInputPath, "utf8");
@@ -222,7 +220,8 @@ async function speechmaRun(payload) {
     .split(/\r?\n/)
     .map((s) => s.trim())
     .find((s) => s.length > 0);
-  const phrase = phraseFromPayload || firstLine || "The smartest person you know";
+  const phraseRaw = phraseFromPayload || firstLine || "The smartest person you know";
+  const phrase = phraseRaw.replace(/\s+/g, " ").trim().slice(0, 80);
   const setRes = await setSpeechmaText(pageId, cleanText);
   if (!setRes.ok) {
     throw new Error("Failed to set Speechma text input.");
@@ -292,7 +291,7 @@ async function speechmaRun(payload) {
     proofDir,
     downloadedFile: latest.full,
     durationSeconds: duration,
-    settings: { pitch, speed, volume, voiceLabel },
+    settings: { pitch, speed, volume },
     matchPhraseUsed: phrase,
     topic: payload.topic || null,
     sourceRoot: payload.topic ? sourceRoot : null,

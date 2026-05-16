@@ -2,11 +2,7 @@ param(
   [Parameter(Mandatory=$true)][string]$InputVideo,
   [string]$OutputVideo = "",
   [string]$LogoPath = "",
-  [double]$BoxXRatio = 0.7692307692,
-  [double]$BoxYRatio = 0.8896276596,
-  [double]$BoxWRatio = 0.2283653846,
-  [double]$BoxHRatio = 0.1103723404,
-  [double]$LogoXRatio = 0.8413461538,
+  [double]$LogoXRatio = 0.8213461538,
   [double]$LogoYRatio = 0.8962765957,
   [double]$LogoWRatio = 0.1766826923,
   [switch]$SkipValidation
@@ -28,7 +24,7 @@ if ([string]::IsNullOrWhiteSpace($OutputVideo)) {
 }
 
 if ([string]::IsNullOrWhiteSpace($LogoPath)) {
-  $LogoPath = Join-Path $repoRoot "assets\branding\playbook_logo_nobg.png"
+  $LogoPath = Join-Path $repoRoot "assets\branding\logo_rounded_more.png"
 }
 if (-not (Test-Path $LogoPath)) { throw "Logo not found: $LogoPath" }
 
@@ -41,16 +37,11 @@ if (-not $videoStream) { throw "No video stream found: $resolvedInput" }
 $w = [int]$videoStream.width
 $h = [int]$videoStream.height
 
-$boxX = [int][Math]::Round($w * $BoxXRatio)
-$boxY = [int][Math]::Round($h * $BoxYRatio)
-$boxW = [int][Math]::Round($w * $BoxWRatio)
-$boxH = [int][Math]::Round($h * $BoxHRatio)
 $logoX = [int][Math]::Round($w * $LogoXRatio)
 $logoY = [int][Math]::Round($h * $LogoYRatio)
 $logoW = [int][Math]::Round($w * $LogoWRatio)
 
-$drawBox = "drawbox=x=${boxX}:y=${boxY}:w=${boxW}:h=${boxH}:color=white@1.0:t=fill"
-$filterComplex = "[0:v]${drawBox}[base];[1:v]scale=${logoW}:-1[logo];[base][logo]overlay=x=${logoX}:y=${logoY}:format=auto[v]"
+$filterComplex = "[1:v]scale=${logoW}:-1[logo];[0:v][logo]overlay=x=${logoX}:y=${logoY}:format=auto[v]"
 
 & $ffmpeg -y -i $InputVideo -i $LogoPath -filter_complex $filterComplex -map "[v]" -map 0:a? -c:v libx264 -preset veryfast -crf 18 -pix_fmt yuv420p -c:a copy -movflags +faststart $OutputVideo | Out-Host
 

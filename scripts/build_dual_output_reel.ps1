@@ -105,6 +105,26 @@ if ($LASTEXITCODE -ne 0) { throw "Branding (voice-only) failed with exit code $L
 & powershell @wmArgs2 | Out-Host
 if ($LASTEXITCODE -ne 0) { throw "Branding (voice+music) failed with exit code $LASTEXITCODE" }
 
+# Normalize final deliverables to exact 9:16 (1080x1920) for Instagram acceptance.
+$brandedNorm = Join-Path $finalDir "_tmp_final_captioned_branded_9x16.mp4"
+$brandedMusicNorm = Join-Path $finalDir "_tmp_final_captioned_branded_with_music_9x16.mp4"
+Invoke-External -FilePath $ffmpeg -ArgumentList @(
+  "-y", "-i", $branded,
+  "-vf", "scale=1080:1920:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:(oh-ih)/2",
+  "-c:v", "libx264", "-crf", "18", "-preset", "veryfast",
+  "-c:a", "copy",
+  $brandedNorm
+) -StepName "Normalize branded output to 9:16"
+Invoke-External -FilePath $ffmpeg -ArgumentList @(
+  "-y", "-i", $brandedWithMusic,
+  "-vf", "scale=1080:1920:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:(oh-ih)/2",
+  "-c:v", "libx264", "-crf", "18", "-preset", "veryfast",
+  "-c:a", "copy",
+  $brandedMusicNorm
+) -StepName "Normalize branded+music output to 9:16"
+Move-Item -LiteralPath $brandedNorm -Destination $branded -Force
+Move-Item -LiteralPath $brandedMusicNorm -Destination $brandedWithMusic -Force
+
 Write-Host ""
 Write-Host "====================================="
 Write-Host "FINAL VIDEOS CREATED"

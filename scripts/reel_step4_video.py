@@ -29,6 +29,7 @@ def build_paths(project_root: Path, reel_root: Path, source: Path) -> dict[str, 
         "stitched": final_dir / "scenes_stitched.mp4",
         "audio": voice_dir / "voice_v1.mp3",
         "voiced": final_dir / "scenes_stitched_voiced.mp4",
+        "voiced_with_music": final_dir / "scenes_stitched_voiced_with_music.mp4",
         "source": source,
     }
 
@@ -69,6 +70,7 @@ def run_mux(paths: dict[str, Path]) -> None:
         raise FileNotFoundError(f"Missing voice file: {paths['audio']}")
     cmd = [
         str(paths["ffmpeg"]),
+        "-y",
         "-i",
         str(paths["stitched"]),
         "-i",
@@ -86,6 +88,30 @@ def run_mux(paths: dict[str, Path]) -> None:
     ]
     subprocess.run(cmd, check=True)
     print(f"Voiced video: {paths['voiced']}")
+
+    # Second variant keeps source clip music/sound under the narration.
+    cmd_with_music = [
+        str(paths["ffmpeg"]),
+        "-y",
+        "-i",
+        str(paths["stitched"]),
+        "-i",
+        str(paths["audio"]),
+        "-filter_complex",
+        "[0:a]volume=0.35[bg];[1:a]volume=1.0[voice];[bg][voice]amix=inputs=2:duration=first:dropout_transition=2[aout]",
+        "-map",
+        "0:v:0",
+        "-map",
+        "[aout]",
+        "-c:v",
+        "copy",
+        "-c:a",
+        "aac",
+        "-shortest",
+        str(paths["voiced_with_music"]),
+    ]
+    subprocess.run(cmd_with_music, check=True)
+    print(f"Voiced + music video: {paths['voiced_with_music']}")
 
 
 def main() -> None:
@@ -107,4 +133,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

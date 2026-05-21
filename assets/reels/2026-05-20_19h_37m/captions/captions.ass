@@ -1,0 +1,144 @@
+[Script Info]
+Title: Reel Word-Timed Captions
+ScriptType: v4.00+
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Base,Impact,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,8.0,2.2,2,58,58,480,1
+Style: Active,Impact,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,8.0,2.2,2,58,58,480,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+
+Dialogue: 0,0:00:00.00,0:00:00.90,Base,,0,0,480,,MOST PEOPLE NOTICE
+Dialogue: 1,0:00:00.00,0:00:00.28,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}MOST{\rBase} PEOPLE NOTICE
+Dialogue: 1,0:00:00.28,0:00:00.56,Active,,0,0,480,,MOST {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}PEOPLE{\rBase} NOTICE
+Dialogue: 1,0:00:00.56,0:00:00.90,Active,,0,0,480,,MOST PEOPLE {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}NOTICE{\rBase}
+Dialogue: 0,0:00:00.90,0:00:01.72,Base,,0,0,480,,THIS TOO LATE.
+Dialogue: 1,0:00:00.90,0:00:01.20,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}THIS{\rBase} TOO LATE.
+Dialogue: 1,0:00:01.20,0:00:01.44,Active,,0,0,480,,THIS {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}TOO{\rBase} LATE.
+Dialogue: 1,0:00:01.44,0:00:01.72,Active,,0,0,480,,THIS TOO {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}LATE.{\rBase}
+Dialogue: 0,0:00:02.12,0:00:03.06,Base,,0,0,480,,THE TEXTING CHANGES
+Dialogue: 1,0:00:02.12,0:00:02.26,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}THE{\rBase} TEXTING CHANGES
+Dialogue: 1,0:00:02.26,0:00:02.56,Active,,0,0,480,,THE {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}TEXTING{\rBase} CHANGES
+Dialogue: 1,0:00:02.56,0:00:03.06,Active,,0,0,480,,THE TEXTING {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}CHANGES{\rBase}
+Dialogue: 0,0:00:03.06,0:00:03.48,Base,,0,0,480,,FIRST.
+Dialogue: 1,0:00:03.06,0:00:03.48,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}FIRST.{\rBase}
+Dialogue: 0,0:00:04.26,0:00:04.68,Base,,0,0,480,,SHORT REPLIES.
+Dialogue: 1,0:00:04.26,0:00:04.32,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}SHORT{\rBase} REPLIES.
+Dialogue: 1,0:00:04.32,0:00:04.68,Active,,0,0,480,,SHORT {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}REPLIES.{\rBase}
+Dialogue: 0,0:00:05.36,0:00:05.90,Base,,0,0,480,,LATE REPLIES.
+Dialogue: 1,0:00:05.36,0:00:05.42,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}LATE{\rBase} REPLIES.
+Dialogue: 1,0:00:05.42,0:00:05.90,Active,,0,0,480,,LATE {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}REPLIES.{\rBase}
+Dialogue: 0,0:00:06.64,0:00:07.06,Base,,0,0,480,,DRY ENERGY.
+Dialogue: 1,0:00:06.64,0:00:06.70,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}DRY{\rBase} ENERGY.
+Dialogue: 1,0:00:06.70,0:00:07.06,Active,,0,0,480,,DRY {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}ENERGY.{\rBase}
+Dialogue: 0,0:00:07.54,0:00:08.22,Base,,0,0,480,,BUT IN PERSON,
+Dialogue: 1,0:00:07.54,0:00:07.68,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}BUT{\rBase} IN PERSON,
+Dialogue: 1,0:00:07.68,0:00:07.90,Active,,0,0,480,,BUT {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}IN{\rBase} PERSON,
+Dialogue: 1,0:00:07.90,0:00:08.22,Active,,0,0,480,,BUT IN {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}PERSON,{\rBase}
+Dialogue: 0,0:00:08.74,0:00:09.46,Base,,0,0,480,,THEY STILL SMILE
+Dialogue: 1,0:00:08.74,0:00:08.90,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}THEY{\rBase} STILL SMILE
+Dialogue: 1,0:00:08.90,0:00:09.12,Active,,0,0,480,,THEY {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}STILL{\rBase} SMILE
+Dialogue: 1,0:00:09.12,0:00:09.46,Active,,0,0,480,,THEY STILL {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}SMILE{\rBase}
+Dialogue: 0,0:00:09.46,0:00:10.60,Base,,0,0,480,,AT YOU. THAT'S
+Dialogue: 1,0:00:09.46,0:00:09.70,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}AT{\rBase} YOU. THAT'S
+Dialogue: 1,0:00:09.70,0:00:09.96,Active,,0,0,480,,AT {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOU.{\rBase} THAT'S
+Dialogue: 1,0:00:10.36,0:00:10.60,Active,,0,0,480,,AT YOU. {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}THAT'S{\rBase}
+Dialogue: 0,0:00:10.60,0:00:11.72,Base,,0,0,480,,WHAT CONFUSES PEOPLE.
+Dialogue: 1,0:00:10.60,0:00:10.76,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}WHAT{\rBase} CONFUSES PEOPLE.
+Dialogue: 1,0:00:10.76,0:00:11.26,Active,,0,0,480,,WHAT {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}CONFUSES{\rBase} PEOPLE.
+Dialogue: 1,0:00:11.26,0:00:11.72,Active,,0,0,480,,WHAT CONFUSES {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}PEOPLE.{\rBase}
+Dialogue: 0,0:00:12.14,0:00:13.18,Base,,0,0,480,,BECAUSE FAKE ATTACHMENT
+Dialogue: 1,0:00:12.14,0:00:12.42,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}BECAUSE{\rBase} FAKE ATTACHMENT
+Dialogue: 1,0:00:12.42,0:00:12.66,Active,,0,0,480,,BECAUSE {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}FAKE{\rBase} ATTACHMENT
+Dialogue: 1,0:00:12.66,0:00:13.18,Active,,0,0,480,,BECAUSE FAKE {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}ATTACHMENT{\rBase}
+Dialogue: 0,0:00:13.18,0:00:14.60,Base,,0,0,480,,NEVER DISAPPEARS SUDDENLY.
+Dialogue: 1,0:00:13.18,0:00:13.56,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}NEVER{\rBase} DISAPPEARS SUDDENLY.
+Dialogue: 1,0:00:13.56,0:00:14.06,Active,,0,0,480,,NEVER {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}DISAPPEARS{\rBase} SUDDENLY.
+Dialogue: 1,0:00:14.06,0:00:14.60,Active,,0,0,480,,NEVER DISAPPEARS {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}SUDDENLY.{\rBase}
+Dialogue: 0,0:00:15.08,0:00:16.34,Base,,0,0,480,,FADE SLOWLY, SO
+Dialogue: 1,0:00:15.08,0:00:15.28,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}FADE{\rBase} SLOWLY, SO
+Dialogue: 1,0:00:15.28,0:00:15.74,Active,,0,0,480,,FADE {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}SLOWLY,{\rBase} SO
+Dialogue: 1,0:00:16.14,0:00:16.34,Active,,0,0,480,,FADE SLOWLY, {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}SO{\rBase}
+Dialogue: 0,0:00:16.34,0:00:17.10,Base,,0,0,480,,YOU KEEP DOUBTING
+Dialogue: 1,0:00:16.34,0:00:16.48,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOU{\rBase} KEEP DOUBTING
+Dialogue: 1,0:00:16.48,0:00:16.70,Active,,0,0,480,,YOU {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}KEEP{\rBase} DOUBTING
+Dialogue: 1,0:00:16.70,0:00:17.10,Active,,0,0,480,,YOU KEEP {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}DOUBTING{\rBase}
+Dialogue: 0,0:00:17.10,0:00:18.08,Base,,0,0,480,,YOURSELF INSTEAD OF
+Dialogue: 1,0:00:17.10,0:00:17.44,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOURSELF{\rBase} INSTEAD OF
+Dialogue: 1,0:00:17.44,0:00:17.92,Active,,0,0,480,,YOURSELF {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}INSTEAD{\rBase} OF
+Dialogue: 1,0:00:17.92,0:00:18.08,Active,,0,0,480,,YOURSELF INSTEAD {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}OF{\rBase}
+Dialogue: 0,0:00:18.08,0:00:19.24,Base,,0,0,480,,THEM. YOU REREAD
+Dialogue: 1,0:00:18.08,0:00:18.30,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}THEM.{\rBase} YOU REREAD
+Dialogue: 1,0:00:18.70,0:00:18.82,Active,,0,0,480,,THEM. {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOU{\rBase} REREAD
+Dialogue: 1,0:00:18.82,0:00:19.24,Active,,0,0,480,,THEM. YOU {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}REREAD{\rBase}
+Dialogue: 0,0:00:19.24,0:00:19.88,Base,,0,0,480,,OLD MESSAGES.
+Dialogue: 1,0:00:19.24,0:00:19.48,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}OLD{\rBase} MESSAGES.
+Dialogue: 1,0:00:19.48,0:00:19.88,Active,,0,0,480,,OLD {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}MESSAGES.{\rBase}
+Dialogue: 0,0:00:20.48,0:00:21.12,Base,,0,0,480,,YOU NOTICE THE
+Dialogue: 1,0:00:20.48,0:00:20.58,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOU{\rBase} NOTICE THE
+Dialogue: 1,0:00:20.58,0:00:20.88,Active,,0,0,480,,YOU {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}NOTICE{\rBase} THE
+Dialogue: 1,0:00:20.88,0:00:21.12,Active,,0,0,480,,YOU NOTICE {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}THE{\rBase}
+Dialogue: 0,0:00:21.12,0:00:21.50,Base,,0,0,480,,DISTANCE.
+Dialogue: 1,0:00:21.12,0:00:21.50,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}DISTANCE.{\rBase}
+Dialogue: 0,0:00:22.02,0:00:22.58,Base,,0,0,480,,BUT YOU STAY
+Dialogue: 1,0:00:22.02,0:00:22.20,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}BUT{\rBase} YOU STAY
+Dialogue: 1,0:00:22.20,0:00:22.32,Active,,0,0,480,,BUT {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOU{\rBase} STAY
+Dialogue: 1,0:00:22.32,0:00:22.58,Active,,0,0,480,,BUT YOU {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}STAY{\rBase}
+Dialogue: 0,0:00:22.58,0:00:22.96,Base,,0,0,480,,QUIET.
+Dialogue: 1,0:00:22.58,0:00:22.96,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}QUIET.{\rBase}
+Dialogue: 0,0:00:23.46,0:00:24.04,Base,,0,0,480,,HERE'S THE DARK
+Dialogue: 1,0:00:23.46,0:00:23.70,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}HERE'S{\rBase} THE DARK
+Dialogue: 1,0:00:23.70,0:00:23.84,Active,,0,0,480,,HERE'S {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}THE{\rBase} DARK
+Dialogue: 1,0:00:23.84,0:00:24.04,Active,,0,0,480,,HERE'S THE {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}DARK{\rBase}
+Dialogue: 0,0:00:24.04,0:00:24.36,Base,,0,0,480,,PART.
+Dialogue: 1,0:00:24.04,0:00:24.36,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}PART.{\rBase}
+Dialogue: 0,0:00:24.86,0:00:25.96,Base,,0,0,480,,SOME PEOPLE EMOTIONALLY
+Dialogue: 1,0:00:24.86,0:00:25.04,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}SOME{\rBase} PEOPLE EMOTIONALLY
+Dialogue: 1,0:00:25.04,0:00:25.30,Active,,0,0,480,,SOME {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}PEOPLE{\rBase} EMOTIONALLY
+Dialogue: 1,0:00:25.30,0:00:25.96,Active,,0,0,480,,SOME PEOPLE {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}EMOTIONALLY{\rBase}
+Dialogue: 0,0:00:25.96,0:00:27.38,Base,,0,0,480,,LEAVE YOU. BEFORE
+Dialogue: 1,0:00:25.96,0:00:26.34,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}LEAVE{\rBase} YOU. BEFORE
+Dialogue: 1,0:00:26.34,0:00:26.72,Active,,0,0,480,,LEAVE {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOU.{\rBase} BEFORE
+Dialogue: 1,0:00:27.08,0:00:27.38,Active,,0,0,480,,LEAVE YOU. {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}BEFORE{\rBase}
+Dialogue: 0,0:00:27.38,0:00:28.34,Base,,0,0,480,,THEY PHYSICALLY LEAVE
+Dialogue: 1,0:00:27.38,0:00:27.64,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}THEY{\rBase} PHYSICALLY LEAVE
+Dialogue: 1,0:00:27.64,0:00:27.96,Active,,0,0,480,,THEY {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}PHYSICALLY{\rBase} LEAVE
+Dialogue: 1,0:00:27.96,0:00:28.34,Active,,0,0,480,,THEY PHYSICALLY {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}LEAVE{\rBase}
+Dialogue: 0,0:00:28.34,0:00:29.30,Base,,0,0,480,,YOU. AND THEY
+Dialogue: 1,0:00:28.34,0:00:28.64,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOU.{\rBase} AND THEY
+Dialogue: 1,0:00:29.06,0:00:29.16,Active,,0,0,480,,YOU. {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}AND{\rBase} THEY
+Dialogue: 1,0:00:29.16,0:00:29.30,Active,,0,0,480,,YOU. AND {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}THEY{\rBase}
+Dialogue: 0,0:00:29.30,0:00:30.20,Base,,0,0,480,,ACT NORMAL WHILE
+Dialogue: 1,0:00:29.30,0:00:29.58,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}ACT{\rBase} NORMAL WHILE
+Dialogue: 1,0:00:29.58,0:00:29.90,Active,,0,0,480,,ACT {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}NORMAL{\rBase} WHILE
+Dialogue: 1,0:00:29.90,0:00:30.20,Active,,0,0,480,,ACT NORMAL {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}WHILE{\rBase}
+Dialogue: 0,0:00:30.20,0:00:31.28,Base,,0,0,480,,DOING IT. ONCE
+Dialogue: 1,0:00:30.20,0:00:30.44,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}DOING{\rBase} IT. ONCE
+Dialogue: 1,0:00:30.44,0:00:30.76,Active,,0,0,480,,DOING {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}IT.{\rBase} ONCE
+Dialogue: 1,0:00:31.16,0:00:31.28,Active,,0,0,480,,DOING IT. {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}ONCE{\rBase}
+Dialogue: 0,0:00:31.28,0:00:31.84,Base,,0,0,480,,YOU SEE IT,
+Dialogue: 1,0:00:31.28,0:00:31.48,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOU{\rBase} SEE IT,
+Dialogue: 1,0:00:31.48,0:00:31.68,Active,,0,0,480,,YOU {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}SEE{\rBase} IT,
+Dialogue: 1,0:00:31.68,0:00:31.84,Active,,0,0,480,,YOU SEE {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}IT,{\rBase}
+Dialogue: 0,0:00:32.10,0:00:32.88,Base,,0,0,480,,YOU CAN'T UNSEE
+Dialogue: 1,0:00:32.10,0:00:32.20,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}YOU{\rBase} CAN'T UNSEE
+Dialogue: 1,0:00:32.20,0:00:32.54,Active,,0,0,480,,YOU {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}CAN'T{\rBase} UNSEE
+Dialogue: 1,0:00:32.54,0:00:32.88,Active,,0,0,480,,YOU CAN'T {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}UNSEE{\rBase}
+Dialogue: 0,0:00:32.88,0:00:34.02,Base,,0,0,480,,IT. FOLLOW THE
+Dialogue: 1,0:00:32.88,0:00:33.16,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}IT.{\rBase} FOLLOW THE
+Dialogue: 1,0:00:33.60,0:00:33.80,Active,,0,0,480,,IT. {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}FOLLOW{\rBase} THE
+Dialogue: 1,0:00:33.80,0:00:34.02,Active,,0,0,480,,IT. FOLLOW {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}THE{\rBase}
+Dialogue: 0,0:00:34.02,0:00:34.86,Base,,0,0,480,,DARK THEORY FOR
+Dialogue: 1,0:00:34.02,0:00:34.22,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}DARK{\rBase} THEORY FOR
+Dialogue: 1,0:00:34.22,0:00:34.54,Active,,0,0,480,,DARK {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}THEORY{\rBase} FOR
+Dialogue: 1,0:00:34.54,0:00:34.86,Active,,0,0,480,,DARK THEORY {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}FOR{\rBase}
+Dialogue: 0,0:00:34.86,0:00:35.68,Base,,0,0,480,,MORE HIDDEN TRUTHS.
+Dialogue: 1,0:00:34.86,0:00:35.10,Active,,0,0,480,,{\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}MORE{\rBase} HIDDEN TRUTHS.
+Dialogue: 1,0:00:35.10,0:00:35.32,Active,,0,0,480,,MORE {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}HIDDEN{\rBase} TRUTHS.
+Dialogue: 1,0:00:35.32,0:00:35.68,Active,,0,0,480,,MORE HIDDEN {\1c&H0000FF92&\3c&H00000000&\bord8\shad2\b1}TRUTHS.{\rBase}

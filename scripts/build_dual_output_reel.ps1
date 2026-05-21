@@ -20,9 +20,57 @@ function Invoke-External {
   }
 }
 
+function Get-MediaDurationSeconds {
+  param(
+    [Parameter(Mandatory = $true)][string]$FfprobePath,
+    [Parameter(Mandatory = $true)][string]$MediaPath,
+    [string]$StreamType = ""
+  )
+  if ([string]::IsNullOrWhiteSpace($StreamType)) {
+    $raw = & $FfprobePath -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 $MediaPath
+  } else {
+    $raw = & $FfprobePath -v error -select_streams "$StreamType`:0" -show_entries stream=duration -of default=noprint_wrappers=1:nokey=1 $MediaPath
+  }
+  if ($LASTEXITCODE -ne 0) {
+    throw "ffprobe duration read failed: $MediaPath"
+  }
+  $val = 0.0
+  $first = ($raw | Where-Object { -not [string]::IsNullOrWhiteSpace($_) } | Select-Object -First 1)
+  if (-not [double]::TryParse($first, [ref]$val) -and -not [string]::IsNullOrWhiteSpace($StreamType)) {
+    # Fallback to format duration if a specific stream duration is unavailable.
+    return Get-MediaDurationSeconds -FfprobePath $FfprobePath -MediaPath $MediaPath
+  }
+  if (-not [double]::TryParse($first, [ref]$val)) {
+    throw "Could not parse duration for: $MediaPath"
+  }
+  return $val
+}
+
+function New-AtempoChain {
+  param(
+    [Parameter(Mandatory = $true)][double]$Tempo
+  )
+  if ($Tempo -le 0) { throw "Invalid atempo value: $Tempo" }
+  $parts = @()
+  $remaining = $Tempo
+  while ($remaining -gt 2.0) {
+    $parts += "atempo=2.0"
+    $remaining /= 2.0
+  }
+  while ($remaining -lt 0.5) {
+    $parts += "atempo=0.5"
+    $remaining /= 0.5
+  }
+  $parts += ("atempo=" + $remaining.ToString("0.######", [System.Globalization.CultureInfo]::InvariantCulture))
+  return ($parts -join ",")
+}
+
 $projectRoot = Split-Path $PSScriptRoot -Parent
 $date = Get-Date -Format "yyyy-MM-dd"
 $hour = Get-Date -Format "HH"
+# Higher-quality defaults for all re-encode steps.
+$videoCrf = "16"
+$videoPreset = "medium"
 
 if ([string]::IsNullOrWhiteSpace($ReelRoot)) {
   $ReelRoot = Join-Path $projectRoot "assets\reels\$date`_$hour`_$Topic"
@@ -34,7 +82,9 @@ $voiceDir = Join-Path $ReelRoot "voice"
 New-Item -ItemType Directory -Force -Path $finalDir, $captionsDir, $voiceDir | Out-Null
 
 $ffmpeg = Join-Path $projectRoot "tools\ffmpeg\ffmpeg-8.1.1-essentials_build\bin\ffmpeg.exe"
+$ffprobe = Join-Path $projectRoot "tools\ffmpeg\ffmpeg-8.1.1-essentials_build\bin\ffprobe.exe"
 if (-not (Test-Path $ffmpeg)) { throw "ffmpeg not found: $ffmpeg" }
+if (-not (Test-Path $ffprobe)) { throw "ffprobe not found: $ffprobe" }
 if (-not (Test-Path $SourceDir)) { throw "Source dir not found: $SourceDir" }
 
 $concat = Join-Path $SourceDir "concat.txt"
@@ -67,12 +117,50 @@ $concatLines = $clips | ForEach-Object { "file '$($_.FullName.Replace('\','/'))'
 
 Invoke-External -FilePath $ffmpeg -ArgumentList @("-y", "-f", "concat", "-safe", "0", "-i", $concat, "-c", "copy", $stitched) -StepName "Scene stitch"
 
+# Dynamically retime stitched source so its duration matches narration audio.
+$videoDuration = Get-MediaDurationSeconds -FfprobePath $ffprobe -MediaPath $stitched -StreamType "v"
+$audioDuration = Get-MediaDurationSeconds -FfprobePath $ffprobe -MediaPath $audio
+$delta = [Math]::Abs($videoDuration - $audioDuration)
+$durationToleranceSec = 0.05
+$targetDuration = $audioDuration.ToString("0.######", [System.Globalization.CultureInfo]::InvariantCulture)
+if ($delta -gt $durationToleranceSec -and $videoDuration -gt 0) {
+  $speedFactor = $audioDuration / $videoDuration
+  $setptsExpr = $speedFactor.ToString("0.######", [System.Globalization.CultureInfo]::InvariantCulture) + "*PTS"
+  $atempoChain = New-AtempoChain -Tempo (1.0 / $speedFactor)
+  $retimed = Join-Path $finalDir "_tmp_scenes_stitched_matched.mp4"
+  Invoke-External -FilePath $ffmpeg -ArgumentList @(
+    "-y", "-i", $stitched,
+    "-filter_complex", "[0:v]setpts=$setptsExpr[v];[0:a]$atempoChain,aresample=async=1:first_pts=0[a]",
+    "-map", "[v]", "-map", "[a]",
+    "-t", $targetDuration,
+    "-c:v", "libx264", "-crf", $videoCrf, "-preset", $videoPreset,
+    "-pix_fmt", "yuv420p",
+    "-c:a", "aac",
+    "-movflags", "+faststart",
+    $retimed
+  ) -StepName "Match stitched duration to voice"
+  Move-Item -LiteralPath $retimed -Destination $stitched -Force
+} else {
+  # Even when speed change is not needed, force stitched container/streams to voice duration.
+  $conformed = Join-Path $finalDir "_tmp_scenes_stitched_conformed.mp4"
+  Invoke-External -FilePath $ffmpeg -ArgumentList @(
+    "-y", "-i", $stitched,
+    "-t", $targetDuration,
+    "-map", "0:v:0", "-map", "0:a:0?",
+    "-c:v", "copy", "-c:a", "aac",
+    "-shortest",
+    $conformed
+  ) -StepName "Conform stitched duration to voice"
+  Move-Item -LiteralPath $conformed -Destination $stitched -Force
+}
+
 # Output 1: voice only (existing behavior)
-Invoke-External -FilePath $ffmpeg -ArgumentList @("-y", "-i", $stitched, "-i", $audio, "-c:v", "copy", "-c:a", "aac", "-map", "0:v:0", "-map", "1:a:0", "-shortest", $voiced) -StepName "Voice-only mux"
+Invoke-External -FilePath $ffmpeg -ArgumentList @("-y", "-i", $stitched, "-i", $audio, "-t", $targetDuration, "-c:v", "copy", "-c:a", "aac", "-map", "0:v:0", "-map", "1:a:0", "-shortest", $voiced) -StepName "Voice-only mux"
 
 # Output 2: source audio/music + voice mix
 Invoke-External -FilePath $ffmpeg -ArgumentList @(
   "-y", "-i", $stitched, "-i", $audio,
+  "-t", $targetDuration,
   "-filter_complex", "[0:a]volume=0.70[bg];[1:a]volume=2.0[voice];[bg][voice]amix=inputs=2:duration=first:dropout_transition=2[aout]",
   "-map", "0:v:0", "-map", "[aout]", "-c:v", "copy", "-c:a", "aac", "-shortest", $voicedWithMusic
 ) -StepName "Voice+music mux"
@@ -110,16 +198,24 @@ $brandedNorm = Join-Path $finalDir "_tmp_final_captioned_branded_9x16.mp4"
 $brandedMusicNorm = Join-Path $finalDir "_tmp_final_captioned_branded_with_music_9x16.mp4"
 Invoke-External -FilePath $ffmpeg -ArgumentList @(
   "-y", "-i", $branded,
+  "-t", $targetDuration,
   "-vf", "scale=1080:1920:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:(oh-ih)/2",
-  "-c:v", "libx264", "-crf", "18", "-preset", "veryfast",
+  "-sws_flags", "lanczos",
+  "-c:v", "libx264", "-crf", $videoCrf, "-preset", $videoPreset,
+  "-pix_fmt", "yuv420p",
   "-c:a", "copy",
+  "-movflags", "+faststart",
   $brandedNorm
 ) -StepName "Normalize branded output to 9:16"
 Invoke-External -FilePath $ffmpeg -ArgumentList @(
   "-y", "-i", $brandedWithMusic,
+  "-t", $targetDuration,
   "-vf", "scale=1080:1920:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:(oh-ih)/2",
-  "-c:v", "libx264", "-crf", "18", "-preset", "veryfast",
+  "-sws_flags", "lanczos",
+  "-c:v", "libx264", "-crf", $videoCrf, "-preset", $videoPreset,
+  "-pix_fmt", "yuv420p",
   "-c:a", "copy",
+  "-movflags", "+faststart",
   $brandedMusicNorm
 ) -StepName "Normalize branded+music output to 9:16"
 Move-Item -LiteralPath $brandedNorm -Destination $branded -Force

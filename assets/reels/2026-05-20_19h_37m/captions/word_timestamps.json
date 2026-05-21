@@ -1,0 +1,467 @@
+[
+  {
+    "word": "Most",
+    "start": 0.0,
+    "end": 0.28
+  },
+  {
+    "word": "people",
+    "start": 0.28,
+    "end": 0.56
+  },
+  {
+    "word": "notice",
+    "start": 0.56,
+    "end": 0.9
+  },
+  {
+    "word": "this",
+    "start": 0.9,
+    "end": 1.2
+  },
+  {
+    "word": "too",
+    "start": 1.2,
+    "end": 1.44
+  },
+  {
+    "word": "late.",
+    "start": 1.44,
+    "end": 1.72
+  },
+  {
+    "word": "The",
+    "start": 2.12,
+    "end": 2.26
+  },
+  {
+    "word": "texting",
+    "start": 2.26,
+    "end": 2.56
+  },
+  {
+    "word": "changes",
+    "start": 2.56,
+    "end": 3.06
+  },
+  {
+    "word": "first.",
+    "start": 3.06,
+    "end": 3.48
+  },
+  {
+    "word": "Short",
+    "start": 4.26,
+    "end": 4.26
+  },
+  {
+    "word": "replies.",
+    "start": 4.26,
+    "end": 4.68
+  },
+  {
+    "word": "Late",
+    "start": 5.36,
+    "end": 5.4
+  },
+  {
+    "word": "replies.",
+    "start": 5.4,
+    "end": 5.9
+  },
+  {
+    "word": "Dry",
+    "start": 6.64,
+    "end": 6.64
+  },
+  {
+    "word": "energy.",
+    "start": 6.64,
+    "end": 7.06
+  },
+  {
+    "word": "But",
+    "start": 7.54,
+    "end": 7.68
+  },
+  {
+    "word": "in",
+    "start": 7.68,
+    "end": 7.9
+  },
+  {
+    "word": "person,",
+    "start": 7.9,
+    "end": 8.22
+  },
+  {
+    "word": "they",
+    "start": 8.74,
+    "end": 8.9
+  },
+  {
+    "word": "still",
+    "start": 8.9,
+    "end": 9.12
+  },
+  {
+    "word": "smile",
+    "start": 9.12,
+    "end": 9.46
+  },
+  {
+    "word": "at",
+    "start": 9.46,
+    "end": 9.7
+  },
+  {
+    "word": "you.",
+    "start": 9.7,
+    "end": 9.96
+  },
+  {
+    "word": "That's",
+    "start": 10.36,
+    "end": 10.6
+  },
+  {
+    "word": "what",
+    "start": 10.6,
+    "end": 10.76
+  },
+  {
+    "word": "confuses",
+    "start": 10.76,
+    "end": 11.26
+  },
+  {
+    "word": "people.",
+    "start": 11.26,
+    "end": 11.72
+  },
+  {
+    "word": "Because",
+    "start": 12.14,
+    "end": 12.42
+  },
+  {
+    "word": "fake",
+    "start": 12.42,
+    "end": 12.66
+  },
+  {
+    "word": "attachment",
+    "start": 12.66,
+    "end": 13.18
+  },
+  {
+    "word": "never",
+    "start": 13.18,
+    "end": 13.56
+  },
+  {
+    "word": "disappears",
+    "start": 13.56,
+    "end": 14.06
+  },
+  {
+    "word": "suddenly.",
+    "start": 14.06,
+    "end": 14.6
+  },
+  {
+    "word": "Fade",
+    "start": 15.08,
+    "end": 15.28
+  },
+  {
+    "word": "slowly,",
+    "start": 15.28,
+    "end": 15.74
+  },
+  {
+    "word": "so",
+    "start": 16.14,
+    "end": 16.34
+  },
+  {
+    "word": "you",
+    "start": 16.34,
+    "end": 16.48
+  },
+  {
+    "word": "keep",
+    "start": 16.48,
+    "end": 16.7
+  },
+  {
+    "word": "doubting",
+    "start": 16.7,
+    "end": 17.1
+  },
+  {
+    "word": "yourself",
+    "start": 17.1,
+    "end": 17.44
+  },
+  {
+    "word": "instead",
+    "start": 17.44,
+    "end": 17.92
+  },
+  {
+    "word": "of",
+    "start": 17.92,
+    "end": 18.08
+  },
+  {
+    "word": "them.",
+    "start": 18.08,
+    "end": 18.3
+  },
+  {
+    "word": "You",
+    "start": 18.7,
+    "end": 18.82
+  },
+  {
+    "word": "reread",
+    "start": 18.82,
+    "end": 19.24
+  },
+  {
+    "word": "old",
+    "start": 19.24,
+    "end": 19.48
+  },
+  {
+    "word": "messages.",
+    "start": 19.48,
+    "end": 19.88
+  },
+  {
+    "word": "You",
+    "start": 20.48,
+    "end": 20.58
+  },
+  {
+    "word": "notice",
+    "start": 20.58,
+    "end": 20.88
+  },
+  {
+    "word": "the",
+    "start": 20.88,
+    "end": 21.12
+  },
+  {
+    "word": "distance.",
+    "start": 21.12,
+    "end": 21.5
+  },
+  {
+    "word": "But",
+    "start": 22.02,
+    "end": 22.2
+  },
+  {
+    "word": "you",
+    "start": 22.2,
+    "end": 22.32
+  },
+  {
+    "word": "stay",
+    "start": 22.32,
+    "end": 22.58
+  },
+  {
+    "word": "quiet.",
+    "start": 22.58,
+    "end": 22.96
+  },
+  {
+    "word": "Here's",
+    "start": 23.46,
+    "end": 23.7
+  },
+  {
+    "word": "the",
+    "start": 23.7,
+    "end": 23.84
+  },
+  {
+    "word": "dark",
+    "start": 23.84,
+    "end": 24.04
+  },
+  {
+    "word": "part.",
+    "start": 24.04,
+    "end": 24.36
+  },
+  {
+    "word": "Some",
+    "start": 24.86,
+    "end": 25.04
+  },
+  {
+    "word": "people",
+    "start": 25.04,
+    "end": 25.3
+  },
+  {
+    "word": "emotionally",
+    "start": 25.3,
+    "end": 25.96
+  },
+  {
+    "word": "leave",
+    "start": 25.96,
+    "end": 26.34
+  },
+  {
+    "word": "you.",
+    "start": 26.34,
+    "end": 26.72
+  },
+  {
+    "word": "Before",
+    "start": 27.08,
+    "end": 27.38
+  },
+  {
+    "word": "they",
+    "start": 27.38,
+    "end": 27.64
+  },
+  {
+    "word": "physically",
+    "start": 27.64,
+    "end": 27.96
+  },
+  {
+    "word": "leave",
+    "start": 27.96,
+    "end": 28.34
+  },
+  {
+    "word": "you.",
+    "start": 28.34,
+    "end": 28.64
+  },
+  {
+    "word": "And",
+    "start": 29.06,
+    "end": 29.16
+  },
+  {
+    "word": "they",
+    "start": 29.16,
+    "end": 29.3
+  },
+  {
+    "word": "act",
+    "start": 29.3,
+    "end": 29.58
+  },
+  {
+    "word": "normal",
+    "start": 29.58,
+    "end": 29.9
+  },
+  {
+    "word": "while",
+    "start": 29.9,
+    "end": 30.2
+  },
+  {
+    "word": "doing",
+    "start": 30.2,
+    "end": 30.44
+  },
+  {
+    "word": "it.",
+    "start": 30.44,
+    "end": 30.76
+  },
+  {
+    "word": "Once",
+    "start": 31.16,
+    "end": 31.28
+  },
+  {
+    "word": "you",
+    "start": 31.28,
+    "end": 31.48
+  },
+  {
+    "word": "see",
+    "start": 31.48,
+    "end": 31.68
+  },
+  {
+    "word": "it,",
+    "start": 31.68,
+    "end": 31.84
+  },
+  {
+    "word": "you",
+    "start": 32.1,
+    "end": 32.2
+  },
+  {
+    "word": "can't",
+    "start": 32.2,
+    "end": 32.54
+  },
+  {
+    "word": "unsee",
+    "start": 32.54,
+    "end": 32.88
+  },
+  {
+    "word": "it.",
+    "start": 32.88,
+    "end": 33.16
+  },
+  {
+    "word": "Follow",
+    "start": 33.6,
+    "end": 33.8
+  },
+  {
+    "word": "the",
+    "start": 33.8,
+    "end": 34.02
+  },
+  {
+    "word": "dark",
+    "start": 34.02,
+    "end": 34.22
+  },
+  {
+    "word": "theory",
+    "start": 34.22,
+    "end": 34.54
+  },
+  {
+    "word": "for",
+    "start": 34.54,
+    "end": 34.86
+  },
+  {
+    "word": "more",
+    "start": 34.86,
+    "end": 35.1
+  },
+  {
+    "word": "hidden",
+    "start": 35.1,
+    "end": 35.32
+  },
+  {
+    "word": "truths.",
+    "start": 35.32,
+    "end": 35.68
+  }
+]

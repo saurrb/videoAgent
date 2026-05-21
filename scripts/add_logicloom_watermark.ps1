@@ -43,7 +43,7 @@ $logoW = [int][Math]::Round($w * $LogoWRatio)
 
 $filterComplex = "[1:v]scale=${logoW}:-1[logo];[0:v][logo]overlay=x=${logoX}:y=${logoY}:format=auto[v]"
 
-& $ffmpeg -y -i $InputVideo -i $LogoPath -filter_complex $filterComplex -map "[v]" -map 0:a? -c:v libx264 -preset veryfast -crf 18 -pix_fmt yuv420p -c:a copy -movflags +faststart $OutputVideo | Out-Host
+& $ffmpeg -y -i $InputVideo -i $LogoPath -filter_complex $filterComplex -map "[v]" -map 0:a? -c:v libx264 -preset medium -crf 16 -pix_fmt yuv420p -c:a copy -movflags +faststart $OutputVideo | Out-Host
 
 if (-not $SkipValidation) {
   $validate = Join-Path $PSScriptRoot "test_reel_publish_ready.ps1"
